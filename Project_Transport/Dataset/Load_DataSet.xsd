@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="Load_DataSet" targetNamespace="http://tempuri.org/Load_DataSet.xsd" xmlns:mstns="http://tempuri.org/Load_DataSet.xsd" xmlns="http://tempuri.org/Load_DataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="Load_DataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="Load_DataSet" msprop:Generator_UserDSName="Load_DataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Load_DataSet" msprop:Generator_TableClassName="Load_DataSetDataTable" msprop:Generator_TableVarName="tableLoad_DataSet" msprop:Generator_RowChangedName="Load_DataSetRowChanged" msprop:Generator_TablePropName="_Load_DataSet" msprop:Generator_RowDeletingName="Load_DataSetRowDeleting" msprop:Generator_RowChangingName="Load_DataSetRowChanging" msprop:Generator_RowEvHandlerName="Load_DataSetRowChangeEventHandler" msprop:Generator_RowDeletedName="Load_DataSetRowDeleted" msprop:Generator_RowClassName="Load_DataSetRow" msprop:Generator_UserTableName="Load_DataSet" msprop:Generator_RowEvArgName="Load_DataSetRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Vehicle_Number" msprop:Generator_ColumnVarNameInTable="columnVehicle_Number" msprop:Generator_ColumnPropNameInRow="Vehicle_Number" msprop:Generator_ColumnPropNameInTable="Vehicle_NumberColumn" msprop:Generator_UserColumnName="Vehicle_Number" type="xs:string" minOccurs="0" />
+              <xs:element name="Transport_Name" msprop:Generator_ColumnVarNameInTable="columnTransport_Name" msprop:Generator_ColumnPropNameInRow="Transport_Name" msprop:Generator_ColumnPropNameInTable="Transport_NameColumn" msprop:Generator_UserColumnName="Transport_Name" type="xs:string" minOccurs="0" />
+              <xs:element name="Insurance_Expiry" msprop:Generator_ColumnVarNameInTable="columnInsurance_Expiry" msprop:Generator_ColumnPropNameInRow="Insurance_Expiry" msprop:Generator_ColumnPropNameInTable="Insurance_ExpiryColumn" msprop:Generator_UserColumnName="Insurance_Expiry" type="xs:string" minOccurs="0" />
+              <xs:element name="National_Expiry" msprop:Generator_ColumnVarNameInTable="columnNational_Expiry" msprop:Generator_ColumnPropNameInRow="National_Expiry" msprop:Generator_ColumnPropNameInTable="National_ExpiryColumn" msprop:Generator_UserColumnName="National_Expiry" type="xs:string" minOccurs="0" />
+              <xs:element name="Permit_Expiry" msprop:Generator_ColumnVarNameInTable="columnPermit_Expiry" msprop:Generator_ColumnPropNameInRow="Permit_Expiry" msprop:Generator_ColumnPropNameInTable="Permit_ExpiryColumn" msprop:Generator_UserColumnName="Permit_Expiry" type="xs:string" minOccurs="0" />
+              <xs:element name="Tax_Expiry" msprop:Generator_ColumnVarNameInTable="columnTax_Expiry" msprop:Generator_ColumnPropNameInRow="Tax_Expiry" msprop:Generator_ColumnPropNameInTable="Tax_ExpiryColumn" msprop:Generator_UserColumnName="Tax_Expiry" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

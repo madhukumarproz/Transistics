@@ -1,0 +1,87 @@
+﻿<UserControl x:Class="Project_Transport.Maintenance_view"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:WpfTools="clr-namespace:WpfTools;assembly=WpfTools"
+             xmlns:date="clr-namespace:System;assembly=mscorlib"
+             xmlns:local="clr-namespace:Project_Transport"
+             xmlns:rv="clr-namespace:Microsoft.Reporting.WinForms;assembly=Microsoft.ReportViewer.WinForms"
+             mc:Ignorable="d" 
+             d:DesignHeight="700" d:DesignWidth="1250">
+    <Grid>
+        <StackPanel Name="maintenance_view_panel" Height="550"  Margin="0,100,0,0">
+            <StackPanel.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FFB0EFF1" Offset="0"/>
+                    <GradientStop Color="#FF83E9EE" Offset="1"/>
+                </LinearGradientBrush>
+            </StackPanel.Background>
+            <Label Height="30" Width="150" Margin="-1000,20,0,0" Content="VEHICLE NUMBER" FontFamily="CAMBRIA" FontSize="14"></Label>
+            <ComboBox Name="maintenance_view_vehicle_number" Height="30" Width="150" Margin="-750,-30,0,0" IsEditable="True" FontFamily="CAMBRIA" FontSize="14" KeyDown="maintenance_view_vehicle_number_keydown" PreviewKeyDown="Maintenance_View_Vehicle_Number_PreviewKeydown" GotFocus="maintenance_view_vehicle_number_GotFocus">
+                <ComboBoxItem>ALL</ComboBoxItem>
+                <ComboBox.Text>
+                    <Binding Path="Maintenance_Number" UpdateSourceTrigger="PropertyChanged" ValidatesOnDataErrors="True" Mode="TwoWay">
+                        <Binding.ValidationRules>
+                            <local:NumericWithCharacterRule></local:NumericWithCharacterRule>
+                        </Binding.ValidationRules>
+                    </Binding>
+                </ComboBox.Text>
+            </ComboBox>
+            <Label Height="30" Width="100" Margin="-500,-30,0,0" Content="MONTH" FontFamily="CAMBRIA" FontSize="14"></Label>
+            <ComboBox Name="maintenance_view_month" Height="30" Width="120" Margin="-300,-30,0,0" IsEditable="True" FontFamily="CAMBRIA" FontSize="14" KeyDown="maintenance_view_month_keydown" PreviewKeyDown="Maintenance_Month_PreviewKeydown">
+                <ComboBoxItem>01-JAN</ComboBoxItem>
+                <ComboBoxItem>02-FEB</ComboBoxItem>
+                <ComboBoxItem>03-MAR</ComboBoxItem>
+                <ComboBoxItem>04-APR</ComboBoxItem>
+                <ComboBoxItem>05-MAY</ComboBoxItem>
+                <ComboBoxItem>06-JUN</ComboBoxItem>
+                <ComboBoxItem>07-JUL</ComboBoxItem>
+                <ComboBoxItem>08-AUG</ComboBoxItem>
+                <ComboBoxItem>09-SEP</ComboBoxItem>
+                <ComboBoxItem>10-OCT</ComboBoxItem>
+                <ComboBoxItem>11-NOV</ComboBoxItem>
+                <ComboBoxItem>12-DEC</ComboBoxItem>
+                <ComboBox.Text>
+                    <Binding Path="Maintenance_Month" UpdateSourceTrigger="PropertyChanged" ValidatesOnDataErrors="True" Mode="TwoWay">
+                        <Binding.ValidationRules>
+                            <local:NumericWithCharacterhifenRule></local:NumericWithCharacterhifenRule>
+                        </Binding.ValidationRules>
+                    </Binding>
+                </ComboBox.Text>
+            </ComboBox>
+            <Label Height="30" Width="70" Margin="-50,-30,0,0" Content="YEAR" FontFamily="CAMBRIA" FontSize="14" HorizontalContentAlignment="Center"></Label>
+            <ComboBox Name="year_txt" Height="30" Width="100" Margin="100,-30,0,0" KeyDown="maintenance_year_keydown" IsEditable="True" PreviewKeyDown="Maintenance_Year_PreviewKeydown">
+                <ComboBox.Text>
+                    <Binding Path="Maintenance_Year" UpdateSourceTrigger="PropertyChanged" ValidatesOnDataErrors="True" Mode="TwoWay">
+                        <Binding.ValidationRules>
+                            <local:NumericRule></local:NumericRule>
+                        </Binding.ValidationRules>
+                    </Binding>
+                </ComboBox.Text>
+            </ComboBox>
+            <CheckBox Name="chkbox" Height="30" Width="100" Margin="400,-30,0,0" Content="ALL BILL" FontFamily="CAMBRIA" FontSize="14" VerticalContentAlignment="Center" Checked="all_expense_bill_view"></CheckBox>
+            <!--<DataGrid Name="expense_bill" Height="500" Width="800" Margin="-400,10,0,0" MouseDoubleClick="expense_bill_mousedoubleclick"></DataGrid>-->
+            <!--<DataGrid Name="single_bill" Height="500" Width="800" Margin="-400,-500,0,0"></DataGrid>-->
+            <WindowsFormsHost Height="480" Width="800" Margin="-200,20,0,0" Background="White">
+
+                <rv:ReportViewer x:Name="reportViewer" />
+
+            </WindowsFormsHost>
+            <!--<Label Name="tot_bill" Height="30" Width="120" Margin="550,-600,0,0" Content="TOTAL BILL" FontFamily="CAMBRIA" FontSize="14"></Label>-->
+            <!--<Label Name="totbill_number" Height="30" Width="120" Margin="750,-600,0,0" FontSize="14"  HorizontalContentAlignment="Center"></Label>-->
+            <!--<Label Name="tot_discount" Height="30" Width="120" Margin="550,-500,0,0" Content="DISCOUNT" FontFamily="CAMBRIA" FontSize="14"></Label>
+            <Label Name="tot_discount_amount" Height="30" Width="120" Margin="750,-500,0,0" FontSize="14" HorizontalContentAlignment="Center"></Label>-->
+            <!--<Label Name="single_discount_amount" Height="30" Width="120" Margin="750,-500,0,0" FontSize="14"  HorizontalContentAlignment="Center"></Label>
+            <Label Name="tot_subtotal" Height="30" Width="120" Margin="550,-400,0,0" Content="SUB-TOTAL" FontFamily="CAMBRIA" FontSize="14"></Label>-->
+            <!--<Label Name="tot_subtotal_amount" Height="30" Width="120" Margin="750,-400,0,0" FontSize="14"  HorizontalContentAlignment="Center"></Label>
+            <Label Name="single_subtotal_amount" Height="30" Width="120" Margin="750,-400,0,0" FontSize="14"  HorizontalContentAlignment="Center"></Label>-->
+            <!--<Label Name="tot_gndtotal" Height="30" Width="120" Margin="550,-300,0,0" Content="GND-TOTAL" FontFamily="CAMBRIA" FontSize="14"></Label>
+            <Label Name="tot_gndtotal_amount" Height="30" Width="120" Margin="750,-300,0,0" FontSize="14"  HorizontalContentAlignment="Center"></Label>-->
+            <!--<Label Name="single_gndtotal_amount" Height="30" Width="120" Margin="750,-300,0,0" FontSize="14"  HorizontalContentAlignment="Center"></Label>-->
+            <!--<Button Name="maintenance_view" Height="40" Width="150" Margin="1030,-250,0,0" Content="BACK" Background="#FF3E5E6A" Foreground="White" FontFamily="CAMBRIA" FontSize="18" Click="maintenance_view_back"></Button>-->
+            <!--<Button Height="40" Width="150" Margin="600,-100,0,0" Content="PRINT" Background="#FF3E5E6A" Foreground="White" FontFamily="CAMBRIA" FontSize="18" Click="maintenance_report_print_click"></Button>
+            <Button Height="40" Width="150" Margin="950,-100,0,0" Content="EXCEL" Background="#FF3E5E6A" Foreground="White" FontFamily="CAMBRIA" FontSize="18" Click="maintenance_report_excel_click"></Button>-->
+        </StackPanel>
+    </Grid>
+</UserControl>

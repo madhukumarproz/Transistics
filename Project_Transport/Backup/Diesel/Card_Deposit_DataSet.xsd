@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="Card_Deposit_DataSet" targetNamespace="http://tempuri.org/Card_Deposit_DataSet.xsd" xmlns:mstns="http://tempuri.org/Card_Deposit_DataSet.xsd" xmlns="http://tempuri.org/Card_Deposit_DataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="Card_Deposit_DataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="Card_Deposit_DataSet" msprop:Generator_UserDSName="Card_Deposit_DataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Card_Deposit_DataSet" msprop:Generator_TableClassName="Card_Deposit_DataSetDataTable" msprop:Generator_TableVarName="tableCard_Deposit_DataSet" msprop:Generator_TablePropName="_Card_Deposit_DataSet" msprop:Generator_RowDeletingName="Card_Deposit_DataSetRowDeleting" msprop:Generator_RowChangingName="Card_Deposit_DataSetRowChanging" msprop:Generator_RowEvHandlerName="Card_Deposit_DataSetRowChangeEventHandler" msprop:Generator_RowDeletedName="Card_Deposit_DataSetRowDeleted" msprop:Generator_UserTableName="Card_Deposit_DataSet" msprop:Generator_RowChangedName="Card_Deposit_DataSetRowChanged" msprop:Generator_RowEvArgName="Card_Deposit_DataSetRowChangeEvent" msprop:Generator_RowClassName="Card_Deposit_DataSetRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Corporation" msprop:Generator_ColumnVarNameInTable="columnCorporation" msprop:Generator_ColumnPropNameInRow="Corporation" msprop:Generator_ColumnPropNameInTable="CorporationColumn" msprop:Generator_UserColumnName="Corporation" type="xs:string" minOccurs="0" />
+              <xs:element name="Customer_Id" msprop:Generator_ColumnVarNameInTable="columnCustomer_Id" msprop:Generator_ColumnPropNameInRow="Customer_Id" msprop:Generator_ColumnPropNameInTable="Customer_IdColumn" msprop:Generator_UserColumnName="Customer_Id" type="xs:string" minOccurs="0" />
+              <xs:element name="Card_Id" msprop:Generator_ColumnVarNameInTable="columnCard_Id" msprop:Generator_ColumnPropNameInRow="Card_Id" msprop:Generator_ColumnPropNameInTable="Card_IdColumn" msprop:Generator_UserColumnName="Card_Id" type="xs:string" minOccurs="0" />
+              <xs:element name="Credit_Amount" msprop:Generator_ColumnVarNameInTable="columnCredit_Amount" msprop:Generator_ColumnPropNameInRow="Credit_Amount" msprop:Generator_ColumnPropNameInTable="Credit_AmountColumn" msprop:Generator_UserColumnName="Credit_Amount" type="xs:string" minOccurs="0" />
+              <xs:element name="Credit_Date" msprop:Generator_ColumnVarNameInTable="columnCredit_Date" msprop:Generator_ColumnPropNameInRow="Credit_Date" msprop:Generator_ColumnPropNameInTable="Credit_DateColumn" msprop:Generator_UserColumnName="Credit_Date" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

@@ -1,0 +1,144 @@
+﻿<UserControl x:Class="Project_Transport.Shop_Expense"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:WpfTools="clr-namespace:WpfTools;assembly=WpfTools"
+              xmlns:date="clr-namespace:System;assembly=mscorlib"
+             xmlns:local="clr-namespace:Project_Transport"
+             mc:Ignorable="d" 
+             d:DesignHeight="700" d:DesignWidth="1250" Loaded="UserControl_Loaded">
+    <Grid>
+        <StackPanel Name="shop_expense" Height="550" Margin="0,100,0,0">
+            <StackPanel.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FFB0EFF1" Offset="0"/>
+                    <GradientStop Color="#FF83E9EE" Offset="1"/>
+                </LinearGradientBrush>
+            </StackPanel.Background>
+            <Label Height="30" Margin="0,0,0,0" Content="SHOP PURCHASE EXPENSE " FontFamily="CAMBRIA" FontSize="16" HorizontalContentAlignment="Center" Foreground="#FFA00FE4"/>
+            <Button Name="automobile_expense" Height="40" Width="170" Margin="-1060,0,0,0" Content="AUTOMOBILE" FontFamily="CAMBRIA" FontSize="16" Click="automobile_expense_click" Background="#FFFBF9CD"/>
+            <Button Name="oil_expense" Height="40" Width="170" Margin="-1060,4,0,0" Content="OIL " FontFamily="CAMBRIA" FontSize="16" Click="oil_expense_click" Background="#FFFBF9CD"/>
+
+            <Button Name="shop_new_bill" Height="40" Width="140" Margin="-660,-130,0,0" Content="NEW BILL" FontFamily="CAMBRIA" FontSize="16" Background="#FFFBF9CD" Click="shop_new_bill_click"></Button>
+            <Button Name="shop_edit_bill" Height="40" Width="140" Margin="-340,-130,0,0" Content="EDIT BILL" FontFamily="CAMBRIA" FontSize="16" Background="#FFFBF9CD" Click="shop_edit_bill_click"></Button>
+            <Button Name="shop_view_bill" Height="40" Width="140" Margin="-10,-130,0,0" Content="VIEW BILL" FontFamily="CAMBRIA" FontSize="16" Background="#FFFBF9CD" Click="shop_view_bill_click"></Button>
+
+            <StackPanel Name="shop_dedtails_panel" Height="470" Width="1050" Margin="170,-40,0,0">
+                <Label Name="lbl11" Height="30" Width="150" Margin="-850,0,0,0" Content="DESCRIPTION" HorizontalContentAlignment="Center" FontFamily="CAMBRIA" FontSize="14"></Label>
+                <TextBox CharacterCasing="Upper" MaxLength="30" Name="shop_descrip" Height="30" Width="200" Margin="-850,0,0,0"  FontFamily="CAMBRIA" FontSize="14" VerticalContentAlignment="Center">
+                    <TextBox.Text>
+                        <Binding Path=" Shop_Description" UpdateSourceTrigger="PropertyChanged" ValidatesOnDataErrors="True" Mode="TwoWay">
+                            <Binding.ValidationRules>
+                                <local:NumericWithCharacterSpaceRule></local:NumericWithCharacterSpaceRule>
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
+
+                <Label Name="lbl22" Height="30" Width="150" Margin="-500,-90,0,0" Content="QUANTITY" HorizontalContentAlignment="Left" FontFamily="CAMBRIA" FontSize="14"></Label>
+                <TextBox Name="shop_quantity" Height="30" Width="70" Margin="-570,-30,0,0"  CharacterCasing="Upper" FontFamily="CAMBRIA" FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" MaxLength="3">
+                    <TextBox.Text>
+                        <Binding Path=" Shop_Quantity" UpdateSourceTrigger="PropertyChanged" ValidatesOnDataErrors="True" Mode="TwoWay">
+                            <Binding.ValidationRules>
+                                <local:NumericRule></local:NumericRule>
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
+                <Label Name="lbl33" Height="30" Width="100" Margin="-350,-90,0,0" Content="RATE" FontFamily="CAMBRIA" FontSize="14"></Label>
+                <TextBox Name="shop_rate"  Height="30" Width="90" Margin="-400,-30,0,0" CharacterCasing="Upper" FontFamily="CAMBRIA" FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" KeyDown="shop_quantity_rate_keydown" PreviewTextInput="Rate_PreViewTextInput" MaxLength="6" TextChanged="Shop_Rate_Textchanged">
+                    <TextBox.Text>
+                        <Binding Path=" Shop_Rate" UpdateSourceTrigger="PropertyChanged" ValidatesOnDataErrors="True" Mode="TwoWay">
+                            <Binding.ValidationRules>
+                                <local:DecimalRule></local:DecimalRule>
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
+                <Label Name="lbl44" Height="30" Width="150" Margin="-160,-90,0,0" Content="    PRICE" HorizontalContentAlignment="Left" FontFamily="CAMBRIA" FontSize="14"></Label>
+                <TextBox IsEnabled="False" Name="shop_price" Text="0" Height="30" Width="90" Margin="-210,-30,0,0" CharacterCasing="Upper" FontFamily="CAMBRIA" FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"></TextBox>
+
+
+
+                <ComboBox Name="shop_vehicle_num" Height="30" Width="150" Margin="220,-30,0,0"  IsEditable="True"  VerticalContentAlignment="Center" KeyDown="shop_vehicle_num_keydown" PreviewKeyDown="Shop_Vehicle_Number_PreviewKeydown">
+                    <ComboBox.Text>
+                        <Binding Path=" Shop_Vehicle_Number" UpdateSourceTrigger="PropertyChanged" ValidatesOnDataErrors="True" Mode="TwoWay">
+                            <Binding.ValidationRules>
+                                <local:NumericWithCharacterRule></local:NumericWithCharacterRule>
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </ComboBox.Text>
+                </ComboBox>
+                <DatePicker Name="shop_bill_date" Height="30" Width="150" Margin="530,-30,0,0" SelectedDate="{x:Static date:DateTime.Now}"  DisplayDateEnd="{x:Static date:DateTime.Now}"></DatePicker>
+                <ComboBox Name="shop_view_bill_number" Height="30" Width="100" Margin="530,-30,0,0" IsEditable="True" HorizontalContentAlignment="Center" PreviewKeyDown="Shop_Bill_Number_PreviewKeydown">
+                    <ComboBox.Text>
+                        <Binding Path=" Shop_Bill_Num" UpdateSourceTrigger="PropertyChanged" ValidatesOnDataErrors="True" Mode="TwoWay">
+                            <Binding.ValidationRules>
+                                <local:NumericWithCharacterRule></local:NumericWithCharacterRule>
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </ComboBox.Text>
+                </ComboBox>
+                <CheckBox Name="shop_add_all_bill_number" Height="30" Width="150" Margin="850,-30,0,0" VerticalContentAlignment="Center" Content="ADD ALL BILL" Checked="shop_add_all_bill_number_checked"></CheckBox>
+                <Label Name="shop_bill_no" Height="30" Width="70" Margin="750,-30,0,0" Content="BILL NO" FontFamily="CAMBRIA" FontSize="14"></Label>
+                <TextBox  Name="shop_bill_num" Height="30" Width="75" Margin="870,-30,0,0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" KeyDown="shop_bill_num_keydown" MaxLength="8">
+                    <TextBox.Text>
+                        <Binding Path=" Shop_Bill_No" UpdateSourceTrigger="PropertyChanged" ValidatesOnDataErrors="True" Mode="TwoWay">
+                            <Binding.ValidationRules>
+                                <local:NumericWithCharacterRule></local:NumericWithCharacterRule>
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
+                <Button Height="40" Width="150" Margin="900,10,0,0" Content="OK" Click="shop_add_new_row" FontFamily="CAMBRIA" FontSize="16">
+                    <Button.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FFF5CDCD" Offset="0"/>
+                            <GradientStop Color="White" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Button.Background>
+                </Button>
+                <TextBox Name="shop_S_NO" Height="30" Width="40" Margin="980,-30,0,0"  Text="1" Visibility="Hidden"></TextBox>
+                <DataGrid Name="shop_datagrid1" Height="360" Width="690" Margin="-350,-30,0,0" CanUserAddRows="True" MouseDoubleClick="shop_datagrid1_mouseclick" IsEnabled="True">
+
+
+                </DataGrid>
+
+                <Label Name="shop_L1" Height="30" Width="150" Margin="420,-120,0,0" Content="SUB-TOTAL" FontFamily="cambria" FontSize="16" HorizontalContentAlignment="Center"></Label>
+                <TextBox IsEnabled="False" Name="shop_total_amount" Height="30" Width="100" Margin="600,-120,0,0" Text="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"></TextBox>
+                <Label Name="shop_L2" Height="30" Width="150" Margin="420,-200,0,0" Content="DISCOUNT" FontFamily="cambria" FontSize="16" HorizontalContentAlignment="Center"></Label>
+                <TextBox Name="shop_discount_amount" Height="30" Width="100" Margin="600,-200,0,0"  HorizontalContentAlignment="Center" VerticalContentAlignment="Center" KeyDown="shop_discount_keydown" PreviewTextInput="Discount_PreViewTextInput" MaxLength="5">
+                    <TextBox.Text>
+                        <Binding Path=" Shop_Doscount" UpdateSourceTrigger="PropertyChanged" ValidatesOnDataErrors="True" Mode="TwoWay">
+                            <Binding.ValidationRules>
+                                <local:DecimalRule></local:DecimalRule>
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
+                <Label Name="shop_L3" Height="30" Width="120" Margin="420,-30,0,0" Content="GND-TOTAL" FontFamily="cambria" FontSize="16" HorizontalContentAlignment="Center"></Label>
+                <TextBox IsEnabled="False" Name="shop_grand_total" Height="30" Width="100" Margin="600,-30,0,0" Text="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"></TextBox>
+
+                <Button Name="shop_done_bttn" Height="40" Width="150" Margin="900,-35,0,0" Content="DONE" Click="shop_bill_details_done_click" FontFamily="CAMBRIA" FontSize="16">
+                    <Button.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FFF5CDCD" Offset="0"/>
+                            <GradientStop Color="White" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Button.Background>
+                </Button>
+
+                <Button Name="shop_clear_bttn" Height="40" Width="150" Margin="900,-600,0,0" Content="CLEAR" Click="shop_clear_click" FontFamily="CAMBRIA" FontSize="16">
+                    <Button.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FFF5CDCD" Offset="0"/>
+                            <GradientStop Color="White" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Button.Background>
+                </Button>
+            </StackPanel>
+
+        </StackPanel>
+    </Grid>
+</UserControl>

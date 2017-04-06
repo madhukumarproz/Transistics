@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="Payment_Year_Wise_DataSet" targetNamespace="http://tempuri.org/Payment_Year_Wise_DataSet.xsd" xmlns:mstns="http://tempuri.org/Payment_Year_Wise_DataSet.xsd" xmlns="http://tempuri.org/Payment_Year_Wise_DataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="Payment_Year_Wise_DataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="Payment_Year_Wise_DataSet" msprop:Generator_UserDSName="Payment_Year_Wise_DataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="DataTable1" msprop:Generator_TableClassName="DataTable1DataTable" msprop:Generator_TableVarName="tableDataTable1" msprop:Generator_TablePropName="DataTable1" msprop:Generator_RowDeletingName="DataTable1RowDeleting" msprop:Generator_RowChangingName="DataTable1RowChanging" msprop:Generator_RowEvHandlerName="DataTable1RowChangeEventHandler" msprop:Generator_RowDeletedName="DataTable1RowDeleted" msprop:Generator_UserTableName="DataTable1" msprop:Generator_RowChangedName="DataTable1RowChanged" msprop:Generator_RowEvArgName="DataTable1RowChangeEvent" msprop:Generator_RowClassName="DataTable1Row">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Remarks_Month" msprop:Generator_ColumnVarNameInTable="columnRemarks_Month" msprop:Generator_ColumnPropNameInRow="Remarks_Month" msprop:Generator_ColumnPropNameInTable="Remarks_MonthColumn" msprop:Generator_UserColumnName="Remarks_Month" type="xs:string" minOccurs="0" />
+              <xs:element name="Total_Trips" msprop:Generator_ColumnVarNameInTable="columnTotal_Trips" msprop:Generator_ColumnPropNameInRow="Total_Trips" msprop:Generator_ColumnPropNameInTable="Total_TripsColumn" msprop:Generator_UserColumnName="Total_Trips" type="xs:string" minOccurs="0" />
+              <xs:element name="Total_Km" msprop:Generator_ColumnVarNameInTable="columnTotal_Km" msprop:Generator_ColumnPropNameInRow="Total_Km" msprop:Generator_ColumnPropNameInTable="Total_KmColumn" msprop:Generator_UserColumnName="Total_Km" type="xs:string" minOccurs="0" />
+              <xs:element name="Allowance" msprop:Generator_ColumnVarNameInTable="columnAllowance" msprop:Generator_ColumnPropNameInRow="Allowance" msprop:Generator_ColumnPropNameInTable="AllowanceColumn" msprop:Generator_UserColumnName="Allowance" type="xs:string" minOccurs="0" />
+              <xs:element name="Salary" msprop:Generator_ColumnVarNameInTable="columnSalary" msprop:Generator_ColumnPropNameInRow="Salary" msprop:Generator_ColumnPropNameInTable="SalaryColumn" msprop:Generator_UserColumnName="Salary" type="xs:string" minOccurs="0" />
+              <xs:element name="Fine_Amount" msprop:Generator_ColumnVarNameInTable="columnFine_Amount" msprop:Generator_ColumnPropNameInRow="Fine_Amount" msprop:Generator_ColumnPropNameInTable="Fine_AmountColumn" msprop:Generator_UserColumnName="Fine_Amount" type="xs:string" minOccurs="0" />
+              <xs:element name="Grand_Total" msprop:Generator_ColumnVarNameInTable="columnGrand_Total" msprop:Generator_ColumnPropNameInRow="Grand_Total" msprop:Generator_ColumnPropNameInTable="Grand_TotalColumn" msprop:Generator_UserColumnName="Grand_Total" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

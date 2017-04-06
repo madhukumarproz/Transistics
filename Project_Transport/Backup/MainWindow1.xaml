@@ -1,0 +1,380 @@
+﻿<Window x:Class="Project_Transport.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+         xmlns:WpfTools="clr-namespace:WpfTools;assembly=WpfTools"
+        xmlns:date="clr-namespace:System;assembly=mscorlib"
+         xmlns:gif="http://wpfanimatedgif.codeplex.com"
+        
+        gif:ImageBehavior.AnimateInDesignMode="True"
+        xmlns:local="clr-namespace:Project_Transport"       
+        mc:Ignorable="d"
+        Title="ProZ Solutions" Height="700" Width="1250" WindowStartupLocation="Manual" Top="10" Left="10" Icon="Resources/Icon/ProZ_72 x 72.ico" Closing="Window_Closed" >
+    <Window.Background>
+        <ImageBrush ImageSource="/Resources/Images/background2.jpg"></ImageBrush>
+    </Window.Background>
+
+    <Grid>
+        <Label x:Name="Title_Name" Height="50" Width="900" x:FieldModifier="public" Margin="0,-620,0,0" FontFamily="CAMBRIA" FontSize="28" HorizontalContentAlignment="Center" Foreground="White" FontWeight="ExtraBold"></Label>
+        <Button Name="home" Height="40" Width="100" Background="Transparent" Margin="800 -590 0 0"  FontFamily="CAMBRIA" FontSize="16" Foreground="Yellow" Click="Home_Button_Click" Visibility="Hidden">HOME</Button>
+        <Label x:Name="User_Name" Height="40" Width="160" x:FieldModifier="public" Margin="1080,-580,0,0" FontFamily="CAMBRIA" FontSize="16" HorizontalContentAlignment="Center" Foreground="Yellow" FontWeight="ExtraBold" VerticalContentAlignment="Top"></Label>
+        <Ribbon x:Name="ribbon" Height="50" Margin="0,-500,0,0" IsMinimized="True" Background="#FFF9E9B4" >
+            <Ribbon.FocusedBackground>
+                <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                    <GradientStop Color="#FFFEFBF4" Offset="0"/>
+                    <GradientStop Color="#FFFDE7CE" Offset="0.19"/>
+                    <GradientStop Color="#FFFDDEB8" Offset="0.39"/>
+                    <GradientStop Color="#FFFFCE6B" Offset="0.39"/>
+                    <GradientStop Color="#FFFFDE9A" Offset="0.79"/>
+                    <GradientStop Color="#FFECD897" Offset="1"/>
+                </LinearGradientBrush>
+            </Ribbon.FocusedBackground>
+            <Ribbon.ApplicationMenu >
+
+                <RibbonApplicationMenu HorizontalContentAlignment="Right"  SmallImageSource="{WpfTools:ImageFromFont FontFamily=/Project_Transport;component/Resources/#FontAwesome,Text=&#xf009;,Brush=gold}"  FontStretch="Expanded" Width="150" Height="30" Background="Blue" RenderTransformOrigin="0.38,0.525" FontSize="80" >
+                    <RibbonApplicationMenuItem Header="SIGN-OUT" ImageSource="{WpfTools:ImageFromFont FontFamily=/Project_Transport;component/Resources/#FontAwesome, Text=&#xf08B;, Brush=Black}"  Height="40" Width="150" Background="DarkSeaGreen" Click="main_page_click" FontSize="16"/>
+                    <RibbonApplicationMenuItem Header="EXIT" ImageSource="{WpfTools:ImageFromFont FontFamily=/Project_Transport;component/Resources/#FontAwesome, Text=&#xf28D;, Brush=Black}" Height="40" Width="150" Background="DarkSeaGreen" Click="exit_click" FontSize="16"/>
+
+                </RibbonApplicationMenu>
+
+
+            </Ribbon.ApplicationMenu>
+
+            <RibbonTab   Header="VECHICLE DETAILS" FontFamily="CAMBRIA" Height="201" >
+                <RibbonGroup Width="170">
+                    <RibbonButton Height="70" Width="140" Label="NEW VEHICLE" FontFamily="cambria" FontSize="18" Click="New_Entry_Click" VerticalAlignment="Center" HorizontalAlignment="Center" LargeImageSource="{WpfTools:ImageFromFont FontFamily=/Project_Transport;component/Resources/#FontAwesome,Text=&#xf0d1;,Brush=black}" FontWeight="Bold" FontStretch="Expanded"></RibbonButton>
+                </RibbonGroup>
+
+                <RibbonGroup Width="170">
+                    <RibbonButton Height="70" Width="140" Label="UPDATE" FontFamily="cambria" FontSize="18" FontWeight="Bold" FontStretch="Expanded" Click="Update_Click" VerticalAlignment="Center" LargeImageSource="{WpfTools:ImageFromFont FontFamily=/Project_Transport;component/Resources/#FontAwesome,Text=&#xf093;,Brush=black}"></RibbonButton>
+                </RibbonGroup>
+
+                <RibbonGroup Width="170">
+                    <RibbonButton Height="70" Width="140" Label="VIEW"  FontFamily="cambria" FontSize="18" FontWeight="Bold" FontStretch="Expanded" Click="View_Detail_Click" VerticalAlignment="Center" LargeImageSource="{WpfTools:ImageFromFont FontFamily=/Project_Transport;component/Resources/#FontAwesome,Text=&#xf115;,Brush=black}"></RibbonButton>
+                </RibbonGroup>
+                <RibbonGroup Width="170">
+                    <RibbonButton Height="70" Width="140" Label="REPORT"  FontFamily="cambria" FontSize="18" FontWeight="Bold" FontStretch="Expanded" Click="Report_View_Click" VerticalAlignment="Center" LargeImageSource="{WpfTools:ImageFromFont FontFamily=/Project_Transport;component/Resources/#FontAwesome,Text=&#xf115;,Brush=black}"></RibbonButton>
+                </RibbonGroup>
+            </RibbonTab>
+            <RibbonTab Header="DIESEL ENTRY" FontFamily="CALIBRI" >
+                <RibbonGroup Width="170">
+                    <RibbonButton Height="70" Width="140" Label="CARD ENTRY"  FontFamily="cambria" FontSize="18" FontWeight="Bold" FontStretch="Expanded" Click="diesel_card_entry_click" LargeImageSource="{WpfTools:ImageFromFont FontFamily=/Project_Transport;component/Resources/#FontAwesome,Text=&#xf044;,Brush=black}"></RibbonButton>
+                </RibbonGroup>
+                <RibbonGroup Width="170">
+                    <RibbonButton Height="70" Width="140" Label="CARD EDIT"  FontFamily="cambria" FontSize="18" FontWeight="Bold" FontStretch="Expanded" Click="diesel_card_edit_click" LargeImageSource="{WpfTools:ImageFromFont FontFamily=/Project_Transport;component/Resources/#FontAwesome,Text=&#xf044;,Brush=black}"></RibbonButton>
+                </RibbonGroup>
+                <RibbonGroup Width="170">
+                    <RibbonButton Height="70" Width="140" Label="DEPOSIT ENTRY"  FontFamily="cambria" FontSize="18" FontWeight="Bold" FontStretch="Expanded" Click="deposit_entry_click" LargeImageSource="{WpfTools:ImageFromFont FontFamily=/Project_Transport;component/Resources/#FontAwesome,Text=&#xf019;,Brush=black}"></RibbonButton>
+                </RibbonGroup>
+
+
+                <RibbonGroup Width="170">
+                    <RibbonButton Height="60" Width="140" Label="VIEW" FontFamily="cambria" FontSize="18" FontWeight="Bold" FontStretch="Expanded" Click="diesel_view_click" LargeImageSource="{WpfTools:ImageFromFont FontFamily=/Project_Transport;component/Resources/#FontAwesome,Text=&#xf115;,Brush=black}"></RibbonButton>
+                </RibbonGroup>
+            </RibbonTab>
+            <RibbonTab Header="TRIP ENTRY" FontFamily="CALIBRI" >
+                <RibbonGroup Width="170">
+                    <RibbonButton Height="70" Width="140" Label="LPG ENTRY" FontFamily="cambria" FontSize="18" FontWeight="Bold" FontStretch="Expanded"  Click="lpg_entry_click" LargeImageSource="{WpfTools:ImageFromFont FontFamily=/Project_Transport;component/Resources/#FontAwesome,Text=&#xf0d1;,Brush=black}"></RibbonButton>
+                </RibbonGroup>
+                <RibbonGroup Width="170">
+                    <RibbonButton Height="70" Width="140" Label="LPG UPDATE" FontFamily="cambria" FontSize="18" FontWeight="Bold" FontStretch="Expanded" Click="trip_update_click" LargeImageSource="{WpfTools:ImageFromFont FontFamily=/Project_Transport;component/Resources/#FontAwesome,Text=&#xf115;,Brush=black}"></RibbonButton>
+                </RibbonGroup>
+                <RibbonGroup Width="170">
+                    <RibbonButton Height="70" Width="140" Label="LPG VIEW" FontFamily="cambria" FontSize="18" FontWeight="Bold" FontStretch="Expanded" Click="trip_view_click" LargeImageSource="{WpfTools:ImageFromFont FontFamily=/Project_Transport;component/Resources/#FontAwesome,Text=&#xf115;,Brush=black}"></RibbonButton>
+                </RibbonGroup>
+                
+                <RibbonGroup Width="170">
+                    <RibbonButton Height="70" Width="140" Label="LOAD ENTRY" FontFamily="cambria" FontSize="18" FontWeight="Bold" FontStretch="Expanded" Click="load_line_click" LargeImageSource="{WpfTools:ImageFromFont FontFamily=/Project_Transport;component/Resources/#FontAwesome,Text=&#xf0d1;,Brush=black}"></RibbonButton>
+                </RibbonGroup>
+                <RibbonGroup Width="170">
+                    <RibbonButton Height="70" Width="140" Label="LOAD UPDATE" FontFamily="cambria" FontSize="18" FontWeight="Bold" FontStretch="Expanded" Click="load_update_click" LargeImageSource="{WpfTools:ImageFromFont FontFamily=/Project_Transport;component/Resources/#FontAwesome,Text=&#xf0d1;,Brush=black}"></RibbonButton>
+                </RibbonGroup>
+                <RibbonGroup Width="170">
+                    <RibbonButton Height="70" Width="140" Label="LOAD VIEW" FontFamily="cambria" FontSize="18" FontWeight="Bold" FontStretch="Expanded" Click="loads_view_click" LargeImageSource="{WpfTools:ImageFromFont FontFamily=/Project_Transport;component/Resources/#FontAwesome,Text=&#xf115;,Brush=black}"></RibbonButton>
+                </RibbonGroup>
+            </RibbonTab>
+
+            <RibbonTab Header="DRIVER DETAILS" FontFamily="CALIBRI" >
+                <RibbonGroup Width="170">
+                    <RibbonButton Height="70" Width="140" Label="NEW DRIVER" FontFamily="cambria" FontSize="18" FontWeight="Bold" FontStretch="Expanded" Click="driver_new_entry_click" LargeImageSource="{WpfTools:ImageFromFont FontFamily=/Project_Transport;component/Resources/#FontAwesome,Text=&#xf007;,Brush=black}"></RibbonButton>
+                </RibbonGroup>
+                <RibbonGroup Width="170">
+                    <RibbonButton Height="60" Width="140" Label="UPDATE" FontFamily="cambria" FontSize="18" FontWeight="Bold" FontStretch="Expanded" Click="driver_update_click" LargeImageSource="{WpfTools:ImageFromFont FontFamily=/Project_Transport;component/Resources/#FontAwesome,Text=&#xf093;,Brush=black}"></RibbonButton>
+                </RibbonGroup>
+                <RibbonGroup Width="170">
+                    <RibbonButton Height="60" Width="140" Label="PAYMENT" FontFamily="cambria" FontSize="18" FontWeight="Bold" FontStretch="Expanded" Click="driver_payment_click" LargeImageSource="{WpfTools:ImageFromFont FontFamily=/Project_Transport;component/Resources/#FontAwesome,Text=&#xf0D6;,Brush=black}"></RibbonButton>
+                </RibbonGroup>
+                <RibbonGroup Width="170">
+                    <RibbonButton Height="70" Width="150" Label="LOAD PAY" FontFamily="cambria" FontSize="18" FontWeight="Bold" FontStretch="Expanded" Click="load_payment_click" LargeImageSource="{WpfTools:ImageFromFont FontFamily=/Project_Transport;component/Resources/#FontAwesome,Text=&#xf0D6;,Brush=black}"></RibbonButton>
+                </RibbonGroup>
+                <RibbonGroup Width="170" VerticalAlignment="Center">
+                    <RibbonButton Height="60" Width="140" Label="VIEW" FontFamily="cambria" FontSize="18" FontWeight="Bold" FontStretch="Expanded" Click="driver_view_click" LargeImageSource="{WpfTools:ImageFromFont FontFamily=/Project_Transport;component/Resources/#FontAwesome,Text=&#xf115;,Brush=black}"></RibbonButton>
+                </RibbonGroup>
+            </RibbonTab>
+            <RibbonTab Header="MAINTENANCE" FontFamily="CALIBRI" >
+                <RibbonGroup Width="170">
+                    <RibbonButton Height="70" Width="160" Label="BODY BUILDER" FontFamily="cambria" FontSize="18" FontWeight="Bold" FontStretch="Expanded" Click="body_builder_panel_open" LargeImageSource="{WpfTools:ImageFromFont FontFamily=/Project_Transport;component/Resources/#FontAwesome,Text=&#xf007;,Brush=black}"></RibbonButton>
+                </RibbonGroup>
+                <RibbonGroup Width="170">
+                    <RibbonButton Height="70" Width="160" Label="ELECTRICAL" FontFamily="cambria" FontSize="18" FontWeight="Bold" FontStretch="Expanded" Click="electrical_panel_open" LargeImageSource="{WpfTools:ImageFromFont FontFamily=/Project_Transport;component/Resources/#FontAwesome,Text=&#xf007;,Brush=black}"></RibbonButton>
+                </RibbonGroup>
+                <RibbonGroup Width="170">
+                    <RibbonButton Height="70" Width="160" Label="TRAILER/TANK" FontFamily="cambria" FontSize="18" FontWeight="Bold" FontStretch="Expanded" Click="trailer_tank_panel_open" LargeImageSource="{WpfTools:ImageFromFont FontFamily=/Project_Transport;component/Resources/#FontAwesome,Text=&#xf007;,Brush=black}"></RibbonButton>
+                </RibbonGroup>
+                <RibbonGroup Width="170">
+                    <RibbonButton Height="70" Width="160" Label="SHOP PURCHASE" FontFamily="cambria" FontSize="18" FontWeight="Bold" FontStretch="Expanded" Click="shop_panel_open" LargeImageSource="{WpfTools:ImageFromFont FontFamily=/Project_Transport;component/Resources/#FontAwesome,Text=&#xf007;,Brush=black}"></RibbonButton>
+                </RibbonGroup>
+                <RibbonGroup Width="170">
+                    <RibbonButton Height="70" Width="160" Label="MECHANICAL" FontFamily="cambria" FontSize="18" FontWeight="Bold" FontStretch="Expanded" Click="mechanical_panel_open" LargeImageSource="{WpfTools:ImageFromFont FontFamily=/Project_Transport;component/Resources/#FontAwesome,Text=&#xf007;,Brush=black}"></RibbonButton>
+                </RibbonGroup>
+                <RibbonGroup Width="170">
+                    <RibbonButton Height="70" Width="160" Label="OTHERS" FontFamily="cambria" FontSize="18" FontWeight="Bold" FontStretch="Expanded" Click="others_panel_open" LargeImageSource="{WpfTools:ImageFromFont FontFamily=/Project_Transport;component/Resources/#FontAwesome,Text=&#xf007;,Brush=black}"></RibbonButton>
+                </RibbonGroup>
+                <RibbonGroup Width="170">
+                    <RibbonButton Height="70" Width="160" Label="BILL VIEW" FontFamily="cambria" FontSize="18" FontWeight="Bold" FontStretch="Expanded" Click="maintenance_view_panel_open" LargeImageSource="{WpfTools:ImageFromFont FontFamily=/Project_Transport;component/Resources/#FontAwesome,Text=&#xf007;,Brush=black}"></RibbonButton>
+                </RibbonGroup>
+                
+            </RibbonTab>
+
+            <RibbonTab Header="TYRE MAINTENANCE" FontFamily="CALIBRI" >
+                <RibbonGroup Width="170">
+                    <RibbonButton Height="70" Width="140" Label="LPG" FontFamily="cambria" FontSize="18" FontWeight="Bold" FontStretch="Expanded" Click="lpg_tyre_entry_click" LargeImageSource="{WpfTools:ImageFromFont FontFamily=/Project_Transport;component/Resources/#FontAwesome,Text=&#xf007;,Brush=black}"></RibbonButton>
+                </RibbonGroup>
+                <RibbonGroup Width="170">
+                    <RibbonButton Height="70" Width="140" Label="LOAD" FontFamily="cambria" FontSize="18" FontWeight="Bold" FontStretch="Expanded" Click="load_tyre_entry_click" LargeImageSource="{WpfTools:ImageFromFont FontFamily=/Project_Transport;component/Resources/#FontAwesome,Text=&#xf007;,Brush=black}"></RibbonButton>
+                </RibbonGroup>
+                <RibbonGroup Width="170">
+                    <RibbonButton Height="70" Width="140" Label="TRAILER" FontFamily="cambria" FontSize="18" FontWeight="Bold" FontStretch="Expanded" Click="trailer_tyre_entry_click" LargeImageSource="{WpfTools:ImageFromFont FontFamily=/Project_Transport;component/Resources/#FontAwesome,Text=&#xf007;,Brush=black}"></RibbonButton>
+                </RibbonGroup>
+                <RibbonGroup Width="170">
+                    <RibbonButton Height="70" Width="140" Label="TYRE PRICE" FontFamily="cambria" FontSize="18" FontWeight="Bold" FontStretch="Expanded" Click="lpg_tyre_price_click" LargeImageSource="{WpfTools:ImageFromFont FontFamily=/Project_Transport;component/Resources/#FontAwesome,Text=&#xf007;,Brush=black}"></RibbonButton>
+                </RibbonGroup>
+
+            </RibbonTab>
+            <RibbonTab Header="BILL" FontFamily="CALIBRI" >
+                <RibbonGroup Width="170">
+                    <RibbonButton Height="70" Width="160" Label="EXPIRY BILL" FontFamily="cambria" FontSize="18" FontWeight="Bold" FontStretch="Expanded" Click="expiry_bill_open" LargeImageSource="{WpfTools:ImageFromFont FontFamily=/Project_Transport;component/Resources/#FontAwesome,Text=&#xf007;,Brush=black}"></RibbonButton>
+                </RibbonGroup>
+                <RibbonGroup Width="170">
+                    <RibbonButton Height="70" Width="160" Label="EXPIRY UPDATE" FontFamily="cambria" FontSize="18" FontWeight="Bold" FontStretch="Expanded" Click="expiry_update_open" LargeImageSource="{WpfTools:ImageFromFont FontFamily=/Project_Transport;component/Resources/#FontAwesome,Text=&#xf007;,Brush=black}"></RibbonButton>
+                </RibbonGroup>
+                <RibbonGroup Width="170">
+                    <RibbonButton Height="70" Width="160" Label="EXPIRY VIEW" FontFamily="cambria" FontSize="18" FontWeight="Bold" FontStretch="Expanded" Click="expiry_bill_view_open" LargeImageSource="{WpfTools:ImageFromFont FontFamily=/Project_Transport;component/Resources/#FontAwesome,Text=&#xf007;,Brush=black}"></RibbonButton>
+                </RibbonGroup>
+            </RibbonTab>
+            <RibbonTab Header="SETTINGS" FontFamily="CALIBRI" >
+                <RibbonGroup Width="170">
+                    <RibbonButton Height="70" Width="160" Label="TRANSPORT NAME" FontFamily="cambria" FontSize="18" FontWeight="Bold" FontStretch="Expanded" Click="transport_panel_open" LargeImageSource="{WpfTools:ImageFromFont FontFamily=/Project_Transport;component/Resources/#FontAwesome,Text=&#xf007;,Brush=black}"></RibbonButton>
+                </RibbonGroup>
+                <RibbonGroup Width="170">
+                    <RibbonButton Height="70" Width="160" Label="TRANSPORT LIST" FontFamily="cambria" FontSize="18" FontWeight="Bold" FontStretch="Expanded" Click="transport_name_panel_open" LargeImageSource="{WpfTools:ImageFromFont FontFamily=/Project_Transport;component/Resources/#FontAwesome,Text=&#xf007;,Brush=black}"></RibbonButton>
+                </RibbonGroup>
+                <RibbonGroup Width="170">
+                    <RibbonButton Height="70" Width="160" Label="USER CREATION" FontFamily="cambria" FontSize="18" FontWeight="Bold" FontStretch="Expanded" Click="User_Creation_panel_open" LargeImageSource="{WpfTools:ImageFromFont FontFamily=/Project_Transport;component/Resources/#FontAwesome,Text=&#xf007;,Brush=black}"></RibbonButton>
+                </RibbonGroup>
+            </RibbonTab>
+        </Ribbon>
+        <StackPanel Height="670" Width="1250" Margin="0,705,-8,-706" x:Name="LOGIN_PANEL" x:FieldModifier="public" >
+            <Label Height="30" Width="100" Margin="-900,0,0,0" Background="Transparent" MouseDoubleClick="Label_MouseDoubleClick"></Label>
+            <!--<StackPanel Height="670" Width="1230" Margin="0,0,0,0" x:Name="image_panel" x:FieldModifier="public">
+                <StackPanel.Background>
+
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FFE8B6B6" Offset="0"/>
+                        <GradientStop Color="White" Offset="1"/>
+                    </LinearGradientBrush>
+                </StackPanel.Background>
+                <Image Height="670" Width="1230" Margin="-10 0 0 0" gif:ImageBehavior.AnimatedSource="Resources/Images/green_vinayagar.gif" gif:ImageBehavior.RepeatBehavior="Forever" Stretch="Fill">
+
+                </Image>
+            </StackPanel>-->
+            <StackPanel Height="460" Width="AUTO"  Margin="0,30,0,0" Name="login_panel" Background="#FFF7D1F6" Visibility="Visible">
+
+                <Label Name="today_date" Height="35" Width="150" Margin="780,0,0,0" FontFamily="cambria" FontSize="18" Foreground="Blue"></Label>
+                <Label Name="time_now" Height="35" Width="150" Margin="1080,-35,0,0" FontFamily="cambria" FontSize="18" Foreground="Blue"></Label>
+                <Label Height="35" Width="295" Margin="900,20,0,0" Content="MANAGE YOUR VEHICLES" FontFamily="CONSTANTIA" FontSize="16" Background="Purple" Foreground="White"  VerticalContentAlignment="Center" FontWeight="Bold" HorizontalContentAlignment="Center"></Label>
+                <Label Name="error_lbl" Height="30" Width="200" Margin="1000,15,0,0" Foreground="Red" VerticalContentAlignment="Top"></Label>
+                <Label Height="35" Width="150" Margin="650,-5,0,0" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" Content="USER NAME :" FontFamily="CALIBRI" FontSize="20" Foreground="Black"  ></Label>
+                <TextBox Name="user_name_txt" CharacterCasing="Upper" Height="35" Width="200" Margin="1020,-35,0,0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" GotFocus="user_name_txt_GotFocus"></TextBox>
+                <Label Height="35" Width="150" Margin="650,10,0,0" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" Content="PASSWORD :" FontFamily="CALIBRI" FontSize="20" Foreground="Black" ></Label>
+                <PasswordBox Name="user_password_txt" Height="35" Width="200" Margin="1020,-35,0,0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" KeyDown="sign_in_btn_KeyDown"></PasswordBox>
+                <Button Name="sign_in_btn" Height="40" Width="180" Margin="1000,20,0,0" Click="sign_in_btn_Click" >
+                    <Button.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FF1294EE" Offset="0.614"/>
+                            <GradientStop Color="White"/>
+                        </LinearGradientBrush>
+                    </Button.Background>
+                    <StackPanel Height="45" Width="175">
+
+                        <Label Height="40" Width="80" Margin="-50,0,0,0" Content="GET-IN" FontFamily="CALIBRI" FontSize="22" Foreground="White" VerticalContentAlignment="Center"></Label>
+                        <Image Source="{WpfTools:ImageFromFont FontFamily=/Project_Transport;component/Resources/#FontAwesome, Text=&#xf090;, Brush=black}" Height="35" Width="60" Margin="100,-35,0,0" ></Image>
+                    </StackPanel>
+                </Button>
+                
+               
+                <StackPanel Name="panel0" Height="450" Width="850" Margin="-380,-270,0,0">
+
+                    <Image Name="img" Source="Resources/Images/lpg.jpg" Stretch="Fill" Height="440"></Image>
+
+                </StackPanel>
+                <StackPanel Name="panel1" Height="450" Width="850" Margin="-380,-450,0,0">
+
+                    <Image Name="img1" Source="Resources/Images/daf.jpg" Stretch="Fill" Height="440"></Image>
+
+                </StackPanel>
+                <StackPanel Name="panel2" Height="450" Width="850" Margin="-380,-450,0,0">
+
+                    <Image Name="img2" Source="Resources/Images/truck.jpg" Stretch="Fill" Height="440"></Image>
+
+                </StackPanel>
+                <StackPanel Name="panel3" Height="450" Width="850" Margin="-380,-450,0,0">
+
+                    <Image Name="img3" Source="Resources/Images/hd-truck.jpg" Stretch="Fill" Height="440"></Image>
+
+                </StackPanel>
+                <StackPanel Name="panel4" Height="450" Width="850" Margin="-380,-450,0,0">
+
+                    <Label Height="60" Width="200" Margin="0,0,0,0"></Label>
+
+                </StackPanel>
+                <!--<Label Name="Expiry_Warning" Height="30" Width="120" Margin="750,-30,0,0" Content="EXPIRY WARNING" FontSize="14" Background="#FF40D828"  MouseDoubleClick="Expiry_Warning_MouseDoubleClick"></Label>
+                <Label Name="Driving_Licence_Expiry" Height="30" Width="130" Margin="1050,-30,0,0" Content="DRIVING LICENCE" FontSize="14" Background="#FF49E231" MouseDoubleClick="Driving_Licence_Expiry_MouseDoubleClick"></Label>-->
+            </StackPanel>
+            <!--<StackPanel Name="expiry_warning_panel" Height="660" Width="1250" Margin="-10,-520,0,0" Visibility="Visible">
+                <StackPanel.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FFF9F5F5" Offset="0"/>
+                        <GradientStop Color="White" Offset="1"/>
+                    </LinearGradientBrush>
+                </StackPanel.Background>
+                <GroupBox Header="FC EXPIRY"  Height="60" Width="1200" Margin="-20,0,0,0" Foreground="Blue" FontFamily="cambria" FontSize="14">
+                    <Label Height="40" Name="label1"></Label>
+                </GroupBox>
+
+                <GroupBox Header="INSURANCE EXPIRY"  Height="60" Width="1200" Margin="-20,0,0,0" Foreground="Blue" FontFamily="cambria" FontSize="14">
+                    <Label Height="40" Name="label2"></Label>
+                </GroupBox>
+                <GroupBox Header="NATIONAL EXPIRY"  Height="60" Width="1200" Margin="-20,0,0,0" Foreground="Blue" FontFamily="cambria" FontSize="14">
+                    <Label Height="40" Name="label3"></Label>
+                </GroupBox>
+                <GroupBox Header="PERMIT EXPIRY"  Height="60" Width="1200" Margin="-20,0,0,0" Foreground="Blue" FontFamily="cambria" FontSize="14">
+                    <Label Height="40" Name="label4"></Label>
+                </GroupBox>
+                <GroupBox Header="EXPLOSIVE EXPIRY"  Height="60" Width="1200" Margin="-20,0,0,0" Foreground="Blue" FontFamily="cambria" FontSize="14">
+                    <Label Height="40" Name="label5"></Label>
+                </GroupBox>
+                <GroupBox Header="YEARLY EXPIRY"  Height="60" Width="1200" Margin="-20,0,0,0" Foreground="Blue" FontFamily="cambria" FontSize="14">
+                    <Label Height="40" Name="label6"></Label>
+                </GroupBox>
+                <GroupBox Header="HALF YEARLY EXPIRY"  Height="60" Width="1200" Margin="-20,0,0,0" Foreground="Blue" FontFamily="cambria" FontSize="14">
+                    <Label Height="40" Name="label7"></Label>
+                </GroupBox>
+                <GroupBox Header="HYDRO EXPIRY"  Height="60" Width="1200" Margin="-20,0,0,0" Foreground="Blue" FontFamily="cambria" FontSize="14">
+                    <Label Height="40" Name="label8"></Label>
+                </GroupBox>
+                <GroupBox Header="CLL POLICY"  Height="60" Width="1200" Margin="-20,0,0,0" Foreground="Blue" FontFamily="cambria" FontSize="14">
+                    <Label Height="40" Name="label9"></Label>
+                </GroupBox>
+                <GroupBox Header="PLI EXPIRY"  Height="60" Width="1200" Margin="-20,0,0,0" Foreground="Blue" FontFamily="cambria" FontSize="14">
+                    <Label Height="40" Name="label10"></Label>
+                </GroupBox>
+                <GroupBox Header="TAX EXPIRY"  Height="60" Width="1200" Margin="-20,0,0,0" Foreground="Blue" FontFamily="cambria" FontSize="14">
+                    <Label Height="40" Name="label11"></Label>
+                </GroupBox>
+                <Button Height="30" Width="20" Margin="1190,-1280,0,0" Click="close_click" Background="#FFEC1313">
+                    <StackPanel Height="30" Width="20">
+                        <Image Height="25" Width="17" Margin="-5,0,0,0" Source="{WpfTools:ImageFromFont FontFamily=/Project_Transport;component/Resources/#FontAwesome,Text=&#xf00d;,Brush=black}" ></Image>
+                    </StackPanel>
+                </Button>
+            </StackPanel>
+            <StackPanel Name="address_panel" Height="210"  Margin="0,-200,0,0">
+                <StackPanel Height="100" Width="100" Margin="-1100,95,0,0">
+                    <StackPanel.Background>
+                        <ImageBrush ImageSource="Resources/Images/ProZ_logo.png"></ImageBrush>
+                    </StackPanel.Background>
+
+                </StackPanel>
+                <Label Height="30" Width="300" Margin="-680,-60,0,0" Content="PRO-Z SOLUTIONS, NAMAKKAL." Foreground="Black" FontSize="14"></Label>
+                <Label Height="30" Width="400" Margin="-580,-20,0,0" Content="CALL: 8438199081,8122399081    E-MAIL: support@pro-z.in" Foreground="Black" FontSize="14"></Label>
+            </StackPanel>-->
+            <!--<StackPanel Name="driver_license_expiry" Height="500" Width="800" Margin="0,-750,0,0" Background="White" Visibility="Visible">
+                <Button Height="30" Width="30" Margin="770,0,0,0" Background="Red" Click="driver_license_expiry_closed">
+                    <StackPanel Height="30" Width="30">
+                        <Image Height="25" Width="17" Margin="-5,0,0,0" Source="{WpfTools:ImageFromFont FontFamily=/Project_Transport;component/Resources/#FontAwesome,Text=&#xf00d;,Brush=black}"></Image>
+                    </StackPanel>
+                </Button>
+                <Label Height="30" Width="250" Margin="-30,-30,0,0" Content="DRIVING LICENCE EXPIRY" FontFamily="CALIBRI" FontSize="18" HorizontalContentAlignment="Center" Foreground="BlueViolet" FontWeight="Bold"></Label>
+                <Label Name="a_lbl1" Height="30" Width="250" Margin="-450,0,0,0"></Label>
+                <Label Name="a_lbl2" Height="30" Width="250" Margin="-450,5,0,0"></Label>
+                <Label Name="a_lbl3" Height="30" Width="250" Margin="-450,5,0,0"></Label>
+                <Label Name="a_lbl4" Height="30" Width="250" Margin="-450,5,0,0"></Label>
+                <Label Name="lbl5" Height="30" Width="250" Margin="-450,5,0,0"></Label>
+                <Label Name="lbl6" Height="30" Width="250" Margin="-450,5,0,0"></Label>
+                <Label Name="lbl7" Height="30" Width="250" Margin="-450,5,0,0"></Label>
+                <Label Name="lbl8" Height="30" Width="250" Margin="-450,5,0,0"></Label>
+                <Label Name="lbl9" Height="30" Width="250" Margin="-450,5,0,0"></Label>
+                <Label Name="lbl10" Height="30" Width="250" Margin="-450,5,0,0"></Label>
+                <Label Name="a_lbl11" Height="30" Width="250" Margin="-450,5,0,0"></Label>
+                <Label Name="lbl12" Height="30" Width="250" Margin="-450,5,0,0"></Label>
+                <Label Name="lbl13" Height="30" Width="250" Margin="-450,5,0,0"></Label>
+            </StackPanel>-->
+            <StackPanel Name="title_panel" Height="150" Width="400" Margin="0,-900,0,0" Background="#FFF9ECEC" Visibility="Hidden">
+                <Label Height="30" Width="50" Margin="-300,30,0,0" Content="NAME"></Label>
+                <TextBox Name="title_name" Height="30" Width="300" Margin="50,-40,0,0" CharacterCasing="Upper" MaxLength="31" >
+                    <TextBox.Text>
+                        <Binding Path="Name" UpdateSourceTrigger="PropertyChanged" ValidatesOnDataErrors="True" Mode="TwoWay">
+                            <Binding.ValidationRules>
+                                <local:CharacterWithSpaceRule></local:CharacterWithSpaceRule>
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
+                <Label Height="25" Width="300" Margin="50,0,0,0" Content="Allow 30 Characters Only" HorizontalContentAlignment="Right"></Label>
+                <Button Height="30" Width="100" Margin="100,10,0,0" Content="SAVE" FontFamily="CALIBRI" FontSize="18" Click="title_save_click" Background="#F98800"/>
+                <Button Height="30" Width="70" Margin="320,-30,0,0" Background="#FF463A55" Content="BACK" Foreground="White" FontFamily="CAMBRIA" Click="Banner_Name_Change_Back_Click"></Button>
+            </StackPanel>
+
+        </StackPanel>
+        <local:Vehicle_Details x:Name="vehicle_panel" Visibility="Hidden"></local:Vehicle_Details>
+        <local:Diesel_Card x:Name="diesel_panel" Visibility="Hidden"></local:Diesel_Card>
+        <local:Driver_Details x:Name="driver_panel" Visibility="Hidden"></local:Driver_Details>
+        <local:Trip_Entry x:Name="trip_entry_panel" Visibility="Hidden"></local:Trip_Entry>
+        <local:Trip_Update x:Name="trip_update_panel" Visibility="Hidden"></local:Trip_Update>
+        <local:Trip_View x:Name="trip_view_panel" Visibility="Hidden"></local:Trip_View>
+        <local:Body_Maintenance x:Name="body_expense" Visibility="Hidden"></local:Body_Maintenance>
+        <local:Electrician_Maintenance x:Name="electrician_panel" Visibility="Hidden"></local:Electrician_Maintenance>
+        <local:Tank_Maintenance x:Name="tank_panel" Visibility="Hidden"></local:Tank_Maintenance>
+        <local:Shop_Expense x:Name="shop_panel" Visibility="Hidden"></local:Shop_Expense>
+        <local:Mechanical_Expense x:Name="mechanical_panel" Visibility="Hidden"></local:Mechanical_Expense>
+        <local:Other_Expense x:Name="other_panel" Visibility="Hidden"></local:Other_Expense>
+        <local:Maintenance_view x:Name="maintenance_view_panel" Visibility="Hidden"></local:Maintenance_view>
+        <local:Tyre_Maintenance x:Name="tyre_panel" Visibility="Hidden"></local:Tyre_Maintenance>
+        <local:Baner_name x:Name="baner" Visibility="Hidden"></local:Baner_name>
+        <local:transport_list_Panel x:Name="transport_list" Visibility="Hidden"></local:transport_list_Panel>
+        <local:Vehicle_View x:Name="vehicle_view" Visibility="Hidden"></local:Vehicle_View>
+        <local:Diesel_Card_View x:Name="diesel_card_view" Visibility="Hidden"></local:Diesel_Card_View>
+        <local:Diesel_Card_Deposit x:Name="diesel_card_deposit" Visibility="Hidden"></local:Diesel_Card_Deposit>
+        <local:Diesel_Card_Edit x:Name="diesel_card_edit" Visibility="Hidden"></local:Diesel_Card_Edit>
+        <local:Driver_Payment x:Name="driver_salary" Visibility="Hidden"></local:Driver_Payment>
+        <local:Driver_View x:Name="driver_view" Visibility="Hidden"></local:Driver_View>
+        <local:Driver_Update x:Name="driver_update" Visibility="Hidden"></local:Driver_Update>
+        <local:Vehicle_Update x:Name="vehicle_update" Visibility="Hidden"></local:Vehicle_Update>
+        <local:Profit_Viewer x:Name="profit_viewer" Visibility="Hidden"></local:Profit_Viewer>
+        <local:UserCreation x:Name="user_create" Visibility="Hidden"></local:UserCreation>
+        <local:tyre x:Name="tyre_report" Visibility="Hidden"></local:tyre>
+        <local:Load_Trailer x:Name="load_trailer" Visibility="Hidden"></local:Load_Trailer>
+        <local:Load_Trailer_Trip_View x:Name="load_trailer_view" Visibility="Hidden"></local:Load_Trailer_Trip_View>
+        <local:Load_Payment x:Name="load_pay" Visibility="Hidden"/>
+        <local:Update x:Name="load_update" Visibility="Hidden"/>
+        <local:Trailer_Tyre_Entry x:Name="trailer_tyre" Visibility="Hidden"></local:Trailer_Tyre_Entry>
+        <local:load_tyre x:Name="load_tyre" Visibility="Hidden"></local:load_tyre>
+        <local:Dashboard x:Name="dashboard" Height="550" Width="1250" Margin="0 100 0 0" Visibility="Hidden"></local:Dashboard>
+        <local:Expiry_bill x:Name="expiry_bill" Visibility="Hidden"></local:Expiry_bill>
+        <local:Expiry_bill_update x:Name="expiry_bill_update" Visibility="Hidden"></local:Expiry_bill_update>
+        <local:Expiry_view x:Name="expiry_bill_view" Visibility="Hidden"></local:Expiry_view>
+        
+    </Grid>
+    
+</Window>

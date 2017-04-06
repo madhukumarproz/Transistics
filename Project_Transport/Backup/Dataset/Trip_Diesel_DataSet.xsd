@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="Trip_Diesel_DataSet" targetNamespace="http://tempuri.org/Trip_Diesel_DataSet.xsd" xmlns:mstns="http://tempuri.org/Trip_Diesel_DataSet.xsd" xmlns="http://tempuri.org/Trip_Diesel_DataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="Trip_Diesel_DataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="Trip_Diesel_DataSet" msprop:Generator_UserDSName="Trip_Diesel_DataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Trip_Diesel_Dataset" msprop:Generator_TableClassName="Trip_Diesel_DatasetDataTable" msprop:Generator_TableVarName="tableTrip_Diesel_Dataset" msprop:Generator_TablePropName="Trip_Diesel_Dataset" msprop:Generator_RowDeletingName="Trip_Diesel_DatasetRowDeleting" msprop:Generator_RowChangingName="Trip_Diesel_DatasetRowChanging" msprop:Generator_RowEvHandlerName="Trip_Diesel_DatasetRowChangeEventHandler" msprop:Generator_RowDeletedName="Trip_Diesel_DatasetRowDeleted" msprop:Generator_UserTableName="Trip_Diesel_Dataset" msprop:Generator_RowChangedName="Trip_Diesel_DatasetRowChanged" msprop:Generator_RowEvArgName="Trip_Diesel_DatasetRowChangeEvent" msprop:Generator_RowClassName="Trip_Diesel_DatasetRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Card_Id" msprop:Generator_ColumnVarNameInTable="columnCard_Id" msprop:Generator_ColumnPropNameInRow="Card_Id" msprop:Generator_ColumnPropNameInTable="Card_IdColumn" msprop:Generator_UserColumnName="Card_Id" type="xs:string" minOccurs="0" />
+              <xs:element name="Place" msprop:Generator_ColumnVarNameInTable="columnPlace" msprop:Generator_ColumnPropNameInRow="Place" msprop:Generator_ColumnPropNameInTable="PlaceColumn" msprop:Generator_UserColumnName="Place" type="xs:string" minOccurs="0" />
+              <xs:element name="Litters" msprop:Generator_ColumnVarNameInTable="columnLitters" msprop:Generator_ColumnPropNameInRow="Litters" msprop:Generator_ColumnPropNameInTable="LittersColumn" msprop:Generator_UserColumnName="Litters" type="xs:string" minOccurs="0" />
+              <xs:element name="Price_per" msprop:Generator_ColumnVarNameInTable="columnPrice_per" msprop:Generator_ColumnPropNameInRow="Price_per" msprop:Generator_ColumnPropNameInTable="Price_perColumn" msprop:Generator_UserColumnName="Price_per" type="xs:string" minOccurs="0" />
+              <xs:element name="Total_Cost" msprop:Generator_ColumnVarNameInTable="columnTotal_Cost" msprop:Generator_ColumnPropNameInRow="Total_Cost" msprop:Generator_ColumnPropNameInTable="Total_CostColumn" msprop:Generator_UserColumnName="Total_Cost" type="xs:string" minOccurs="0" />
+              <xs:element name="Fill_Date" msprop:Generator_ColumnVarNameInTable="columnFill_Date" msprop:Generator_ColumnPropNameInRow="Fill_Date" msprop:Generator_ColumnPropNameInTable="Fill_DateColumn" msprop:Generator_UserColumnName="Fill_Date" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

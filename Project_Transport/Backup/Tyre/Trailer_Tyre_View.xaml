@@ -1,0 +1,151 @@
+﻿<Window x:Class="Project_Transport.Trailer_Tyre_View"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+         xmlns:WpfTools="clr-namespace:WpfTools;assembly=WpfTools"
+              xmlns:date="clr-namespace:System;assembly=mscorlib"
+        xmlns:local="clr-namespace:Project_Transport"
+        mc:Ignorable="d"
+        Title="Trailer Tyre" Height="380" Width="400" Loaded="Window_Loaded">
+    <Grid>
+        <Button Name="New" Height="25" Width="50" Margin="-30 -300 0 0" VerticalContentAlignment="Center" Click="New_Checked" Background="#125F85" Foreground="White">NEW</Button>
+        <Button Name="Exist" Height="25" Width="70" Margin="100 -300 0 0" VerticalContentAlignment="Center" Click="Existing_Checked" Background="#125F85" Foreground="White">EXISTING</Button>
+        <Button Name="Back" Height="25" Width="70" Margin="250 -300 0 0" VerticalContentAlignment="Center" Click="Back_Checked" Background="#125F85" Foreground="White">BACK</Button>
+        <StackPanel Name="tyre_details_entry_panel" Height="300" Width="370" Margin="0,40,0,0"  Visibility="Hidden" Background="White">
+            <Label Height="30" Width="150" Margin="-200,0,0,0" Content="TYRE NUMBER" FontFamily="cambria" FontSize="14" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"></Label>
+            <TextBox Name="vehicle_tyre_number" Height="30" Width="150" Margin="120,-30,0,0"   KeyDown="vehicle_tyre_number_KeyDown">
+                <TextBox.Text>
+                    <Binding Path="Tyre_No" UpdateSourceTrigger="PropertyChanged" ValidatesOnDataErrors="True" Mode="TwoWay">
+                        <Binding.ValidationRules>
+                            <local:NumericWithCharacterRule></local:NumericWithCharacterRule>
+                        </Binding.ValidationRules>
+                    </Binding>
+                </TextBox.Text>
+            </TextBox>
+            <Label Height="30" Width="150" Margin="-200,10,0,0" Content="STARTED KM" FontFamily="cambria" FontSize="14" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"></Label>
+            <TextBox Name="vehicle_tyre_km" Height="30" Width="150" Margin="120,-30,0,0"  CharacterCasing="Upper" MaxLength="6" GotFocus="vehicle_tyre_km_GotFocus">
+                <TextBox.Text>
+                    <Binding Path="Start_Km" UpdateSourceTrigger="PropertyChanged" ValidatesOnDataErrors="True" Mode="TwoWay">
+                        <Binding.ValidationRules>
+                            <local:NumericRule></local:NumericRule>
+                        </Binding.ValidationRules>
+                    </Binding>
+                </TextBox.Text>
+            </TextBox>
+            <Label Height="30" Width="150" Margin="-200,10,0,0" Content="COMPANY NAME" FontFamily="cambria" FontSize="14" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"></Label>
+            <ComboBox Name="vehicle_tyre_company" Height="30" Width="150" Margin="120,-30,0,0"  IsEditable="True" HorizontalContentAlignment="Center">
+                <ComboBoxItem>APPOLLO</ComboBoxItem>
+                <ComboBoxItem>JKTYRE</ComboBoxItem>
+                <ComboBoxItem>MRF</ComboBoxItem>
+                <ComboBoxItem>CEAT</ComboBoxItem>
+                <ComboBoxItem>MICHELIN</ComboBoxItem>
+                <ComboBoxItem>CHINA MAKE</ComboBoxItem>
+                <ComboBoxItem>BRIDGESTONE</ComboBoxItem>
+                <ComboBoxItem>ATLAS</ComboBoxItem>
+                <ComboBoxItem>HERO</ComboBoxItem>
+                <ComboBoxItem>GOODYEAR</ComboBoxItem>
+                <ComboBoxItem>CONTINENTAL</ComboBoxItem>
+                <ComboBoxItem>FALKEN TYRES</ComboBoxItem>
+                <ComboBox.Text>
+                    <Binding Path="Tyre_Company" UpdateSourceTrigger="PropertyChanged" ValidatesOnDataErrors="True" Mode="TwoWay">
+                        <Binding.ValidationRules>
+                            <local:NumericWithCharacterSpaceRule></local:NumericWithCharacterSpaceRule>
+                        </Binding.ValidationRules>
+                    </Binding>
+                </ComboBox.Text>
+            </ComboBox>
+            <Label Height="30" Width="150" Margin="-200,10,0,0" Content="ADDED DATE" FontFamily="cambria" FontSize="14" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"></Label>
+            <DatePicker Name="vehicle_tyre_add_date" Height="30" Width="150" Margin="120,-30,0,0"  SelectedDate="{x:Static date:DateTime.Now}" SelectedDateFormat="Short" DisplayDateEnd="{x:Static date:DateTime.Now}"></DatePicker>
+            <Label Height="30" Width="150" Margin="-200,10,0,0" Content="PURCHASE DATE" FontFamily="cambria" FontSize="14" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"></Label>
+            <DatePicker Name="vehicle_tyre_pur_date" Height="30" Width="150" Margin="120,-30,0,0"  SelectedDate="{x:Static date:DateTime.Now}" SelectedDateFormat="Short" DisplayDateEnd="{x:Static date:DateTime.Now}"></DatePicker>
+            <Label Height="30" Width="150" Margin="-200,10,0,0" Content="PRICE" FontFamily="cambria" FontSize="14" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"></Label>
+            <TextBox Name="tyre_price" Height="30" Width="150" Margin="120,-30,0,0"  CharacterCasing="Upper" MaxLength="5">
+                <TextBox.Text>
+                    <Binding Path="Tyre_Price" UpdateSourceTrigger="PropertyChanged" ValidatesOnDataErrors="True" Mode="TwoWay">
+                        <Binding.ValidationRules>
+                            <local:NumericRule></local:NumericRule>
+                        </Binding.ValidationRules>
+                    </Binding>
+                </TextBox.Text>
+            </TextBox>
+            <Button Name="tyre_details_update" Height="30" Background="#135" Width="120" Margin="120,20,0,0" Click="tyre_details_update_click">
+                <StackPanel Height="30" Width="120">
+                    <Label Height="30" Width="80" Margin="-35,0,0,0" Content="OKAY" FontFamily="cambria" FontSize="14" Foreground="White" HorizontalContentAlignment="Center"></Label>
+                    <!--<Image Name="tyre_update_img1" Height="30" Width="40" Margin="70,-30,0,0" Source="{WpfTools:ImageFromFont FontFamily=/Project_Transport;component/Resources/#FontAwesome,Text=&#xf093;,Brush=Black}"></Image>-->
+                    <Image Name="tyre_update_img2" Height="30" Width="40" Margin="70,-30,0,0" Visibility="Visible" Source="{WpfTools:ImageFromFont FontFamily=/Project_Transport;component/Resources/#FontAwesome,Text=&#xf00c;,Brush=WHITE}"></Image>
+                </StackPanel>
+            </Button>
+            <Button Height="30" Width="70" Margin="-200,-30,0,0" Content="BACK" Background="Gray" FontFamily="CAMBRIA" FontSize="14" Foreground="White" Click="tyre_details_back_clicked">
+
+            </Button>
+            <!--<Button Height="30" Width="70" Margin="270,10,0,0" Content="DELETE" FontFamily="CAMBRIA" FontSize="14" Foreground="White" Click="tyre_details_delete_clicked">
+                        <Button.Background>
+                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                <GradientStop Color="#FF84E1F5" Offset="0"/>
+                                <GradientStop Color="#FF3E5257" Offset="1"/>
+                            </LinearGradientBrush>
+                        </Button.Background>
+                    </Button>-->
+        </StackPanel>
+        <StackPanel Name="Existing_Tyre" Height="200" Margin="0 -50 0 0" Visibility="Hidden">
+            <Label Height="30" Width="150" Margin="-200,20,0,0" Content="TYRE NUMBER" FontFamily="cambria" FontSize="14" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"></Label>
+            <ComboBox Name="ex_vehicle_tyre_number" Height="30" Width="150" Margin="120,-30,0,0" IsEditable="True" GotFocus="vehicle_tyre_number_Gotfocus" >
+                <ComboBox.Text>
+                    <Binding Path="Tyre_No" UpdateSourceTrigger="PropertyChanged" ValidatesOnDataErrors="True" Mode="TwoWay">
+                        <Binding.ValidationRules>
+                            <local:NumericWithCharacterRule></local:NumericWithCharacterRule>
+                        </Binding.ValidationRules>
+                    </Binding>
+                </ComboBox.Text>
+            </ComboBox>
+            <Label Height="30" Width="150" Margin="-200,10,0,0" Content="STARTED KM" FontFamily="cambria" FontSize="14" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"></Label>
+            <TextBox Name="ex_vehicle_tyre_km" Height="30" Width="150" Margin="120,-30,0,0"  CharacterCasing="Upper" MaxLength="6" GotFocus="vehicle_tyre_km_GotFocus">
+                <TextBox.Text>
+                    <Binding Path="Start_Km" UpdateSourceTrigger="PropertyChanged" ValidatesOnDataErrors="True" Mode="TwoWay">
+                        <Binding.ValidationRules>
+                            <local:NumericRule></local:NumericRule>
+                        </Binding.ValidationRules>
+                    </Binding>
+                </TextBox.Text>
+            </TextBox>
+            <Label Height="30" Width="150" Margin="-200,10,0,0" Content="ADDED DATE" FontFamily="cambria" FontSize="14" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"></Label>
+            <DatePicker Name="ex_vehicle_tyre_add_date" Height="30" Width="150" Margin="120,-30,0,0"  SelectedDate="{x:Static date:DateTime.Now}" SelectedDateFormat="Short" DisplayDateEnd="{x:Static date:DateTime.Now}"></DatePicker>
+            <Button Height="30" Width="70" Margin="90 20 0 0" Background="#125" Foreground="White" Click="Add_Existing_Click">OKAY</Button>
+        </StackPanel>
+        <StackPanel Name="tyre_details_remove_panel" Height="290" Width="350" Margin="00,-40,0,0"  Visibility="Hidden" Background="White">
+            <Label Height="30" Width="150" Margin="-200,10,0,0" Content="TYRE NUMBER" FontFamily="cambria" FontSize="14" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"></Label>
+            <TextBox Name="rmv_vehicle_tyre_number" Height="30" Width="150" Margin="120,-30,0,0"  IsEnabled="False"  HorizontalContentAlignment="Center">
+            </TextBox>
+            <Label Height="30" Width="150" Margin="-200,10,0,0" Content="STARTED KM" FontFamily="cambria" FontSize="14" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"></Label>
+            <TextBox Name="rmv_vehicle_tyre_km" IsEnabled="False" Height="30" Width="150" Margin="120,-30,0,0"  CharacterCasing="Upper" MaxLength="6"  HorizontalContentAlignment="Center">
+            </TextBox>
+            <Label Height="30" Width="150" Margin="-200,10,0,0" Content="COMPANY NAME" FontFamily="cambria" FontSize="14" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"></Label>
+            <TextBox Name="rmv_vehicle_tyre_company" Height="30" Width="150" Margin="120,-30,0,0"  IsEnabled="False" HorizontalContentAlignment="Center" />
+            <Label Height="30" Width="150" Margin="-200,10,0,0" Content="ADDED DATE" FontFamily="cambria" FontSize="14" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"></Label>
+            <TextBox Name="rmv_vehicle_tyre_add_date" Height="30" Width="150" Margin="120,-30,0,0"  IsEnabled="False" HorizontalContentAlignment="Center"></TextBox>
+            <Label Height="30" Width="150" Margin="-200,10,0,0" Content="ENDED KM" FontFamily="cambria" FontSize="14" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"></Label>
+            <TextBox Name="rmv_vehicle_tyre_endkm" Height="30" Width="150" Margin="120,-30,0,0"  HorizontalContentAlignment="Center" MaxLength="6" TextChanged="rmv_vehicle_tyre_endkm_TextChanged"></TextBox>
+            <!--<Label Height="30" Width="150" Margin="-200,10,0,0" Content="PRICE" FontFamily="cambria" FontSize="14" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"></Label>
+                    <TextBox Name="tyre_price" Height="30" Width="150" Margin="120,-30,0,0"  CharacterCasing="Upper" MaxLength="5">
+                        <TextBox.Text>
+                            <Binding Path="Tyre_Price" UpdateSourceTrigger="PropertyChanged" ValidatesOnDataErrors="True" Mode="TwoWay">
+                                <Binding.ValidationRules>
+                                    <local:NumericRule></local:NumericRule>
+                                </Binding.ValidationRules>
+                            </Binding>
+                        </TextBox.Text>
+                    </TextBox>-->
+            <Button Name="Remove_tyre_details" Height="30" Background="#135" Width="80" Margin="120,20,0,0" Click="tyre_details_remove_click" Foreground="White">TEMPORARY
+                <!--<StackPanel Height="30" Width="120">
+                    <Label Height="30" Width="80" Margin="-35,0,0,0" Content="REMOVE" FontFamily="cambria" FontSize="14" Foreground="White" HorizontalContentAlignment="Center"></Label>
+                    --><!--<Image Name="tyre_update_img1" Height="30" Width="40" Margin="70,-30,0,0" Source="{WpfTools:ImageFromFont FontFamily=/Project_Transport;component/Resources/#FontAwesome,Text=&#xf093;,Brush=Black}"></Image>--><!--
+                    <Image Name="rmv_tyre_update_img2" Height="30" Width="40" Margin="70,-30,0,0" Visibility="Visible" Source="{WpfTools:ImageFromFont FontFamily=/Project_Transport;component/Resources/#FontAwesome,Text=&#xf00c;,Brush=WHITE}"></Image>
+                </StackPanel>-->
+            </Button>
+            <Button Height="30" Width="90" Margin="-100,-30,0,0" Content="PERMANENT" Background="Chocolate" FontFamily="CAMBRIA" FontSize="14" Foreground="White" Click="Remove_tyre_details_delete_clicked">
+            </Button>
+            <Button Height="30" Width="60" Margin=" -280 -30 0 0" Background="Gray" Foreground="White" Click="Remove_Back_Click">BACK</Button>
+        </StackPanel>
+    </Grid>
+</Window>

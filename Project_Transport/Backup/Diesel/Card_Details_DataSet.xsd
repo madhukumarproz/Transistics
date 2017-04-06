@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="Card_Details_DataSet" targetNamespace="http://tempuri.org/Card_Details_DataSet.xsd" xmlns:mstns="http://tempuri.org/Card_Details_DataSet.xsd" xmlns="http://tempuri.org/Card_Details_DataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="Card_Details_DataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="Card_Details_DataSet" msprop:Generator_UserDSName="Card_Details_DataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Card_Details_DataSet" msprop:Generator_TableClassName="Card_Details_DataSetDataTable" msprop:Generator_TableVarName="tableCard_Details_DataSet" msprop:Generator_TablePropName="_Card_Details_DataSet" msprop:Generator_RowDeletingName="Card_Details_DataSetRowDeleting" msprop:Generator_RowChangingName="Card_Details_DataSetRowChanging" msprop:Generator_RowEvHandlerName="Card_Details_DataSetRowChangeEventHandler" msprop:Generator_RowDeletedName="Card_Details_DataSetRowDeleted" msprop:Generator_UserTableName="Card_Details_DataSet" msprop:Generator_RowChangedName="Card_Details_DataSetRowChanged" msprop:Generator_RowEvArgName="Card_Details_DataSetRowChangeEvent" msprop:Generator_RowClassName="Card_Details_DataSetRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Corporation" msprop:Generator_ColumnVarNameInTable="columnCorporation" msprop:Generator_ColumnPropNameInRow="Corporation" msprop:Generator_ColumnPropNameInTable="CorporationColumn" msprop:Generator_UserColumnName="Corporation" type="xs:string" minOccurs="0" />
+              <xs:element name="Customer_Id" msprop:Generator_ColumnVarNameInTable="columnCustomer_Id" msprop:Generator_ColumnPropNameInRow="Customer_Id" msprop:Generator_ColumnPropNameInTable="Customer_IdColumn" msprop:Generator_UserColumnName="Customer_Id" type="xs:string" minOccurs="0" />
+              <xs:element name="Card_id" msprop:Generator_ColumnVarNameInTable="columnCard_id" msprop:Generator_ColumnPropNameInRow="Card_id" msprop:Generator_ColumnPropNameInTable="Card_idColumn" msprop:Generator_UserColumnName="Card_id" type="xs:string" minOccurs="0" />
+              <xs:element name="Vehicle_Number" msprop:Generator_ColumnVarNameInTable="columnVehicle_Number" msprop:Generator_ColumnPropNameInRow="Vehicle_Number" msprop:Generator_ColumnPropNameInTable="Vehicle_NumberColumn" msprop:Generator_UserColumnName="Vehicle_Number" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

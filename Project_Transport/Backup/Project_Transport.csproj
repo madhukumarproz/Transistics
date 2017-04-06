@@ -1,0 +1,922 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{83094CA5-DB03-45C6-AAFA-B91DC652D147}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Project_Transport</RootNamespace>
+    <AssemblyName>Project_Transport</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DGV Printer">
+      <HintPath>C:\Users\rajan\Downloads\DGV Printer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
+    <Reference Include="RibbonControlsLibrary, Version=4.0.0.11019, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Transport_App\Transport_App\bin\Debug\RibbonControlsLibrary.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Grid.Base">
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Syncfusion\Essential Studio\14.2.0.26\precompiledassemblies\14.2.0.26\4.0\Syncfusion.Grid.Base.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Grid.Windows">
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Syncfusion\Essential Studio\14.2.0.26\precompiledassemblies\14.2.0.26\4.0\Syncfusion.Grid.Windows.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.SfInput.WPF, Version=15.1400.0.33, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89" />
+    <Reference Include="Syncfusion.SfShared.WPF, Version=15.1400.0.33, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89" />
+    <Reference Include="Syncfusion.Shared.Base, Version=14.2400.0.26, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Syncfusion\Essential Studio\14.2.0.26\precompiledassemblies\14.2.0.26\4.0\Syncfusion.Shared.Base.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Shared.Windows, Version=14.2400.0.26, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Syncfusion\Essential Studio\14.2.0.26\precompiledassemblies\14.2.0.26\4.0\Syncfusion.Shared.Windows.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Shared.Wpf, Version=15.1400.0.33, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89" />
+    <Reference Include="Syncfusion.Tools.Base">
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Syncfusion\Essential Studio\14.2.0.26\precompiledassemblies\14.2.0.26\4.0\Syncfusion.Tools.Base.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Tools.Windows, Version=14.2400.0.26, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Syncfusion\Essential Studio\14.2.0.26\precompiledassemblies\14.2.0.26\4.0\Syncfusion.Tools.Windows.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Tools.Wpf, Version=15.1400.0.33, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89" />
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Printing" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Windows.Controls.DataVisualization.Toolkit">
+      <HintPath>..\..\..\download\WpfToolkitChart\WpfToolkitChart\bin\Debug\System.Windows.Controls.DataVisualization.Toolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Controls.Ribbon, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\System.Windows.Controls.Ribbon\System.Windows.Controls.Ribbon.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Controls.Ribbon.resources">
+      <HintPath>..\..\System.Windows.Controls.Ribbon.resources\System.Windows.Controls.Ribbon.resources.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="WindowsFormsIntegration" />
+    <Reference Include="WpfAnimatedGif">
+      <HintPath>..\..\Transport_App\Transport_App\bin\Debug\WpfAnimatedGif.dll</HintPath>
+    </Reference>
+    <Reference Include="WPFToolkit">
+      <HintPath>..\..\..\download\WpfToolkitChart\WpfToolkitChart\bin\Debug\WPFToolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="WpfTools">
+      <HintPath>..\..\Transport_App\Transport_App\bin\Debug\WpfTools.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="Admin\Baner_name.xaml.cs">
+      <DependentUpon>Baner_name.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Diesel\Card_Deposit_DataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Card_Deposit_DataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Diesel\Card_Details_DataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Card_Details_DataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="MainWindow1.xaml.cs">
+      <DependentUpon>MainWindow1.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Rules\Close_View.cs" />
+    <Compile Include="Rules\Close_View.Designer.cs" />
+    <Compile Include="Load\Close_View1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Close_View.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Control\Block.xaml.cs" />
+    <Compile Include="Control\LoadingAnimation.xaml.cs" />
+    <Compile Include="Rules\Count.cs" />
+    <Compile Include="Admin\Dashboard.xaml.cs" />
+    <Compile Include="Rules\DataSet1.Designer.cs" />
+    <Compile Include="Dataset\DataSet11.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Rules\DataSet2.Designer.cs" />
+    <Compile Include="Dataset\DataSet21.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSet2.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Diesel\Diesel_Card.xaml.cs">
+      <DependentUpon>Diesel_Card.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Diesel\Diesel_Card_Deposit.xaml.cs">
+      <DependentUpon>Diesel_Card_Deposit.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Diesel\Diesel_Card_Edit.xaml.cs">
+      <DependentUpon>Diesel_Card_Edit.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Diesel\Diesel_Card_View.xaml.cs">
+      <DependentUpon>Diesel_Card_View.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Diesel\Diesel_DataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Diesel_DataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Diesel\Diesel_Deposit_DataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Diesel_Deposit_DataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Diesel\Diesel_Entry_DataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Diesel_Entry_DataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Driver\Driver_Custom_DataSet.cs">
+      <DependentUpon>Driver_Custom_DataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Driver\Driver_Custom_DataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Driver_Custom_DataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Driver\Driver_Details.xaml.cs">
+      <DependentUpon>Driver_Details.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Driver\Driver_Fullview_DataSet.cs">
+      <DependentUpon>Driver_Fullview_DataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Driver\Driver_Fullview_DataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Driver_Fullview_DataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Driver\Driver_Payment.xaml.cs">
+      <DependentUpon>Driver_Payment.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Driver\Driver_Update.xaml.cs">
+      <DependentUpon>Driver_Update.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Driver\Driver_View.xaml.cs">
+      <DependentUpon>Driver_View.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Expenses\Electrician_Expense.xaml.cs">
+      <DependentUpon>Electrician_Expense.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Expiry\Expiry.Designer.cs" />
+    <Compile Include="Expiry\Expiry1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Expiry.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Expiry\Expiry_bill.xaml.cs" />
+    <Compile Include="Expiry\Expiry_bill_update.xaml.cs" />
+    <Compile Include="Expiry\Expiry_string.cs" />
+    <Compile Include="Expiry\Expiry_update.cs" />
+    <Compile Include="Expiry\Expiry_view.xaml.cs" />
+    <Compile Include="Rules\Get_String.cs" />
+    <Compile Include="Dataset\Load_DataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Load_DataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Driver\Load_Payment.xaml.cs">
+      <DependentUpon>Load_Payment.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Load\load_string.cs" />
+    <Compile Include="Load\Load_Trailer.xaml.cs" />
+    <Compile Include="Load\load_trailer_String.cs" />
+    <Compile Include="Load\Load_Trailer_Trip_View.xaml.cs" />
+    <Compile Include="Tyre\load_tyre.xaml.cs" />
+    <Compile Include="Tyre\load_tyre_view.xaml.cs" />
+    <Compile Include="Load\Load_update.cs" />
+    <Compile Include="Theme\Loding_Window.xaml.cs">
+      <DependentUpon>Loding_Window.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Login.xaml.cs">
+      <DependentUpon>Login.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Rules\Login_page.cs" />
+    <Compile Include="Expenses\Body_Expense.xaml.cs">
+      <DependentUpon>Body_Expense.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Dataset\Lpg_DataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Lpg_DataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Maintenance\Maintenance_DataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Maintenance_DataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Maintenance\Maintenance_DataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Maintenance_DataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Maintenance\Maintenance_view.xaml.cs">
+      <DependentUpon>Maintenance_view.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Expenses\Mechanical_Expense.xaml.cs">
+      <DependentUpon>Mechanical_Expense.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Dataset\OnTrip_Dataset.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>OnTrip_Dataset.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Expenses\Other_Expense.xaml.cs">
+      <DependentUpon>Other_Expense.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Driver\Payment_Year_Wise_DataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Payment_Year_Wise_DataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="vehicle\Profit_Viewer.xaml.cs">
+      <DependentUpon>Profit_Viewer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Rules\SecureMessage.cs" />
+    <Compile Include="Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Rules\Title.cs" />
+    <Compile Include="Load\Trailer_Trip_Entry.xaml.cs">
+      <DependentUpon>Trailer_Trip_Entry.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Tyre\Trailer_Tyre_Entry.xaml.cs">
+      <DependentUpon>Trailer_Tyre_Entry.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Tyre\Trailer_Tyre_View.xaml.cs">
+      <DependentUpon>Trailer_Tyre_View.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Transport_List.xaml.cs">
+      <DependentUpon>Transport_List.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Expenses\Shop_Expense.xaml.cs">
+      <DependentUpon>Shop_Expense.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Expenses\Tank_Expense.xaml.cs">
+      <DependentUpon>Tank_Expense.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Dataset\Trip_Diesel_DataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Trip_Diesel_DataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Lpg\Trip_Entry.xaml.cs">
+      <DependentUpon>Trip_Entry.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Rules\Trip_Load.cs" />
+    <Compile Include="Dataset\Trip_Load_DataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Trip_Load_DataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Dataset\Trip_Unload_DataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Trip_Unload_DataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Lpg\Trip_Update.xaml.cs">
+      <DependentUpon>Trip_Update.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Lpg\Trip_View.xaml.cs">
+      <DependentUpon>Trip_View.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Tyre\tyre.xaml.cs" />
+    <Compile Include="Maintenance\Tyre_Maintenance.xaml.cs">
+      <DependentUpon>Tyre_Maintenance.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Rules\Unload.Designer.cs" />
+    <Compile Include="Dataset\Unload1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Unload.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Load\Update.xaml.cs" />
+    <Compile Include="Admin\UserCreation.xaml.cs">
+      <DependentUpon>UserCreation.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Rules\Validation.cs" />
+    <Compile Include="Rules\Validation_Rules.cs" />
+    <Compile Include="vehicle\Vehicle_Details.xaml.cs">
+      <DependentUpon>Vehicle_Details.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="vehicle\Vehicle_Update.xaml.cs">
+      <DependentUpon>Vehicle_Update.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="vehicle\Vehicle_View.xaml.cs">
+      <DependentUpon>Vehicle_View.xaml</DependentUpon>
+    </Compile>
+    <Page Include="Admin\Baner_name.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Control\Block.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Control\LoadingAnimation.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Admin\Dashboard.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Diesel\Diesel_Card.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Diesel\Diesel_Card_Deposit.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Diesel\Diesel_Card_Edit.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Diesel\Diesel_Card_View.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Driver\Driver_Details.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Driver\Driver_Payment.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Driver\Driver_Update.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Driver\Driver_View.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Expenses\Electrician_Expense.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Expiry\Expiry_bill.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Expiry\Expiry_bill_update.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Expiry\Expiry_view.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Driver\Load_Payment.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Load\Load_Trailer.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Load\Load_Trailer_Trip_View.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="MainWindow1.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="MS control.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Tyre\load_tyre.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Tyre\load_tyre_view.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Theme\Loding_Window.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Admin\Login.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Expenses\Body_Expense.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Maintenance\Maintenance_view.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Rules\Connection.cs" />
+    <Compile Include="Rules\ImageFromFont.cs" />
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="Expenses\Mechanical_Expense.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Expenses\Other_Expense.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="vehicle\Profit_Viewer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Load\Trailer_Trip_Entry.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Tyre\Trailer_Tyre_Entry.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Tyre\Trailer_Tyre_View.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Admin\Transport_List.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Expenses\Shop_Expense.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Expenses\Tank_Expense.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Lpg\Trip_Entry.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Lpg\Trip_Update.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Lpg\Trip_View.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Tyre\tyre.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Maintenance\Tyre_Maintenance.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Load\Update.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Admin\UserCreation.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="vehicle\Vehicle_Details.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="vehicle\Vehicle_Update.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="vehicle\Vehicle_View.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Diesel\Card_Report.rdlc" />
+    <EmbeddedResource Include="Rdlc\Close_View.rdlc" />
+    <EmbeddedResource Include="Diesel\Deposit_Report.rdlc" />
+    <EmbeddedResource Include="Diesel\Diesel_Deposit_Report.rdlc" />
+    <EmbeddedResource Include="Diesel\Diesel_Entry_Report.rdlc" />
+    <EmbeddedResource Include="Rdlc\Driver_Custom_Report.rdlc" />
+    <EmbeddedResource Include="Rdlc\Driver_Full_Report.rdlc" />
+    <EmbeddedResource Include="Rdlc\Driver_Payment_Report.rdlc" />
+    <EmbeddedResource Include="Rdlc\Driver_Pay_Report.rdlc" />
+    <EmbeddedResource Include="Rdlc\Expiry_view.rdlc" />
+    <EmbeddedResource Include="Rdlc\Load_Report.rdlc" />
+    <EmbeddedResource Include="Rdlc\load_tyre.rdlc" />
+    <EmbeddedResource Include="Rdlc\Load_Viewrdlc.rdlc" />
+    <EmbeddedResource Include="Rdlc\Lpg_Report.rdlc" />
+    <EmbeddedResource Include="Rdlc\Lpg_Trip_Report.rdlc" />
+    <EmbeddedResource Include="Rdlc\Lpg_Trip_Report1.rdlc" />
+    <EmbeddedResource Include="Rdlc\Lpg_Trip_Report2.rdlc" />
+    <EmbeddedResource Include="Rdlc\Maintenance_Report.rdlc" />
+    <EmbeddedResource Include="Rdlc\Maintenance_Report1.rdlc" />
+    <EmbeddedResource Include="Rdlc\Profit_Report.rdlc" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rdlc\Report1.rdlc" />
+    <EmbeddedResource Include="Rdlc\Report2.rdlc" />
+    <EmbeddedResource Include="Rdlc\Single_Vehicle_Report.rdlc" />
+    <EmbeddedResource Include="Rdlc\Trailer_Tyre_Report.rdlc" />
+    <EmbeddedResource Include="Rdlc\Trip_Diesel_Report.rdlc" />
+    <EmbeddedResource Include="Rdlc\Tyre_Details_Report.rdlc" />
+    <EmbeddedResource Include="Rdlc\Unload.rdlc" />
+    <EmbeddedResource Include="Rdlc\Unload_View.rdlc" />
+    <EmbeddedResource Include="Rdlc\Year_Wise_Payment_Report.rdlc" />
+    <None Include="App.config" />
+    <None Include="Diesel\Card_Deposit_DataSet.xsc">
+      <DependentUpon>Card_Deposit_DataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Diesel\Card_Deposit_DataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Card_Deposit_DataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Diesel\Card_Deposit_DataSet.xss">
+      <DependentUpon>Card_Deposit_DataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Diesel\Card_Details_DataSet.xsc">
+      <DependentUpon>Card_Details_DataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Diesel\Card_Details_DataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Card_Details_DataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Diesel\Card_Details_DataSet.xss">
+      <DependentUpon>Card_Details_DataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Load\Close_View.xsc">
+      <DependentUpon>Close_View.xsd</DependentUpon>
+    </None>
+    <None Include="Load\Close_View.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Close_View1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Load\Close_View.xss">
+      <DependentUpon>Close_View.xsd</DependentUpon>
+    </None>
+    <None Include="Dataset\DataSet1.xsc">
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="Dataset\DataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSet11.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Dataset\DataSet1.xss">
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="Dataset\DataSet2.xsc">
+      <DependentUpon>DataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="Dataset\DataSet2.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSet21.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Dataset\DataSet2.xss">
+      <DependentUpon>DataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="Diesel\Diesel_DataSet.xsc">
+      <DependentUpon>Diesel_DataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Diesel\Diesel_DataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Diesel_DataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Diesel\Diesel_DataSet.xss">
+      <DependentUpon>Diesel_DataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Diesel\Diesel_Deposit_DataSet.xsc">
+      <DependentUpon>Diesel_Deposit_DataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Diesel\Diesel_Deposit_DataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Diesel_Deposit_DataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Diesel\Diesel_Deposit_DataSet.xss">
+      <DependentUpon>Diesel_Deposit_DataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Diesel\Diesel_Entry_DataSet.xsc">
+      <DependentUpon>Diesel_Entry_DataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Diesel\Diesel_Entry_DataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Diesel_Entry_DataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Diesel\Diesel_Entry_DataSet.xss">
+      <DependentUpon>Diesel_Entry_DataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Driver\Driver_Custom_DataSet.xsc">
+      <DependentUpon>Driver_Custom_DataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Driver\Driver_Custom_DataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Driver_Custom_DataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Driver\Driver_Custom_DataSet.xss">
+      <DependentUpon>Driver_Custom_DataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Driver\Driver_Fullview_DataSet.xsc">
+      <DependentUpon>Driver_Fullview_DataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Driver\Driver_Fullview_DataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Driver_Fullview_DataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Driver\Driver_Fullview_DataSet.xss">
+      <DependentUpon>Driver_Fullview_DataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Expiry\Expiry.xsc">
+      <DependentUpon>Expiry.xsd</DependentUpon>
+    </None>
+    <None Include="Expiry\Expiry.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Expiry1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Expiry\Expiry.xss">
+      <DependentUpon>Expiry.xsd</DependentUpon>
+    </None>
+    <None Include="Dataset\Load_DataSet.xsc">
+      <DependentUpon>Load_DataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Dataset\Load_DataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Load_DataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Dataset\Load_DataSet.xss">
+      <DependentUpon>Load_DataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Dataset\Lpg_DataSet.xsc">
+      <DependentUpon>Lpg_DataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Dataset\Lpg_DataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Lpg_DataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Dataset\Lpg_DataSet.xss">
+      <DependentUpon>Lpg_DataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Maintenance\Maintenance_DataSet.xsc">
+      <DependentUpon>Maintenance_DataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Maintenance\Maintenance_DataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Maintenance_DataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Maintenance\Maintenance_DataSet.xss">
+      <DependentUpon>Maintenance_DataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Maintenance\Maintenance_DataSet1.xsc">
+      <DependentUpon>Maintenance_DataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="Maintenance\Maintenance_DataSet1.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Maintenance_DataSet1.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Maintenance\Maintenance_DataSet1.xss">
+      <DependentUpon>Maintenance_DataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="Dataset\OnTrip_Dataset.xsc">
+      <DependentUpon>OnTrip_Dataset.xsd</DependentUpon>
+    </None>
+    <None Include="Dataset\OnTrip_Dataset.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>OnTrip_Dataset.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Dataset\OnTrip_Dataset.xss">
+      <DependentUpon>OnTrip_Dataset.xsd</DependentUpon>
+    </None>
+    <None Include="Driver\Payment_Year_Wise_DataSet.xsc">
+      <DependentUpon>Payment_Year_Wise_DataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Driver\Payment_Year_Wise_DataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Payment_Year_Wise_DataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Driver\Payment_Year_Wise_DataSet.xss">
+      <DependentUpon>Payment_Year_Wise_DataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+    <None Include="Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Dataset\Trip_Diesel_DataSet.xsc">
+      <DependentUpon>Trip_Diesel_DataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Dataset\Trip_Diesel_DataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Trip_Diesel_DataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Dataset\Trip_Diesel_DataSet.xss">
+      <DependentUpon>Trip_Diesel_DataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Dataset\Trip_Load_DataSet.xsc">
+      <DependentUpon>Trip_Load_DataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Dataset\Trip_Load_DataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Trip_Load_DataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Dataset\Trip_Load_DataSet.xss">
+      <DependentUpon>Trip_Load_DataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Dataset\Trip_Unload_DataSet.xsc">
+      <DependentUpon>Trip_Unload_DataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Dataset\Trip_Unload_DataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Trip_Unload_DataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Dataset\Trip_Unload_DataSet.xss">
+      <DependentUpon>Trip_Unload_DataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Dataset\Unload.xsc">
+      <DependentUpon>Unload.xsd</DependentUpon>
+    </None>
+    <None Include="Dataset\Unload.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Unload1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Dataset\Unload.xss">
+      <DependentUpon>Unload.xsd</DependentUpon>
+    </None>
+    <Resource Include="Resources\fontawesome-webfont.ttf" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\background2.jpg" />
+    <Resource Include="Resources\Images\daf.jpg" />
+    <Resource Include="Resources\Images\green_vinayagar.gif" />
+    <Resource Include="Resources\Images\hd-truck.jpg" />
+    <Resource Include="Resources\Images\lpg.jpg" />
+    <Resource Include="Resources\Images\truck.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\whenWhere.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\final.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\ProZ_logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icon\ProZ_72 x 72.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.0">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.4.5">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 4.5</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\stp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\load.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Text\TextFile1.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Ribbon\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

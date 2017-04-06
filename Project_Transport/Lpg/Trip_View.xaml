@@ -1,0 +1,117 @@
+﻿<UserControl x:Class="Project_Transport.Trip_View"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:WpfTools="clr-namespace:WpfTools;assembly=WpfTools"
+             xmlns:date="clr-namespace:System;assembly=mscorlib"
+             xmlns:rv="clr-namespace:Microsoft.Reporting.WinForms;assembly=Microsoft.ReportViewer.WinForms"
+             xmlns:local="clr-namespace:Project_Transport"
+             mc:Ignorable="d" 
+             d:DesignHeight="700" d:DesignWidth="1250">
+    <Grid>
+        <StackPanel Height="550"  Margin="0,105 0,0" Name="lpg_load_vehicle_fulldetails_view_panel">
+            <StackPanel.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF80F5DB" Offset="0"/>
+                    <GradientStop Color="#FFB0A5C3" Offset="1"/>
+                </LinearGradientBrush>
+            </StackPanel.Background>
+            <RadioButton Name="on_trip_check" Height="25" Width="150" Margin="-1000,10,0,0" Content="ON-TRIP VIEW"  VerticalContentAlignment="Center" Checked="on_trip_checked"></RadioButton>
+            
+            <RadioButton Name="unloaded_check" Height="25" Width="150" Margin="-700,-25,0,0" Content="UNLOADED VIEW" VerticalContentAlignment="Center" Checked="unloaded_cheched"></RadioButton>
+            <RadioButton Name="closed_check" Height="25" Width="150" Margin="-400,-25,0,0" Content="CLOSED VIEW" VerticalContentAlignment="Center" Checked="closed_checked"></RadioButton>
+            <TextBox Name="lpg_trip_expense" Height="30" Width="150" Margin="-1000,20,0,0" KeyDown="lpg_trip_expense_keydown" CharacterCasing="Upper" MaxLength="16">
+                <TextBox.Text>
+                    <Binding Path="Trip_View_Number" UpdateSourceTrigger="PropertyChanged" ValidatesOnDataErrors="True" Mode="TwoWay">
+                        <Binding.ValidationRules>
+                            <local:NumericWithCharacterRule></local:NumericWithCharacterRule>
+                        </Binding.ValidationRules>
+                    </Binding>
+                </TextBox.Text>
+            </TextBox>
+            <ComboBox Name="viewcmb" Height="30" Width="150" Margin="-1000,-30,0,0" IsEditable="True"  KeyDown="viewcmb_KeyDown">
+                <ComboBox.Text>
+                    <Binding Path="Trip_Vehicle_Number" UpdateSourceTrigger="PropertyChanged" ValidatesOnDataErrors="True" Mode="TwoWay">
+                        <Binding.ValidationRules>
+                            <local:NumericWithCharacterRule></local:NumericWithCharacterRule>
+                        </Binding.ValidationRules>
+                    </Binding>
+                </ComboBox.Text>
+            </ComboBox>
+            <Button Name="Okay_btn" Height="30" Width="100" Margin="-730,-30,0,0" Content="OKAY" FontFamily="cambria" FontSize="16" HorizontalContentAlignment="Center" Click="Trip_View_Okay_Button_Click">
+                <Button.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FFF7F0F0" Offset="0"/>
+                        <GradientStop Color="#FFB0ABAB" Offset="1"/>
+                    </LinearGradientBrush>
+                </Button.Background>
+            </Button>
+            <Label Name="l1" Height="30" Width="75" Margin="-770,-30,0,0" Content="MONTH" FontFamily="cambria" FontSize="16" HorizontalContentAlignment="Center"></Label>
+            <ComboBox  Name="lpg_from" Height="30" Width="120" Margin="-550,-30,0,0"  IsEditable="True" PreviewKeyDown="Trip_View_Month_PreviewKeydown" KeyDown="lpg_from_KeyDown">
+                <ComboBoxItem>01-JAN</ComboBoxItem>
+                <ComboBoxItem>02-FEB</ComboBoxItem>
+                <ComboBoxItem>03-MAR</ComboBoxItem>
+                <ComboBoxItem>04-APR</ComboBoxItem>
+                <ComboBoxItem>05-MAY</ComboBoxItem>
+                <ComboBoxItem>06-JUN</ComboBoxItem>
+                <ComboBoxItem>07-JUL</ComboBoxItem>
+                <ComboBoxItem>08-AUG</ComboBoxItem>
+                <ComboBoxItem>09-SEP</ComboBoxItem>
+                <ComboBoxItem>10-OCT</ComboBoxItem>
+                <ComboBoxItem>11-NOV</ComboBoxItem>
+                <ComboBoxItem>12-DEC</ComboBoxItem>
+                <ComboBox.Text>
+                    <Binding Path="Trip_View_Month" UpdateSourceTrigger="PropertyChanged" ValidatesOnDataErrors="True" Mode="TwoWay">
+                        <Binding.ValidationRules>
+                            <local:NumericWithCharacterhifenRule></local:NumericWithCharacterhifenRule>
+                        </Binding.ValidationRules>
+                    </Binding>
+                </ComboBox.Text>
+            </ComboBox>
+            <Label Name="l2" Height="30" Width="50" Margin="-370,-30,0,0" Content="YEAR" FontFamily="cambria" FontSize="16" HorizontalContentAlignment="Center"></Label>
+            <ComboBox Name="lpg_to" Height="30" Width="120" Margin="-170,-30,0,0" IsEditable="True" PreviewKeyDown="Trip_View_Year_PreviewKeydown" KeyDown="lpg_to_KeyDown">
+                <ComboBox.Text>
+                    <Binding Path="Trip_View_Year" UpdateSourceTrigger="PropertyChanged" ValidatesOnDataErrors="True" Mode="TwoWay">
+                        <Binding.ValidationRules>
+                            <local:NumericRule></local:NumericRule>
+                        </Binding.ValidationRules>
+                    </Binding>
+                </ComboBox.Text>
+            </ComboBox>
+            <Button Name="b1" Height="40" Width="150" Margin="150,-40,0,0" Click="lpg_datewise_view_click">
+                <StackPanel Height="40" Width="150">
+                    <StackPanel.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FFB0CBC2" Offset="0"/>
+                            <GradientStop Color="#FFEEF59A" Offset="1"/>
+                        </LinearGradientBrush>
+                    </StackPanel.Background>
+                    <Label Height="35" Width="100" Margin="0,0,50,0" Content="SEARCH" FontFamily="CAMBRIA" FontSize="18" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"></Label>
+                    <Image Height="35" Width="50" Margin="90,-35,0,0" Source="{WpfTools:ImageFromFont FontFamily=/Project_Transport;component/Resources/#FontAwesome,Text=&#xf002;,Brush=black}"></Image>
+                </StackPanel>
+            </Button>
+            <!--<CheckBox Name="calculate" Height="30" Width="150" Margin="470,-40,0,0" VerticalContentAlignment="Center" Content="CALCULATE" FontFamily="CAMBRIA" FontSize="14" Checked="calculate_checked"></CheckBox>-->
+            <DataGrid Name="lpg_load_details_view" Height="400" Width="1230" Margin="0,5,0,0"></DataGrid>
+            <StackPanel Height="400" Margin="0,-400,0,0" Name="Load">
+            <WindowsFormsHost Height="400" Margin="0,0,0,0" Background="White">
+                <rv:ReportViewer x:Name="Trip_Viewer"></rv:ReportViewer>
+            </WindowsFormsHost>
+            </StackPanel>
+            <!--<StackPanel Height="400" Margin="0,-400,0,0" Name="Unload">
+                <WindowsFormsHost Height="400" Margin="0,0,0,0" Background="White">
+                    <rv:ReportViewer x:Name="Trip_Viewer1"></rv:ReportViewer>
+                </WindowsFormsHost>
+            </StackPanel>
+            <StackPanel Height="400" Margin="0,-400,0,0" Name="Closed">
+                <WindowsFormsHost Height="400" Margin="0,0,0,0" Background="White">
+                    <rv:ReportViewer x:Name="Trip_Viewer2"></rv:ReportViewer>
+                </WindowsFormsHost>
+            </StackPanel>-->
+
+           
+           
+
+        </StackPanel>
+    </Grid>
+</UserControl>

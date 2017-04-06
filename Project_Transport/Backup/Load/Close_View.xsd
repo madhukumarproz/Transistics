@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="Close_View" targetNamespace="http://tempuri.org/Close_View.xsd" xmlns:mstns="http://tempuri.org/Close_View.xsd" xmlns="http://tempuri.org/Close_View.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="Close_View" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="Close_View" msprop:Generator_UserDSName="Close_View">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="DataTable1" msprop:Generator_TableClassName="DataTable1DataTable" msprop:Generator_TableVarName="tableDataTable1" msprop:Generator_TablePropName="DataTable1" msprop:Generator_RowDeletingName="DataTable1RowDeleting" msprop:Generator_RowChangingName="DataTable1RowChanging" msprop:Generator_RowEvHandlerName="DataTable1RowChangeEventHandler" msprop:Generator_RowDeletedName="DataTable1RowDeleted" msprop:Generator_UserTableName="DataTable1" msprop:Generator_RowChangedName="DataTable1RowChanged" msprop:Generator_RowEvArgName="DataTable1RowChangeEvent" msprop:Generator_RowClassName="DataTable1Row">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="LoadDate" msprop:Generator_ColumnVarNameInTable="columnLoadDate" msprop:Generator_ColumnPropNameInRow="LoadDate" msprop:Generator_ColumnPropNameInTable="LoadDateColumn" msprop:Generator_UserColumnName="LoadDate" type="xs:string" minOccurs="0" />
+              <xs:element name="DriverId" msprop:Generator_ColumnVarNameInTable="columnDriverId" msprop:Generator_ColumnPropNameInRow="DriverId" msprop:Generator_ColumnPropNameInTable="DriverIdColumn" msprop:Generator_UserColumnName="DriverId" type="xs:string" minOccurs="0" />
+              <xs:element name="LoadName" msprop:Generator_ColumnVarNameInTable="columnLoadName" msprop:Generator_ColumnPropNameInRow="LoadName" msprop:Generator_ColumnPropNameInTable="LoadNameColumn" msprop:Generator_UserColumnName="LoadName" type="xs:string" minOccurs="0" />
+              <xs:element name="Origin" msprop:Generator_ColumnVarNameInTable="columnOrigin" msprop:Generator_ColumnPropNameInRow="Origin" msprop:Generator_ColumnPropNameInTable="OriginColumn" msprop:Generator_UserColumnName="Origin" type="xs:string" minOccurs="0" />
+              <xs:element name="Destination" msprop:Generator_ColumnVarNameInTable="columnDestination" msprop:Generator_ColumnPropNameInRow="Destination" msprop:Generator_ColumnPropNameInTable="DestinationColumn" msprop:Generator_UserColumnName="Destination" type="xs:string" minOccurs="0" />
+              <xs:element name="StartingKm" msprop:Generator_ColumnVarNameInTable="columnStartingKm" msprop:Generator_ColumnPropNameInRow="StartingKm" msprop:Generator_ColumnPropNameInTable="StartingKmColumn" msprop:Generator_UserColumnName="StartingKm" type="xs:string" minOccurs="0" />
+              <xs:element name="ChallonNo" msprop:Generator_ColumnVarNameInTable="columnChallonNo" msprop:Generator_ColumnPropNameInRow="ChallonNo" msprop:Generator_ColumnPropNameInTable="ChallonNoColumn" msprop:Generator_UserColumnName="ChallonNo" type="xs:string" minOccurs="0" />
+              <xs:element name="DriverAdvance" msprop:Generator_ColumnVarNameInTable="columnDriverAdvance" msprop:Generator_ColumnPropNameInRow="DriverAdvance" msprop:Generator_ColumnPropNameInTable="DriverAdvanceColumn" msprop:Generator_UserColumnName="DriverAdvance" type="xs:string" minOccurs="0" />
+              <xs:element name="LoadAdvance" msprop:Generator_ColumnVarNameInTable="columnLoadAdvance" msprop:Generator_ColumnPropNameInRow="LoadAdvance" msprop:Generator_ColumnPropNameInTable="LoadAdvanceColumn" msprop:Generator_UserColumnName="LoadAdvance" type="xs:string" minOccurs="0" />
+              <xs:element name="TripFrieght" msprop:Generator_ColumnVarNameInTable="columnTripFrieght" msprop:Generator_ColumnPropNameInRow="TripFrieght" msprop:Generator_ColumnPropNameInTable="TripFrieghtColumn" msprop:Generator_UserColumnName="TripFrieght" type="xs:string" minOccurs="0" />
+              <xs:element name="ClinerName" msprop:Generator_ColumnVarNameInTable="columnClinerName" msprop:Generator_ColumnPropNameInRow="ClinerName" msprop:Generator_ColumnPropNameInTable="ClinerNameColumn" msprop:Generator_UserColumnName="ClinerName" type="xs:string" minOccurs="0" />
+              <xs:element name="LoadType" msprop:Generator_ColumnVarNameInTable="columnLoadType" msprop:Generator_ColumnPropNameInRow="LoadType" msprop:Generator_ColumnPropNameInTable="LoadTypeColumn" msprop:Generator_UserColumnName="LoadType" type="xs:string" minOccurs="0" />
+              <xs:element name="LoadWeight" msprop:Generator_ColumnVarNameInTable="columnLoadWeight" msprop:Generator_ColumnPropNameInRow="LoadWeight" msprop:Generator_ColumnPropNameInTable="LoadWeightColumn" msprop:Generator_UserColumnName="LoadWeight" type="xs:string" minOccurs="0" />
+              <xs:element name="UnloadDate" msprop:Generator_ColumnVarNameInTable="columnUnloadDate" msprop:Generator_ColumnPropNameInRow="UnloadDate" msprop:Generator_ColumnPropNameInTable="UnloadDateColumn" msprop:Generator_UserColumnName="UnloadDate" type="xs:string" minOccurs="0" />
+              <xs:element name="EndingKm" msprop:Generator_ColumnVarNameInTable="columnEndingKm" msprop:Generator_ColumnPropNameInRow="EndingKm" msprop:Generator_ColumnPropNameInTable="EndingKmColumn" msprop:Generator_UserColumnName="EndingKm" type="xs:string" minOccurs="0" />
+              <xs:element name="TotalKm" msprop:Generator_ColumnVarNameInTable="columnTotalKm" msprop:Generator_ColumnPropNameInRow="TotalKm" msprop:Generator_ColumnPropNameInTable="TotalKmColumn" msprop:Generator_UserColumnName="TotalKm" type="xs:string" minOccurs="0" />
+              <xs:element name="UnloadWeight" msprop:Generator_ColumnVarNameInTable="columnUnloadWeight" msprop:Generator_ColumnPropNameInRow="UnloadWeight" msprop:Generator_ColumnPropNameInTable="UnloadWeightColumn" msprop:Generator_UserColumnName="UnloadWeight" type="xs:string" minOccurs="0" />
+              <xs:element name="Payment" msprop:Generator_ColumnVarNameInTable="columnPayment" msprop:Generator_ColumnPropNameInRow="Payment" msprop:Generator_ColumnPropNameInTable="PaymentColumn" msprop:Generator_UserColumnName="Payment" type="xs:string" minOccurs="0" />
+              <xs:element name="TripExpense" msprop:Generator_ColumnVarNameInTable="columnTripExpense" msprop:Generator_ColumnPropNameInRow="TripExpense" msprop:Generator_ColumnPropNameInTable="TripExpenseColumn" msprop:Generator_UserColumnName="TripExpense" type="xs:string" minOccurs="0" />
+              <xs:element name="TripDiesel" msprop:Generator_ColumnVarNameInTable="columnTripDiesel" msprop:Generator_ColumnPropNameInRow="TripDiesel" msprop:Generator_ColumnPropNameInTable="TripDieselColumn" msprop:Generator_UserColumnName="TripDiesel" type="xs:string" minOccurs="0" />
+              <xs:element name="DieselAmount" msprop:Generator_ColumnVarNameInTable="columnDieselAmount" msprop:Generator_ColumnPropNameInRow="DieselAmount" msprop:Generator_ColumnPropNameInTable="DieselAmountColumn" msprop:Generator_UserColumnName="DieselAmount" type="xs:string" minOccurs="0" />
+              <xs:element name="TripMileage" msprop:Generator_ColumnVarNameInTable="columnTripMileage" msprop:Generator_ColumnPropNameInRow="TripMileage" msprop:Generator_ColumnPropNameInTable="TripMileageColumn" msprop:Generator_UserColumnName="TripMileage" type="xs:string" minOccurs="0" />
+              <xs:element name="FrieghtReduction" msprop:Generator_ColumnVarNameInTable="columnFrieghtReduction" msprop:Generator_ColumnPropNameInRow="FrieghtReduction" msprop:Generator_ColumnPropNameInTable="FrieghtReductionColumn" msprop:Generator_UserColumnName="FrieghtReduction" type="xs:string" minOccurs="0" />
+              <xs:element name="TripProfit" msprop:Generator_ColumnVarNameInTable="columnTripProfit" msprop:Generator_ColumnPropNameInRow="TripProfit" msprop:Generator_ColumnPropNameInTable="TripProfitColumn" msprop:Generator_UserColumnName="TripProfit" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

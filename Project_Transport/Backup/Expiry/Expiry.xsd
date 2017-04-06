@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="Expiry" targetNamespace="http://tempuri.org/Expiry.xsd" xmlns:mstns="http://tempuri.org/Expiry.xsd" xmlns="http://tempuri.org/Expiry.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="Expiry" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="Expiry" msprop:Generator_UserDSName="Expiry">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Expiry1" msprop:Generator_TableClassName="Expiry1DataTable" msprop:Generator_TableVarName="tableExpiry1" msprop:Generator_TablePropName="Expiry1" msprop:Generator_RowDeletingName="Expiry1RowDeleting" msprop:Generator_RowChangingName="Expiry1RowChanging" msprop:Generator_RowEvHandlerName="Expiry1RowChangeEventHandler" msprop:Generator_RowDeletedName="Expiry1RowDeleted" msprop:Generator_UserTableName="Expiry1" msprop:Generator_RowChangedName="Expiry1RowChanged" msprop:Generator_RowEvArgName="Expiry1RowChangeEvent" msprop:Generator_RowClassName="Expiry1Row">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Expiry_type" msprop:Generator_ColumnVarNameInTable="columnExpiry_type" msprop:Generator_ColumnPropNameInRow="Expiry_type" msprop:Generator_ColumnPropNameInTable="Expiry_typeColumn" msprop:Generator_UserColumnName="Expiry_type" type="xs:string" minOccurs="0" />
+              <xs:element name="From_date" msprop:Generator_ColumnVarNameInTable="columnFrom_date" msprop:Generator_ColumnPropNameInRow="From_date" msprop:Generator_ColumnPropNameInTable="From_dateColumn" msprop:Generator_UserColumnName="From_date" type="xs:string" minOccurs="0" />
+              <xs:element name="To_date" msprop:Generator_ColumnVarNameInTable="columnTo_date" msprop:Generator_ColumnPropNameInRow="To_date" msprop:Generator_ColumnPropNameInTable="To_dateColumn" msprop:Generator_UserColumnName="To_date" type="xs:string" minOccurs="0" />
+              <xs:element name="Paid_amount" msprop:Generator_ColumnVarNameInTable="columnPaid_amount" msprop:Generator_ColumnPropNameInRow="Paid_amount" msprop:Generator_ColumnPropNameInTable="Paid_amountColumn" msprop:Generator_UserColumnName="Paid_amount" type="xs:string" minOccurs="0" />
+              <xs:element name="Paid_date" msprop:Generator_ColumnVarNameInTable="columnPaid_date" msprop:Generator_ColumnPropNameInRow="Paid_date" msprop:Generator_ColumnPropNameInTable="Paid_dateColumn" msprop:Generator_UserColumnName="Paid_date" type="xs:string" minOccurs="0" />
+              <xs:element name="Number" msprop:Generator_ColumnVarNameInTable="columnNumber" msprop:Generator_ColumnPropNameInRow="Number" msprop:Generator_ColumnPropNameInTable="NumberColumn" msprop:Generator_UserColumnName="Number" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

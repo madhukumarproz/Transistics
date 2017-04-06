@@ -1,0 +1,15 @@
+E:\pos\Project_Transport\Settings\bin\Debug\Settings.exe
+E:\pos\Project_Transport\Settings\bin\Debug\Settings.pdb
+E:\pos\Project_Transport\Settings\bin\Debug\WpfTools.dll
+E:\pos\Project_Transport\Settings\bin\Debug\WpfTools.pdb
+E:\pos\Project_Transport\Settings\obj\Debug\Settings.csprojResolveAssemblyReference.cache
+E:\pos\Project_Transport\Settings\obj\Debug\MainWindow.g.cs
+E:\pos\Project_Transport\Settings\obj\Debug\App.g.cs
+E:\pos\Project_Transport\Settings\obj\Debug\Settings_MarkupCompile.cache
+E:\pos\Project_Transport\Settings\obj\Debug\Settings_MarkupCompile.lref
+E:\pos\Project_Transport\Settings\obj\Debug\MainWindow.baml
+E:\pos\Project_Transport\Settings\obj\Debug\Settings.g.resources
+E:\pos\Project_Transport\Settings\obj\Debug\Settings.Properties.Resources.resources
+E:\pos\Project_Transport\Settings\obj\Debug\Settings.csproj.GenerateResource.Cache
+E:\pos\Project_Transport\Settings\obj\Debug\Settings.exe
+E:\pos\Project_Transport\Settings\obj\Debug\Settings.pdb

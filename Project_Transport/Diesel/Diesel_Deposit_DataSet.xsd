@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="Diesel_Deposit_DataSet" targetNamespace="http://tempuri.org/Diesel_Deposit_DataSet.xsd" xmlns:mstns="http://tempuri.org/Diesel_Deposit_DataSet.xsd" xmlns="http://tempuri.org/Diesel_Deposit_DataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="Diesel_Deposit_DataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="Diesel_Deposit_DataSet" msprop:Generator_UserDSName="Diesel_Deposit_DataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Diesel_Deposit_DataSet" msprop:Generator_TableClassName="Diesel_Deposit_DataSetDataTable" msprop:Generator_TableVarName="tableDiesel_Deposit_DataSet" msprop:Generator_TablePropName="_Diesel_Deposit_DataSet" msprop:Generator_RowDeletingName="Diesel_Deposit_DataSetRowDeleting" msprop:Generator_RowChangingName="Diesel_Deposit_DataSetRowChanging" msprop:Generator_RowEvHandlerName="Diesel_Deposit_DataSetRowChangeEventHandler" msprop:Generator_RowDeletedName="Diesel_Deposit_DataSetRowDeleted" msprop:Generator_UserTableName="Diesel_Deposit_DataSet" msprop:Generator_RowChangedName="Diesel_Deposit_DataSetRowChanged" msprop:Generator_RowEvArgName="Diesel_Deposit_DataSetRowChangeEvent" msprop:Generator_RowClassName="Diesel_Deposit_DataSetRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Credit_Date" msprop:Generator_ColumnVarNameInTable="columnCredit_Date" msprop:Generator_ColumnPropNameInRow="Credit_Date" msprop:Generator_ColumnPropNameInTable="Credit_DateColumn" msprop:Generator_UserColumnName="Credit_Date" type="xs:string" minOccurs="0" />
+              <xs:element name="Credit_Amount" msprop:Generator_ColumnVarNameInTable="columnCredit_Amount" msprop:Generator_ColumnPropNameInRow="Credit_Amount" msprop:Generator_ColumnPropNameInTable="Credit_AmountColumn" msprop:Generator_UserColumnName="Credit_Amount" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

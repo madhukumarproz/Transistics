@@ -1,0 +1,86 @@
+﻿<syncfusion:RibbonWindow x:Class="Project_Transport.testwindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:local="clr-namespace:Project_Transport"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:sfSkinManager="clr-namespace:Syncfusion.SfSkinManager;assembly=Syncfusion.SfSkinManager.WPF"
+        xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
+        Title="testwindow" Height="700" Width="1250" WindowStartupLocation="Manual"
+        Office2010Icon="Assets/Accounts.png"
+        sfSkinManager:SfSkinManager.VisualStyle="Office2016White"
+        mc:Ignorable="d">
+
+
+    <Grid>
+        <StackPanel>
+            <syncfusion:Ribbon RibbonState="Adorner" Height="120" Width="Auto" x:Name="_ribbon" VerticalAlignment="Top" >
+                <syncfusion:RibbonTab Caption="Vehicle"  IsChecked="True">
+                    <syncfusion:RibbonBar Name="New" Width="90"  Header="New"  >
+
+                        <syncfusion:RibbonButton SizeForm="Large" Label="Add" Click="entry"/>
+                        <syncfusion:DropDownButton SizeForm="Large" Label="New Items">
+
+                            <syncfusion:DropDownMenuItem Header="Update"/>
+
+                            <syncfusion:DropDownMenuItem Header="View"/>
+
+                            <syncfusion:DropDownMenuItem Header="Report"/>
+
+                        </syncfusion:DropDownButton>
+                        <syncfusion:SplitButton Label="Clean Up">
+
+                            <syncfusion:DropDownMenuItem Header="Clean Up Folder"/>
+
+                            <syncfusion:DropDownMenuItem Header="Clean Up Conversation"/>
+
+                            <syncfusion:DropDownMenuItem Header="Clean Up Folder/SubFolder"/>
+
+                        </syncfusion:SplitButton>
+
+                    </syncfusion:RibbonBar>
+
+                    <syncfusion:RibbonBar Name="Delete" Width="120"  Header="Delete"/>
+
+                    <syncfusion:RibbonBar Name="Respond" Width="90" Header="Respond"/>
+
+                    <syncfusion:RibbonBar Name="Quicksteps" Width="90" Header="Quick Steps"/>
+
+                    <syncfusion:RibbonBar Name="Find" Width="90" Header="Find"/>
+
+                </syncfusion:RibbonTab>
+                <syncfusion:RibbonTab Caption="SEND/RCEIVE"  IsChecked="False"/>
+
+                <syncfusion:RibbonTab Caption="FOLDER"  IsChecked="False"/>
+                <syncfusion:RibbonTab Caption="VIEW"  IsChecked="False"/>
+                <!--syncfusion:Ribbon.ApplicationMenu>
+
+                <syncfusion:ApplicationMenu Name="_applicationMenu" Width="38" Height="38" syncfusion:Ribbon.KeyTip="F" IsPopupOpen="False">
+
+                    <syncfusion:SimpleMenuButton Label="File" Icon="Document32.png"/>
+
+                    <syncfusion:ApplicationMenu.MenuItems>
+
+                        <syncfusion:SimpleMenuButton Label="New" Icon="Document32.png"/>
+
+                        <syncfusion:SimpleMenuButton Label="Open" Icon="Open32.png" />
+
+                    </syncfusion:ApplicationMenu.MenuItems>
+
+                    <syncfusion:ApplicationMenu.ApplicationItems>
+
+                        <syncfusion:RibbonButton SizeForm = "Small" Label="Options" SmallIcon="Options.png"/>
+
+                        <syncfusion:RibbonButton SizeForm = "Small" Label="Exit"  SmallIcon="Exit.png"/>
+
+                    </syncfusion:ApplicationMenu.ApplicationItems>
+
+                </syncfusion:ApplicationMenu-->
+
+            </syncfusion:Ribbon>
+        </StackPanel>
+
+        <TabControl x:Name="MainTab" Margin="0,80,0,5"/>
+
+    </Grid>
+</syncfusion:RibbonWindow>

@@ -1,0 +1,514 @@
+﻿<UserControl x:Class="Project_Transport.Update"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:WpfTools="clr-namespace:WpfTools;assembly=WpfTools"
+             xmlns:local="clr-namespace:Project_Transport"
+              xmlns:date="clr-namespace:System;assembly=mscorlib"
+             mc:Ignorable="d" 
+             Height="700" Width="1250">
+    <Grid Height="550" Margin="0 100 0 0" Background="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="80"></RowDefinition>
+            <RowDefinition Height="470"></RowDefinition>
+        </Grid.RowDefinitions>
+        <RadioButton Name="tripload" Margin="-1100 -40 0 0" Height="25" Width="100" Content="TRIP LOAD" Grid.Row="0" Checked="tripload_Checked"></RadioButton>
+        <RadioButton Name="tripunload" Margin="-900 -40 0 0" Height="25" Width="100" Content="TRIP UNLOAD" Grid.Row="0" Checked="tripunload_Checked"></RadioButton>
+        <RadioButton Name="tripclose" Margin="-670 -40 0 0" Height="25" Width="100" Content="TRIP CLOSE" Grid.Row="0" Checked="tripclose_Checked"></RadioButton>
+        <Label Name="vehicleno" Content="VEHICLE NUMBER" Height="30" Width="105" Margin="-620 20 0 0"  Grid.Row="0"/>
+        <TextBox Name="vhlno" Height="30" Width="120" Margin="-380 20 0 0" Grid.Row="0" LostFocus="vhlno_LostFocus" IsEnabled="False">
+            <TextBox.Text>
+                <Binding Path="venum" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay" ValidatesOnDataErrors="True">
+                    <Binding.ValidationRules>
+                        <local:NumericAndCharacter></local:NumericAndCharacter>
+                    </Binding.ValidationRules>
+                </Binding>
+            </TextBox.Text>
+        </TextBox>
+        <Label Name="lddate" Content="LOAD DATE" Height="30" Width="80" Margin="-180 20 0 0" Grid.Row="0"/>
+        <TextBox  Name="loaddate" Height="30" Width="100" Margin="0 20 0 0" Grid.Row="0" KeyDown="loaddate_KeyDown" IsEnabled="False"/>
+        <Label Name="tripno" Content="TRIP NUMBER" Height="30" Width="120" Margin="  -1100 20 0 0" Grid.Row="0"/>
+        <ComboBox Name="tripnum" Height="30" Width="160" Margin="-890 20 0 0" Grid.Row="0" IsEnabled="True" KeyDown="tripnum_KeyDown" IsEditable="True">
+            <ComboBox.Text>
+                <Binding Path="tripnum" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay" ValidatesOnDataErrors="True">
+                    <Binding.ValidationRules>
+                        <local:NumericAndCharacter></local:NumericAndCharacter>
+                    </Binding.ValidationRules>
+                </Binding>
+            </ComboBox.Text>
+        </ComboBox>
+        <Label Name="drivernme" Content="DRIVER ID" Height="30" Width="70" Margin="180 20 0 0" Grid.Row="0"/>
+        <ComboBox Name="driname" Height="30" Width="190" Margin=" 430 20 0 0" Grid.Row="0" IsEditable="True" GotFocus="driname_GotFocus">
+            <ComboBox.Text>
+                <Binding Path="driid" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay" ValidatesOnDataErrors="True">
+                    <Binding.ValidationRules>
+                        <local:NumericAndCharacter></local:NumericAndCharacter>
+                    </Binding.ValidationRules>
+                </Binding>
+            </ComboBox.Text>
+        </ComboBox>
+        <Label Name="ldname" Content="LOAD NAME" Height="30" Width="80" Margin="710 20 0 0" Grid.Row="0" Grid.Column="0"/>
+        <TextBox Name="ldna" Height="30" Width="140" Margin="920 20 0 0" Grid.Row="0" Grid.Column="0" MaxLength="20">
+            <TextBox.Text>
+                <Binding Path="ldname" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay" ValidatesOnDataErrors="True">
+                    <Binding.ValidationRules>
+                        <local:CharacterOnly></local:CharacterOnly>
+                    </Binding.ValidationRules>
+                </Binding>
+            </TextBox.Text>
+        </TextBox>
+        <StackPanel Height="470" Width="1250" Margin="0 0 0 0" Grid.Row="1">
+        <Grid  Height="470" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="416.6"/>
+                <ColumnDefinition Width="416.6"/>
+                <ColumnDefinition Width="416.6"/>
+            </Grid.ColumnDefinitions>
+            <StackPanel Name="loadpanel" Height="470" Width="416.6" Margin="-0 0 0 0"  Grid.Column="0" Visibility="Visible">
+                <Label Name="frm" Content="FROM" Height="30" Width="120" Margin="-180 10 0 0"  Grid.Column="0"/>
+                <TextBox Name="form" Height="30" Width="150" Margin="150 -30 0 0"  Grid.Column="0" MaxLength="20" IsEnabled="False">
+                    <TextBox.Text>
+                        <Binding Path="frm" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay" ValidatesOnDataErrors="True">
+                            <Binding.ValidationRules>
+                                <local:NumericAndCharacterWithSpace></local:NumericAndCharacterWithSpace>
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
+                <Label Name="to" Content="TO" Height="30" Width="120" Margin="-180 10 0 0"  Grid.Column="0"/>
+                <TextBox Name="too" Height="30" Width="150" Margin="150 -30 0 0"  Grid.Column="0" MaxLength="20" IsEnabled="False">
+                    <TextBox.Text>
+                        <Binding Path="too" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay" ValidatesOnDataErrors="True">
+                            <Binding.ValidationRules>
+                                <local:NumericAndCharacterWithSpace></local:NumericAndCharacterWithSpace>
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
+                <Label Name="starting_km" Content="STARTING KM" Height="30" Width="120" Margin="-180 10 0 0"  Grid.Column="0"/>
+                <TextBox Name="stkm" Height="30" Width="150" Margin="150 -30 0 0"  Grid.Column="0" MaxLength="6" KeyDown="stkm_KeyDown" TextChanged="stkm_TextChanged" KeyUp="stkm_KeyUp">
+                    <TextBox.Text>
+                        <Binding Path="startkm" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay" ValidatesOnDataErrors="True">
+                            <Binding.ValidationRules>
+                                <local:NumberWithMinus/>
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
+                <Label Name="challon" Content="CHALLAN NO" Height="30" Width="120" Margin="-180 10 0 0"  Grid.Column="0"/>
+                <TextBox Name="chln" Height="30" Width="150" Margin="150 -30 0 0"  Grid.Column="0" MaxLength="10">
+                    <TextBox.Text>
+                        <Binding Path="chaln" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay" ValidatesOnDataErrors="True">
+                            <Binding.ValidationRules>
+                                <local:NumericAndCharacter></local:NumericAndCharacter>
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
+
+                <Label Name="driveradv" Content="DRIVER ADVANCE" Height="30" Width="120" Margin="-180 10 0 0"  Grid.Column="0"/>
+                <TextBox Name="driadv" Height="30" Width="150" Margin="150 -30 0 0"  Grid.Column="0" MaxLength="6"  KeyUp="driadv_KeyUp">
+                    <TextBox.Text>
+                        <Binding Path="driadv" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay" ValidatesOnDataErrors="True">
+                            <Binding.ValidationRules>
+                                <local:NumberOnly></local:NumberOnly>
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
+                <Label Content="LOAD ADVANCE" Height="30" Width="120" Margin="-180 10 0 0"  Grid.Column="0"/>
+                <TextBox Name="tripadv" Height="30" Width="150" Margin="150 -30 0 0"  Grid.Column="0" MaxLength="6" KeyDown="tripadv_KeyDown">
+                    <TextBox.Text>
+                        <Binding Path="tripadv" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay" ValidatesOnDataErrors="True">
+                            <Binding.ValidationRules>
+                                <local:NumberOnly></local:NumberOnly>
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
+                <Label Name="freight" Content="FREIGHT" Height="30" Width="120" Margin="-180 10 0 0"  Grid.Column="0"/>
+                <TextBox Name="frgt" Height="30" Width="150" Margin="150 -30 0 0"  Grid.Column="0" MaxLength="7"  KeyUp="frgt_KeyUp">
+                    <TextBox.Text>
+                        <Binding Path="frght" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay" ValidatesOnDataErrors="True">
+                            <Binding.ValidationRules>
+                                <local:NumberOnly></local:NumberOnly>
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
+                <Label Name="clinername" Content="CLINER NAME" Height="30" Width="120" Margin="-180 10 0 0"  Grid.Column="0"/>
+                <TextBox Name="clname" Height="30" Width="150" Margin="150 -30 0 0"  Grid.Column="0" MaxLength="20">
+                    <TextBox.Text>
+                        <Binding Path="clname" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay" ValidatesOnDataErrors="True">
+                            <Binding.ValidationRules>
+                                <local:NumericAndCharacterWithSpace></local:NumericAndCharacterWithSpace>
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
+                <Label Name="loadtype" Content="LOAD TYPE" Height="30" Width="120" Margin="-180 10 0 0"  Grid.Column="0"/>
+                    <RadioButton Name="time" Margin="50 -30 0 0" Height="25" Width="50" Content="TIME" VerticalContentAlignment="Center"  Grid.Column="0" Checked="time_Checked"/>
+                <RadioButton Name="untime" Margin="200 -30 0 0" Height="25" Width="70" VerticalContentAlignment="Center" Content="UNTIME"  Grid.Column="0" Checked="untime_Checked"/>
+
+                <Label Name="weight" Content="LOAD WEIGHT" Height="30" Width="120" Margin="-180 10 0 0"  Grid.Column="0"/>
+                <TextBox Name="wgt" Height="30" Width="60" Margin="60 -30 0 0"  Grid.Column="0" MaxLength="5" KeyDown="wgt_KeyDown" KeyUp="wgt_KeyUp">
+                    <TextBox.Text>
+                        <Binding Path="wght" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay" ValidatesOnDataErrors="True">
+                            <Binding.ValidationRules>
+                                <local:DecimalNumber></local:DecimalNumber>
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
+                <Label Name="tons" Content="TONS" Height="30" Width="60" Margin="200 -30 0 0"  Grid.Column="0"/>
+
+            </StackPanel>
+            <StackPanel Name="unloadpanel" Height="470" Width="416.6"  Grid.Column="1" Margin="20 0 0 0" Visibility="Visible">
+                <Label Name="undate" Content="UNLOAD DATE" Height="30" Width="120" Margin="-180 10 0 0"  Grid.Column="1"/>
+                <TextBox Name="undt" Height="30" Width="150" Margin="150 -30 0 0"  Grid.Column="1" IsEnabled="False"/>
+                <Label Name="endkm" Content="ENDING KM" Height="30" Width="120" Margin="-180 10 0 0"  Grid.Column="1"/>
+                <TextBox Name="endkms" Height="30" Width="150" Margin="150 -30 0 0"  Grid.Column="1" MaxLength="6" KeyDown="endkms_KeyDown">
+                    <TextBox.Text>
+                        <Binding Path="endkm" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay" ValidatesOnDataErrors="True">
+                            <Binding.ValidationRules>
+                                <local:NumberOnly></local:NumberOnly>
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
+                <Label Name="total" Content="TOTAL KM" Height="30" Width="120" Margin=" -180 10 0 0"  Grid.Column="1"/>
+                <TextBox Name="totalkm" Height="30" Width="150" Margin="150 -30 0 0"  Grid.Column="1" IsEnabled="False" MaxLength="5"/>
+                <Label Name="unldwgt" Content="UNLOAD WEIGHT" Height="30" Width="120" Margin="-180 10 0 0"  Grid.Column="1"/>
+                <TextBox Name="unlodwgt" Height="30" Width="60" Margin="60 -30 0 0"  Grid.Column="1" MaxLength="5" KeyDown="unlodwgt_KeyDown">
+                    <TextBox.Text>
+                        <Binding Path="unloadwght" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay" ValidatesOnDataErrors="True">
+                            <Binding.ValidationRules>
+                                <local:DecimalNumber></local:DecimalNumber>
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
+                <Label Name="ton" Content="TONS" Height="30" Width="60" Margin="200 -30 0 0"  Grid.Column="1"/>
+                <Label Name="pymt" Content="PAYMENT" Height="30" Width="130" Margin="-180 10 0 0"  Grid.Column="1" MouseDoubleClick="pymt_MouseDoubleClick"/>
+                <TextBox Name="paymt" Height="30" Width="60" Margin="60 -30 0 0"  Grid.Column="1" MaxLength="2" IsEnabled="False">
+                    <TextBox.Text>
+                        <Binding Path="pay" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay" ValidatesOnDataErrors="True">
+                            <Binding.ValidationRules>
+                                <local:NumberOnly></local:NumberOnly>
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
+                <Label Name="per" Content="%" Height="30" Width="30" Margin="160 -30 0 0"  Grid.Column="1"/>
+                <StackPanel Name="payment" Height="190" Width="416.6"  Grid.Column="1" Margin="-10 -30 0 0" Background="#B18567" Visibility="Hidden" >
+                    <Label Name="dripymt" Content="DRIVER PAYMENT" Height="30" Width="130" Margin="-180 10 0 0"  Grid.Column="1"/>
+                    <TextBox Name="dripaymt"  Height="30" Width="60" Margin="90 -30 0 0"  Grid.Column="1" GotFocus="dripaymt_GotFocus" LostFocus="dripaymt_LostFocus">
+                        <TextBox.Text>
+                            <Binding Path="dripay" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay" ValidatesOnDataErrors="True">
+                                <Binding.ValidationRules>
+                                    <local:NumberOnly></local:NumberOnly>
+                                </Binding.ValidationRules>
+                            </Binding>
+                        </TextBox.Text>
+                    </TextBox>
+                    <Label Name="perc" Content="%" Height="30" Width="30" Margin="200 -30 0 0"  Grid.Column="1"/>
+                    <Label Name="clinerpyt" Content="CLINER PAYMENT" Height="30" Width="130" Margin="-180 10 0 0"  Grid.Column="1"/>
+                    <TextBox Name="clinerpymt" Height="30" Width="60" Margin="90 -30 0 0"  Grid.Column="1" GotFocus="clinerpymt_GotFocus" LostFocus="clinerpymt_LostFocus">
+                        <TextBox.Text>
+                            <Binding Path="clipay" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay" ValidatesOnDataErrors="True">
+                                <Binding.ValidationRules>
+                                    <local:NumberOnly></local:NumberOnly>
+                                </Binding.ValidationRules>
+                            </Binding>
+                        </TextBox.Text>
+                    </TextBox>
+                    <Label Name="perce" Content="%" Height="30" Width="30" Margin="200 -30 0 0" Grid.Column="1"/>
+                    <Label Name="commi" Content="COMMISON" Height="30" Width="130" Margin="-180 10 0 0" Grid.Row="1" Grid.Column="1"/>
+                    <TextBox Name="commis" Height="30" Width="60" Margin="90 -30 0 0"  Grid.Column="1" GotFocus="commis_GotFocus" LostFocus="commis_LostFocus">
+                        <TextBox.Text>
+                            <Binding Path="commi" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay" ValidatesOnDataErrors="True">
+                                <Binding.ValidationRules>
+                                    <local:NumberOnly></local:NumberOnly>
+                                </Binding.ValidationRules>
+                            </Binding>
+                        </TextBox.Text>
+                    </TextBox>
+                    <Label Name="percent" Content="%" Height="30" Width="30" Margin="200 -30 0 0"  Grid.Column="1"/>
+                    <Button Name="ok"  Content="OK" Height="30" Width="50" Margin="80 20 0 0" Click="ok_Click"></Button>
+                </StackPanel>
+            </StackPanel>
+            <StackPanel Name="closepanel" Height="470" Width="400"  Grid.Column="2" Margin="0 0 0 0" Visibility="Visible" >
+
+                <Label Name="tripdes" Content="TRIP DIESEL" Height="30" Width="130" Margin="-180 10 0 0"  Grid.Column="2" MouseDoubleClick="tripdes_MouseDoubleClick"/>
+                <TextBox Name="tripdese" Height="30" Width="120" Margin="150 -30 0 0"  Grid.Column="2" IsEnabled="False" MaxLength="4"/>
+                <Label Name="dieselamt" Content="DIESEL AMOUNT" Height="30" Width="130" Margin="-180 10 0 0"  Grid.Column="2" MouseDoubleClick="dieselamt_MouseDoubleClick"/>
+
+                <TextBox Name="dieselamnt" Height="30" Width="120" Margin="150 -30 0 0"  Grid.Column="2" IsEnabled="False" MaxLength="9"/>
+                <Label Name="tripmlg" Content="TRIP MILEGE" Height="30" Width="130" Margin="-180 10 0 0"  Grid.Column="2"/>
+                <TextBox Name="tripmilg" Height="30" Width="120" Margin="150 -30 0 0"  Grid.Column="2" IsEnabled="False" MaxLength="5"/>
+
+                <Label Name="freightpty" Content="FREIGHT REDUCTION" Height="30" Width="130" Margin="-180 10 0 0"  Grid.Column="2"/>
+                <TextBox Name="frtpty" Height="30" Width="120" Margin="150 -30 0 0"  Grid.Column="2" MaxLength="6" IsEnabled="False">
+                    <TextBox.Text>
+                        <Binding Path="frghtred" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay" ValidatesOnDataErrors="True">
+                            <Binding.ValidationRules>
+                                <local:NumberOnly></local:NumberOnly>
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
+                <CheckBox Name="reduction" Margin="310 -30 0 0 " Height="15" Width="15" Grid.Column="2" Checked="Reduction_Checked" Unchecked="Reduction_Unchecked"></CheckBox>
+                <!--<Label Name="payment" Content="PAYMENT" Height="30" Width="130" Margin="580 230 0 0" Grid.Row="1" Grid.Column="2"/>
+            <ComboBox Name="pay" Height="30" Width="120" Margin="820 230 0 0" Grid.Row="1" Grid.Column="2">
+                <ComboBoxItem>CASH</ComboBoxItem>
+                <ComboBoxItem>ONLINE</ComboBoxItem>
+                <ComboBoxItem>CHEQUE</ComboBoxItem>
+            </ComboBox>-->
+                <Label Name="tripexp" Content="TRIP EXPENSE" Height="30" Width="130" Margin="-180 10 0 0"  Grid.Column="2" MouseDoubleClick="tripexp_MouseDoubleClick"/>
+                <TextBox Name="tripexpe" Height="30" Width="120" Margin="150 -30 0 0"  Grid.Column="2" IsEnabled="False" MaxLength="8"/>
+                <Label Name="pro" Content="PROFIT" Height="30" Width="130" Margin="-180 10 0 0"  Grid.Column="2"/>
+                <TextBox Name="profit" Height="30" Width="120" Margin="150 -30 0 0"  Grid.Column="2" IsEnabled="False" MaxLength="9"/>
+                <Label Content="DRIVER BALANCE" Height="30" Width="130" Margin="-180 10 0 0"  Grid.Column="2"/>
+                <TextBox Name="dribal" Height="30" Width="120" Margin="150 -30 0 0"  Grid.Column="2" IsEnabled="False" MaxLength="6"/>
+
+            </StackPanel>
+            <Button Name="update" Content="UPDATE" Height="30" Width="100" Margin="0 300 0 0"  Grid.Column="2" Background="#165" Foreground="White" Click="update_Click"/>
+                <Button Name="delete" Content="DELETE" Height="30" Width="80" Margin="200 300 0 0"  Grid.Column="2" Background="#125" Foreground="White"   Click="delete_Click"/>
+
+
+            <StackPanel Name="lpg_diesel_update_panel" Height="450" Width="930" Margin="-530,-10,0,0" Visibility="Hidden"  Grid.Column="2">
+                <StackPanel.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FF80F5DB" Offset="0"/>
+                        <GradientStop Color="#FFB0A5C3" Offset="1"/>
+                    </LinearGradientBrush>
+                </StackPanel.Background>
+                <Label Height="30"  Margin="0,0,0,0" Content="BALANCE SHEET UPDATE" FontFamily="CAMBRIA" FontSize="18" HorizontalContentAlignment="Center" Background="Cornsilk"></Label>
+                <Label Height="30" Width="120" Margin="-750,10,0,0" Content="TRIP NUMBER" FontFamily="CAMBRIA" FontSize="14" HorizontalContentAlignment="Right"></Label>
+                <Label Name="t_number" Height="30" Width="155" Margin="-470,-30,0,0" HorizontalContentAlignment="Center"></Label>
+                <Label Height="30" Width="80" Margin="-710,10,0,0" Content="FILL DATE" FontFamily="CAMBRIA" FontSize="14" HorizontalContentAlignment="Center"></Label>
+                    <DatePicker Name="f_date" Height="30" Width="120" Margin="-470,-30,0,0" HorizontalContentAlignment="Center"  FontFamily="cambria" FontSize="14" ></DatePicker>
+                <Label Height="30" Width="80" Margin="-710,10,0,0" Content="LITTERS" FontFamily="CAMBRIA" FontSize="14" HorizontalContentAlignment="Center"></Label>
+                <TextBox Name="d_litter" Height="30" Width="95" Margin="-470,-30,0,0" CharacterCasing="Upper" FontFamily="CAMBRIA" FontSize="14" HorizontalContentAlignment="Center" MaxLength="3">
+                    <TextBox.Text>
+                        <Binding Path="Load_Update_Litter" UpdateSourceTrigger="PropertyChanged" ValidatesOnDataErrors="True" Mode="TwoWay">
+                            <Binding.ValidationRules>
+                                <local:NumberOnly></local:NumberOnly>
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
+                <Label Height="30" Width="50" Margin="-710,20,0,0" Content="PRICE" FontFamily="CAMBRIA" FontSize="14" HorizontalContentAlignment="Right"></Label>
+                <TextBox Name="d_price" Height="30" Width="95" Margin="-470,-30,0,0" CharacterCasing="Upper" FontFamily="CAMBRIA" FontSize="14"  HorizontalContentAlignment="Center"  MaxLength="5">
+                    <TextBox.Text>
+                        <Binding Path="Load_Update_Price" UpdateSourceTrigger="PropertyChanged" ValidatesOnDataErrors="True" Mode="TwoWay">
+                            <Binding.ValidationRules>
+                                <local:DecimalNumber></local:DecimalNumber>
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
+                <Label Height="30" Width="80" Margin="-710,30,0,0" Content="AMOUNT" FontFamily="CAMBRIA" FontSize="14" HorizontalContentAlignment="Center" ></Label>
+                <TextBox Name="d_amount" Height="30" Width="95" Margin="-470,-30,0,0" FontFamily="CAMBRIA" FontSize="14"  HorizontalContentAlignment="Center">
+                    <TextBox.Text>
+                        <Binding Path="Load_Update_Amount" UpdateSourceTrigger="PropertyChanged" ValidatesOnDataErrors="True" Mode="TwoWay">
+                            <Binding.ValidationRules>
+                                <local:DecimalNumber></local:DecimalNumber>
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
+                <Button Height="40" Width="120" Margin="-450,40,0,0" Click="balance_sheet_update">
+                    <Button.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FF1294EE" Offset="0.614"/>
+                            <GradientStop Color="White"/>
+                        </LinearGradientBrush>
+                    </Button.Background>
+                    <StackPanel Height="40" Width="120">
+                        <Label Height="40" Width="70" Margin="-50,0,0,0" Content="OK" FontFamily="cambria" FontSize="20" HorizontalContentAlignment="Center"></Label>
+                        <Image Name="balance_update_img1" Source="{WpfTools:ImageFromFont FontFamily=/Project_Transport;component/Resources/#FontAwesome, Brush=BLACK, Text=&#xf093; }" Height="35" Width="50" Margin="60,-40,0,0"></Image>
+                    <Image Name="balance_update_img2" Source="{WpfTools:ImageFromFont FontFamily=/Project_Transport;component/Resources/#FontAwesome,  Brush=GREEN, Text=&#xf00C;}" Height="35" Width="50" Margin="60,-40,0,0"></Image>
+                    </StackPanel>
+                </Button>
+                <Button Height="30" Width="100" Margin="-750,-40,0,0" Content="BACK" FontFamily="CAMBRIA" FontSize="14" Click="Update_Balance_Sheet_Close_Click">
+                    <Button.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FFA4A1A1" Offset="0"/>
+                            <GradientStop Color="White" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Button.Background>
+                </Button>
+                <DataGrid Name="balance_sheet_view" Height="320" Width="430" Margin="300,-290,0,0" MouseDoubleClick="select_grid_row_data"></DataGrid>
+            </StackPanel>
+            <StackPanel Name="trip_expense_update_panel" Height="430" Width="1230" Margin="-830,-20,0,0" Visibility="Hidden"   Grid.Column="2">
+                <StackPanel.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FF8DC2CB" Offset="0"/>
+                        <GradientStop Color="#FFA7F0FB" Offset="1"/>
+                    </LinearGradientBrush>
+                </StackPanel.Background>
+                <Label Height="30" Content="EXPENSE UPDATE" HorizontalContentAlignment="Center" FontFamily="CAMBRIA" FontSize="16" Foreground="White"></Label>
+                <Label Height="30" Width="150" Margin="-1050,0,0,0" Content="LOAD WAGES" FontFamily="CAMBRIA" FontSize="14" HorizontalContentAlignment="Right"></Label>
+                <Label Height="30" Width="150" Content="TOLL WAGES" Margin="-300,-30,0,0" HorizontalContentAlignment="Center" FontFamily="CAMBRIA" FontSize="16" Foreground="White"></Label>
+                <Label Height="30" Width="180" Content="RTO AND PC GAS" Margin="300,-30,0,0" HorizontalContentAlignment="Center" FontFamily="CAMBRIA" FontSize="16" Foreground="White"></Label>
+                <Label Height="30" Width="150" Content="OTHER WAGES" Margin="900,-30,0,0" HorizontalContentAlignment="Center" FontFamily="CAMBRIA" FontSize="16" Foreground="White"></Label>
+                <TextBox Name="val1" Height="30" Width="120" Margin="-760,-30,0,0" CharacterCasing="Upper" FontSize="14"  HorizontalContentAlignment="Center" MaxLength="4">
+                    <TextBox.Text>
+                            <Binding Path="Load_Update_Lwages" UpdateSourceTrigger="PropertyChanged" ValidatesOnDataErrors="True" Mode="TwoWay">
+                            <Binding.ValidationRules>
+                                <local:NumberOnly></local:NumberOnly>
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
+                <Label Height="30" Width="150" Margin="-1050,10,0,0" Content="UNLOAD WAGES" HorizontalContentAlignment="Right" FontFamily="CAMBRIA" FontSize="16"></Label>
+                <TextBox Name="val2" Height="30" Width="120" Margin="-760,-30,0,0" HorizontalContentAlignment="Center" FontFamily="CAMBRIA" FontSize="16" MaxLength="4" >
+                    <TextBox.Text>
+                            <Binding Path="Load_Update_Uwages" UpdateSourceTrigger="PropertyChanged" ValidatesOnDataErrors="True" Mode="TwoWay">
+                            <Binding.ValidationRules>
+                                <local:NumberOnly></local:NumberOnly>
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
+                <Label Height="30" Width="150" Margin="-1050,10,0,0" Content="PHONE" HorizontalContentAlignment="Right" FontFamily="CAMBRIA" FontSize="16"></Label>
+                <TextBox Name="val3" Height="30" Width="120" Margin="-760,-30,0,0" HorizontalContentAlignment="Center" FontFamily="CAMBRIA" FontSize="16"  MaxLength="4">
+                    <TextBox.Text>
+                            <Binding Path="Load_Update_Phone" UpdateSourceTrigger="PropertyChanged" ValidatesOnDataErrors="True" Mode="TwoWay">
+                            <Binding.ValidationRules>
+                                <local:NumericRule></local:NumericRule>
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
+                <Label Height="30" Width="150" Margin="-1050,10,0,0" Content="SPARES" HorizontalContentAlignment="Right" FontFamily="CAMBRIA" FontSize="16"></Label>
+                <TextBox Name="val4" Height="30" Width="120" Margin="-760,-30,0,0" HorizontalContentAlignment="Center" FontFamily="CAMBRIA" FontSize="16" MaxLength="4" >
+                    <TextBox.Text>
+                            <Binding Path="Load_Update_Spare" UpdateSourceTrigger="PropertyChanged" ValidatesOnDataErrors="True" Mode="TwoWay">
+                            <Binding.ValidationRules>
+                                <local:NumericRule></local:NumericRule>
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
+                <Label Height="30" Width="150" Margin="-1050,10,0,0" Content="PER DRIVER" HorizontalContentAlignment="Right" FontFamily="CAMBRIA" FontSize="16"></Label>
+                <TextBox Name="val5" Height="30" Width="120" Margin="-760,-30,0,0" HorizontalContentAlignment="Center" FontFamily="CAMBRIA" FontSize="16" MaxLength="4" >
+                    <TextBox.Text>
+                            <Binding Path="Load_Update_Driver" UpdateSourceTrigger="PropertyChanged" ValidatesOnDataErrors="True" Mode="TwoWay">
+                            <Binding.ValidationRules>
+                                <local:NumericRule></local:NumericRule>
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
+                <Label Height="30" Width="150" Margin="-1050,10,0,0" Content="PER CLINER" HorizontalContentAlignment="Right" FontFamily="CAMBRIA" FontSize="16"></Label>
+                <TextBox Name="val6" Height="30" Width="120" Margin="-760,-30,0,0" HorizontalContentAlignment="Center" FontFamily="CAMBRIA" FontSize="16"  MaxLength="4" >
+                    <TextBox.Text>
+                            <Binding Path="Load_Update_Cliner " UpdateSourceTrigger="PropertyChanged" ValidatesOnDataErrors="True" Mode="TwoWay">
+                            <Binding.ValidationRules>
+                                <local:NumericRule></local:NumericRule>
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
+                <Label Height="30" Width="120" Margin="-500,-350,0,0" Content="PLACE" HorizontalContentAlignment="Right" FontFamily="CAMBRIA" FontSize="16"></Label>
+                <TextBox Name="toll_places" Height="30" Width="150" Margin="-170,-350,0,0"  HorizontalContentAlignment="Center" FontFamily="CAMBRIA" FontSize="16" MaxLength="15">
+                    <TextBox.Text>
+                            <Binding Path="Load_Update_Tplace" UpdateSourceTrigger="PropertyChanged" ValidatesOnDataErrors="True" Mode="TwoWay">
+                            <Binding.ValidationRules>
+                                <local:OnlyCharacterRule></local:OnlyCharacterRule>
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
+                <Label Height="30" Width="120" Margin="-500,-270,0,0" Content="AMOUNT" HorizontalContentAlignment="Right" FontFamily="CAMBRIA" FontSize="16"></Label>
+                <TextBox Name="toll_wages" Height="30" Width="150" Margin="-170,-270,0,0"  HorizontalContentAlignment="Center" FontFamily="CAMBRIA" FontSize="16"  KeyDown="toll_keydown" MaxLength="4">
+                    <TextBox.Text>
+                            <Binding Path="Load_Update_Tamnt" UpdateSourceTrigger="PropertyChanged" ValidatesOnDataErrors="True" Mode="TwoWay">
+                            <Binding.ValidationRules>
+                                <local:NumericRule></local:NumericRule>
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
+                <Label Height="30" Width="120" Margin="-500,-190,0,0" Content="TOTAL" HorizontalContentAlignment="Right" FontFamily="CAMBRIA" FontSize="16"></Label>
+                <TextBox Name="toll_totals" Height="30" Width="150" Margin="-170,-190,0,0"  HorizontalContentAlignment="Center" FontFamily="CAMBRIA" FontSize="16" IsEnabled="False" Text="0"></TextBox>
+                <Label Height="30" Width="120" Margin="100,-350,0,0" Content="PLACE" HorizontalContentAlignment="Right" FontFamily="CAMBRIA" FontSize="16"></Label>
+                <TextBox Name="rto_places" Height="30" Width="150" Margin="420,-350,0,0"  HorizontalContentAlignment="Center" FontFamily="CAMBRIA" FontSize="16" MaxLength="15">
+                    <TextBox.Text>
+                            <Binding Path="Load_Update_Rplace" UpdateSourceTrigger="PropertyChanged" ValidatesOnDataErrors="True" Mode="TwoWay">
+                            <Binding.ValidationRules>
+                                <local:OnlyCharacterRule></local:OnlyCharacterRule>
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
+                <Label Height="30" Width="120" Margin="100,-270,0,0" Content="AMOUNT" HorizontalContentAlignment="Right" FontFamily="CAMBRIA" FontSize="16"></Label>
+                <TextBox Name="rto_amounts" Height="30" Width="150" Margin="420,-270,0,0"  HorizontalContentAlignment="Center" FontFamily="CAMBRIA" FontSize="16"  KeyDown="rto_keydown" MaxLength="4">
+                    <TextBox.Text>
+                            <Binding Path="Load_Update_Ramnt" UpdateSourceTrigger="PropertyChanged" ValidatesOnDataErrors="True" Mode="TwoWay">
+                            <Binding.ValidationRules>
+                                <local:NumericRule></local:NumericRule>
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
+                <Label Height="30" Width="150" Margin="100,-190,0,0" Content="TOTAL" HorizontalContentAlignment="Right" FontFamily="CAMBRIA" FontSize="16" ></Label>
+                <TextBox Name="rto_totals" Height="30" Width="150" Margin="420,-190,0,0"  HorizontalContentAlignment="Center" FontFamily="CAMBRIA" FontSize="16" IsEnabled="False" Text="0"></TextBox>
+                <Label Height="30" Width="120" Margin="678,-350,0,0" Content="PLACE" HorizontalContentAlignment="Right" FontFamily="CAMBRIA" FontSize="16"></Label>
+                <TextBox Name="other_reasons" Height="30" Width="150" Margin="990,-350,0,0"  HorizontalContentAlignment="Center" FontFamily="CAMBRIA" FontSize="16" MaxLength="15">
+                    <TextBox.Text>
+                            <Binding Path="Load_Update_Oplace" UpdateSourceTrigger="PropertyChanged" ValidatesOnDataErrors="True" Mode="TwoWay">
+                            <Binding.ValidationRules>
+                                <local:OnlyCharacterRule></local:OnlyCharacterRule>
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
+                <Label Height="30" Width="120" Margin="678,-270,0,0" Content="AMOUNT" HorizontalContentAlignment="Right" FontFamily="CAMBRIA" FontSize="16"></Label>
+                <TextBox Name="other_wages" Height="30" Width="150" Margin="990,-270,0,0"  HorizontalContentAlignment="Center" FontFamily="CAMBRIA" FontSize="16"  KeyDown="other_keydown" MaxLength="4">
+                    <TextBox.Text>
+                            <Binding Path="Load_Update_Oamnt" UpdateSourceTrigger="PropertyChanged" ValidatesOnDataErrors="True" Mode="TwoWay">
+                            <Binding.ValidationRules>
+                                <local:NumericRule></local:NumericRule>
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
+                <Label Height="30" Width="120" Margin="678,-190,0,0" Content="TOTAL" HorizontalContentAlignment="Right" FontFamily="CAMBRIA" FontSize="16" ></Label>
+                <TextBox Name="other_totals" Height="30" Width="150" Margin="990,-190,0,0"  HorizontalContentAlignment="Center" FontFamily="CAMBRIA" FontSize="16" IsEnabled="False" Text="0"></TextBox>
+                <DataGrid Name="toll_spend" Height="150" Width="250" Margin="-260,-70,0,0" MouseDoubleClick="toll_wages_click"></DataGrid>
+                <DataGrid Name="rto_pc_spend" Height="150" Width="250" Margin="350,-150,0,0" MouseDoubleClick="rto_pc_click"></DataGrid>
+                <DataGrid Name="other_spend" Height="150" Width="250" Margin="960,-150,0,0" MouseDoubleClick="other_wages_click"></DataGrid>
+
+                <Button Height="40" Width="150" Margin="550,30,0,0" Content="BACK" FontFamily="CAMBRIA" FontSize="16" Click="trip_expens_update_back_click">
+                    <Button.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FFDAD4D4" Offset="0"/>
+                            <GradientStop Color="White" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Button.Background>
+                </Button>
+                <Button Height="40" Width="150" Margin="980,-40,0,0" Content="DONE" FontFamily="CAMBRIA" FontSize="16" Click="trip_expense_update_done_click">
+                    <Button.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FFE0DBDB" Offset="0"/>
+                            <GradientStop Color="White" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Button.Background>
+                </Button>
+            </StackPanel>
+        </Grid>
+        </StackPanel>
+        <!--<CheckBox Name="load" Margin="-1100 -80 0 0" Height="25" Width="60" Content="LOAD" Grid.Row="0" Checked="load_Checked"></CheckBox>
+        <CheckBox Name="trailer" Margin="-950 -80 0 0"  Height="25" Width="60" Content="TRAILER" Grid.Row="0" Checked="trailer_Checked"></CheckBox>-->
+        
+
+
+       
+        
+
+    </Grid>
+</UserControl>

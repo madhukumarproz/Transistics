@@ -1,0 +1,155 @@
+﻿<Window x:Class="Project_Transport.load_tyre_view"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+          xmlns:date="clr-namespace:System;assembly=mscorlib"
+        xmlns:local="clr-namespace:Project_Transport"
+        mc:Ignorable="d"
+        Title="Load Tyre" Height="450" Width="650" Loaded="Window_Loaded">
+    <Grid>
+
+        <StackPanel Name="add_panel" Height="50" Width="450" Margin="0 -350 0 0" Visibility="Hidden">
+            <Button Name="new_tyre" Content="NEW" Height="30" Width="50" Margin="-250 10 0 0" FontFamily="cambria" FontSize="14" Foreground="Black" Visibility="Visible" Click="new_tyre_Checked"/>
+            <Button Name="exist_tyre" Content="EXISTING" Height="30" Width="100" Margin="-80 -30 0 0" FontFamily="cambria" FontSize="14" Foreground="Black" Visibility="Visible" Click="exist_tyre_Checked"/>
+            <Button Name="back_tyre" Content="BACK" Height="30" Width="100" Margin="140 -30 0 0" FontFamily="cambria" FontSize="14" Foreground="Black" Visibility="Visible" Click="back_tyre_Checked"/>
+
+        </StackPanel>
+        <StackPanel Name="tyre_details_entry_panel" Height="350" Width="450" Margin="0,20,0,0" Visibility="Hidden">
+            <Label Height="30" Width="150" Margin="-200,10,0,0" Content="TYRE NUMBER" FontFamily="cambria" FontSize="14" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"></Label>
+            <TextBox Name="vehicle_tyre_number" Height="30" Width="150" Margin="120,-30,0,0"  CharacterCasing="Upper" MaxLength="16">
+                <TextBox.Text>
+                    <Binding Path="vehicle_tyre_number" UpdateSourceTrigger="PropertyChanged" ValidatesOnDataErrors="True" Mode="TwoWay">
+                        <Binding.ValidationRules>
+                            <local:NumericAndCharacter></local:NumericAndCharacter>
+                        </Binding.ValidationRules>
+                    </Binding>
+                </TextBox.Text>
+            </TextBox>
+            <Label Height="30" Width="150" Margin="-200,10,0,0" Content="STARTED KM" FontFamily="cambria" FontSize="14" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"></Label>
+            <TextBox Name="vehicle_tyre_km" Height="30" Width="150" Margin="120,-30,0,0"  CharacterCasing="Upper" MaxLength="6">
+                <TextBox.Text>
+                    <Binding Path="vehicle_tyre_km" UpdateSourceTrigger="PropertyChanged" ValidatesOnDataErrors="True" Mode="TwoWay">
+                        <Binding.ValidationRules>
+                            <local:NumberOnly></local:NumberOnly>
+                        </Binding.ValidationRules>
+                    </Binding>
+                </TextBox.Text>
+            </TextBox>
+            <Label Height="30" Width="150" Margin="-200,10,0,0" Content="COMPANY NAME" FontFamily="cambria" FontSize="14" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"></Label>
+            <ComboBox Name="vehicle_tyre_company" Height="30" Width="150" Margin="120,-30,0,0"  IsEditable="True" HorizontalContentAlignment="Center">
+                <ComboBoxItem>APPOLLO</ComboBoxItem>
+                <ComboBoxItem>JKTYRE</ComboBoxItem>
+                <ComboBoxItem>MRF</ComboBoxItem>
+                <ComboBoxItem>CEAT</ComboBoxItem>
+                <ComboBoxItem>MICHELIN</ComboBoxItem>
+                <ComboBoxItem>CHINA MAKE</ComboBoxItem>
+                <ComboBoxItem>BRIDGESTONE</ComboBoxItem>
+                <ComboBoxItem>ATLAS</ComboBoxItem>
+                <ComboBoxItem>HERO</ComboBoxItem>
+                <ComboBoxItem>GOODYEAR</ComboBoxItem>
+                <ComboBoxItem>CONTINENTAL</ComboBoxItem>
+                <ComboBoxItem>FALKEN TYRES</ComboBoxItem>
+                <ComboBox.Text>
+                    <Binding Path="vehicle_tyre_company" UpdateSourceTrigger="PropertyChanged" ValidatesOnDataErrors="True" Mode="TwoWay">
+                        <Binding.ValidationRules>
+                            <local:NumericAndCharacterWithSpace></local:NumericAndCharacterWithSpace>
+                        </Binding.ValidationRules>
+                    </Binding>
+                </ComboBox.Text>
+            </ComboBox>
+
+            <Label Height="30" Width="150" Margin="-200,10,0,0" Content="PRICE" FontFamily="cambria" FontSize="14" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"></Label>
+            <TextBox Name="tyre_price" Height="30" Width="150" Margin="120,-30,0,0"  CharacterCasing="Upper" MaxLength="5">
+                <TextBox.Text>
+                    <Binding Path="tyre_price" UpdateSourceTrigger="PropertyChanged" ValidatesOnDataErrors="True" Mode="TwoWay">
+                        <Binding.ValidationRules>
+                            <local:NumberOnly></local:NumberOnly>
+                        </Binding.ValidationRules>
+                    </Binding>
+                </TextBox.Text>
+            </TextBox>
+
+            <Label Height="30" Width="150" Margin="-200,10,0,0" Content="PURCHASE DATE" FontFamily="cambria" FontSize="14" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"  Grid.Column="1"></Label>
+            <DatePicker Name="vehicle_tyre_purchase_date" Height="30" Width="150" Margin="120,-30,0,0"  SelectedDate="{x:Static date:DateTime.Now}" SelectedDateFormat="Short" DisplayDateEnd="{x:Static date:DateTime.Now}" ></DatePicker>
+            <Label Height="30" Width="150" Margin="-200,10,0,0" Content="ADDED DATE" FontFamily="cambria" FontSize="14" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"  Grid.Column="1"></Label>
+            <DatePicker Name="vehicle_tyre_add_date" Height="30" Width="150" Margin="120,-30,0,0"  SelectedDate="{x:Static date:DateTime.Now}" SelectedDateFormat="Short" DisplayDateEnd="{x:Static date:DateTime.Now}" ></DatePicker>
+            <Button Height="30" Width="70" Margin="100,30,0,0" Content="OK" FontFamily="CAMBRIA" FontSize="14" Foreground="Black" Click="tyre_details_ok_clicked">
+            </Button>
+            <Button Height="30" Width="70" Margin="-200,-30,0,0" Content="BACK" FontFamily="CAMBRIA" FontSize="14" Foreground="Black" Click="tyre_details_back_clicked" >
+
+            </Button>
+            
+        </StackPanel>
+        <StackPanel Name="tyre_detail_exist_panel" Height="350" Width="450" Margin="0 50 0 0" Visibility="Hidden">
+
+            <Label Height="30" Width="150" Margin="-200,10,0,0" Content="TYRE NUMBER" FontFamily="cambria" FontSize="14" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"></Label>
+            <ComboBox Name="vehicle_tyre_no" Height="30" Width="150" Margin="120,-30,0,0" IsEditable="True" GotFocus="vehicle_tyre_no_GotFocus">
+                <ComboBox.Text>
+                    <Binding Path="vehicle_tyre_no" UpdateSourceTrigger="PropertyChanged" ValidatesOnDataErrors="True" Mode="TwoWay">
+                        <Binding.ValidationRules>
+                            <local:NumericAndCharacter></local:NumericAndCharacter>
+                        </Binding.ValidationRules>
+                    </Binding>
+                </ComboBox.Text>
+            </ComboBox>
+            <Label Height="30" Width="150" Margin="-200,10,0,0" Content="STARTED KM" FontFamily="cambria" FontSize="14" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"></Label>
+            <TextBox Name="vehicle_tyre_stkm" Height="30" Width="150" Margin="120,-30,0,0"  CharacterCasing="Upper" MaxLength="6">
+                <TextBox.Text>
+                    <Binding Path="vehicle_tyre_stkm" UpdateSourceTrigger="PropertyChanged" ValidatesOnDataErrors="True" Mode="TwoWay">
+                        <Binding.ValidationRules>
+                            <local:NumberOnly></local:NumberOnly>
+                        </Binding.ValidationRules>
+                    </Binding>
+                </TextBox.Text>
+            </TextBox>
+            <Label Height="30" Width="150" Margin="-200,10,0,0" Content="ADDED DATE" FontFamily="cambria" FontSize="14" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" ></Label>
+            <DatePicker Name="vehicle_tyre_added_date" Height="30" Width="150" Margin="120,-30,0,0"  SelectedDate="{x:Static date:DateTime.Now}" SelectedDateFormat="Short" DisplayDateEnd="{x:Static date:DateTime.Now}"></DatePicker>
+            <Button Name="ok" Height="30" Width="70" Margin="100,30,0,0" Content="OK" FontFamily="CAMBRIA" FontSize="14" Foreground="Black" Click="ok_Click">
+            </Button>
+            <Button Name="back" Height="30" Width="70" Margin="-200,-30,0,0" Content="BACK" FontFamily="CAMBRIA" FontSize="14" Foreground="Black" Click="back_Click">
+
+            </Button>
+            
+        </StackPanel>
+        <StackPanel Name="tyre_details_view_panel" Height="400" Width="450" Margin="0,20,0,0" Visibility="Hidden">
+
+
+            <Label Height="30" Width="150" Margin="-200,10,0,0" Content="TYRE NUMBER" FontFamily="cambria" FontSize="14" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"></Label>
+            <TextBox Name="vehicle_tyre_number_view"   Height="30" Width="150" Margin="120,-30,0,0"  CharacterCasing="Upper" MaxLength="16" IsEnabled="False" HorizontalContentAlignment="Center">
+                
+            </TextBox>
+            <Label Height="30" Width="150" Margin="-200,10,0,0" Content="STARTED KM" FontFamily="cambria" FontSize="14" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"></Label>
+            <TextBox Name="vehicle_tyre_km_view" Height="30" Width="150" Margin="120,-30,0,0"  CharacterCasing="Upper" MaxLength="6" IsEnabled="False" HorizontalContentAlignment="Center">
+                
+            </TextBox>
+            <Label Height="30" Width="150" Margin="-200,10,0,0" Content="COMPANY NAME" FontFamily="cambria" FontSize="14" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"></Label>
+            <TextBox Name="vehicle_tyre_company_view" Height="30" Width="150" Margin="120,-30,0,0" IsEnabled="False" HorizontalContentAlignment="Center">
+               
+            </TextBox>
+
+            <Label Height="30" Width="150" Margin="-200,10,0,0" Content="PRICE" FontFamily="cambria" FontSize="14" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"></Label>
+            <TextBox Name="tyre_price_view" Height="30" Width="150" Margin="120,-30,0,0"  CharacterCasing="Upper" MaxLength="5" IsEnabled="False" HorizontalContentAlignment="Center">
+                
+            </TextBox>
+
+            <Label Height="30" Width="150" Margin="-200,10,0,0" Content="PURCHASE DATE" FontFamily="cambria" FontSize="14" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"  Grid.Column="1"></Label>
+            <TextBox Name="vehicle_tyre_purchase_date_view" Height="30" Width="150" Margin="120,-30,0,0" IsEnabled="False" HorizontalContentAlignment="Center" ></TextBox>
+            <Label Height="30" Width="150" Margin="-200,10,0,0" Content="ADDED DATE" FontFamily="cambria" FontSize="14" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"  Grid.Column="1"></Label>
+            <TextBox Name="vehicle_tyre_add_date_view" Height="30" Width="150" Margin="120,-30,0,0"  IsEnabled="False" HorizontalContentAlignment="Center" ></TextBox>
+            <Button Name="rmv" Height="30" Width="70" Content="REMOVE" Margin="50 10 0 0" Click="rmv_Click"/>
+            <Button Name="back_view" Height="30" Width="70" Content="BACK" Margin="-200 -30 0 0" Click="back_view_Click"/>
+            <StackPanel Name="remove_panel" Height="110" Width="400" Margin="0 10 0 0" Visibility="Hidden">
+              
+                <Label Height="30" Width="150" Margin="-200,10,0,0" Content="ENDING KM" FontFamily="cambria" FontSize="14" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"></Label>
+                <TextBox Name="vehicle_tyre_ekm_view" Height="30" Width="150" Margin="150,-30,0,0"  CharacterCasing="Upper" MaxLength="6"/>
+
+                <Button Name="done" Height="30" Width="70" Content="TEMPORARY" Margin="250 20 0 0" Click="done_Click"/>
+                <Button Name="permanent" Content="Permanent" Height="30" Width="100" Margin="-10 -30 0 0" FontFamily="cambria" FontSize="14" Foreground="Black" Visibility="Visible" Click="permanent_Checked"/>
+
+              
+            </StackPanel>
+           
+        </StackPanel>
+    </Grid>
+</Window>

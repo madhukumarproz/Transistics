@@ -1,0 +1,88 @@
+﻿<UserControl x:Class="Project_Transport.Vehicle_View"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:WpfTools="clr-namespace:WpfTools;assembly=WpfTools"
+              xmlns:date="clr-namespace:System;assembly=mscorlib"
+             xmlns:rv="clr-namespace:Microsoft.Reporting.WinForms;assembly=Microsoft.ReportViewer.WinForms"
+             xmlns:local="clr-namespace:Project_Transport"
+             mc:Ignorable="d" 
+             d:DesignHeight="700" d:DesignWidth="1250" Loaded="UserControl_Loaded">
+    <Grid>
+        <StackPanel Height="550"  Margin="0,100,0,0" x:Name="vechicle_view_panel">
+            <StackPanel.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FFD5F3E4" Offset="0"/>
+                    <GradientStop Color="#FF46F19C" Offset="1"/>
+                </LinearGradientBrush>
+            </StackPanel.Background>
+            <Label Height="30" Width="120" Margin="-1000,5,0,0" Content="I O C" FontFamily="CAMBRIA" FontSize="14" HorizontalContentAlignment="Center" Background="#FFD09CEE"></Label>
+            <Label Height="30" Width="120" Margin="-750,-30,0,0" Content="B P C" FontFamily="CAMBRIA" FontSize="14" HorizontalContentAlignment="Center" Background="#FFD09CEE"></Label>
+            <Label Height="30" Width="120" Margin="-500,-30,0,0" Content="H P C" FontFamily="CAMBRIA" FontSize="14" HorizontalContentAlignment="Center" Background="#FFD09CEE"></Label>
+            <Label Height="30" Width="120" Margin="-250,-30,0,0" Content="TRAILER" FontFamily="CAMBRIA" FontSize="14" HorizontalContentAlignment="Center" Background="#FFD09CEE"></Label>
+            <Label Height="30" Width="120" Margin="0,-30,0,0" Content="LOAD" FontFamily="CAMBRIA" FontSize="14" HorizontalContentAlignment="Center" Background="#FFD09CEE"></Label>
+            <!--<Label Height="30" Width="120" Margin="250,-30,0,0" Content="ALL VEHICLE" FontFamily="CAMBRIA" FontSize="14" HorizontalContentAlignment="Center" Background="#FFD09CEE"></Label>-->
+            <ComboBox Name="ioc" Height="30" Width="120" Margin="-1000,-10,0,0" Text="SELECT" HorizontalContentAlignment="Center" IsEditable="True" KeyDown="ioc_keydown" GotFocus="ioc_GotFocus">
+                
+            </ComboBox>
+            <ComboBox Name="bpc" Height="30" Width="120" Margin="-750,-30,0,0" Text="SELECT" HorizontalContentAlignment="Center" IsEditable="True" KeyDown="bpc_keydown" GotFocus="bpc_GotFocus">
+                
+            </ComboBox>
+            <ComboBox Name="hpc" Height="30" Width="120" Margin="-500,-30,0,0" Text="SELECT" HorizontalContentAlignment="Center" IsEditable="True" KeyDown="hpc_keydown" GotFocus="hpc_GotFocus" >
+                
+            </ComboBox>
+            <ComboBox Name="trailer" Height="30" Width="120" Margin="-250,-30,0,0" Text="SELECT" HorizontalContentAlignment="Center" IsEditable="True" KeyDown="trailer_keydown" GotFocus="trailer_GotFocus">
+                
+            </ComboBox>
+            <ComboBox Name="load" Height="30" Width="120" Margin="0,-30,0,0" Text="SELECT" HorizontalContentAlignment="Center" IsEditable="True" KeyDown="load_keydown" GotFocus="load_GotFocus">
+                
+            </ComboBox>
+            <!--<ComboBox Name="all" Height="30" Width="120" Margin="250,-30,0,0" Text="SELECT VIEW" IsEditable="True" KeyDown="all_keydown">
+                
+                <ComboBoxItem Content="BPC"></ComboBoxItem>
+                <ComboBoxItem Content="HPC"></ComboBoxItem>
+                <ComboBoxItem Content="TRAILER"></ComboBoxItem>
+                <ComboBoxItem Content="LOAD"></ComboBoxItem>
+            </ComboBox>-->
+            <!--<Button Name="vehicle_print" Height="40" Width="150" Margin="650,-40,0,0" Click="vehicle_print_click">
+                <Button.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FF1294EE" Offset="0.614"/>
+                        <GradientStop Color="White"/>
+                    </LinearGradientBrush>
+                </Button.Background>
+                <StackPanel Height="40" Width="150" Margin="0,0,0,0">
+                    <Label Height="35" Width="95" Margin="-60,0,0,0" Content="PRINT" FontFamily="CALIBRI" FontSize="18" HorizontalContentAlignment="Center"></Label>
+                    <Image Name="vehicle_print_img1" Source="{WpfTools:ImageFromFont FontFamily=/Project_Transport;component/Resources/#FontAwesome,Text=&#xf02F;,Brush=black}" Height="35" Width="35" Margin="100,-35,0,0"></Image>
+                    <Image Name="vehicle_print_img2" Source="{WpfTools:ImageFromFont FontFamily=/Project_Transport;component/Resources/#FontAwesome,Text=&#xf00C;,Brush=GREEN}" Height="35" Width="35" Margin="100,-35,0,0"></Image>
+                </StackPanel>
+            </Button>
+            <Button Name="vehicle_excel" Height="40" Width="150" Margin="970,-40,0,0" Click="vehicle_excel_click">
+                <Button.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FF1294EE" Offset="0.614"/>
+                        <GradientStop Color="White"/>
+                    </LinearGradientBrush>
+                </Button.Background>
+                <StackPanel Height="40" Width="150" Margin="0,0,0,0">
+                    <Label Height="35" Width="95" Margin="-60,0,0,0" Content="TO-EXCEL" FontFamily="CALIBRI" FontSize="18" HorizontalContentAlignment="Center"></Label>
+                    <Image Name="vehicle_excel_img1" Source="{WpfTools:ImageFromFont FontFamily=/Project_Transport;component/Resources/#FontAwesome,Text=&#xf02F;,Brush=black}" Height="35" Width="35" Margin="100,-35,0,0"></Image>
+                    <Image Name="vehicle_excel_img2" Source="{WpfTools:ImageFromFont FontFamily=/Project_Transport;component/Resources/#FontAwesome,Text=&#xf00C;,Brush=GREEN}" Height="35" Width="35" Margin="100,-35,0,0"></Image>
+                </StackPanel>
+            </Button>-->
+            <!--<DataGrid Height="380" Width="1220" Name="vechicle_view" Margin="0,10,0,0"></DataGrid>-->
+            <StackPanel Name="sp1" Height="490" Margin="0,5,0,0">
+                <WindowsFormsHost Height="485" Margin="0,0,0,0" Background="White">
+                    <rv:ReportViewer x:Name="Report_Viewer"></rv:ReportViewer>
+                </WindowsFormsHost>
+            </StackPanel>
+            <StackPanel Name="sp2" Height="490" Margin="0,-490,0,0">
+                <WindowsFormsHost Height="485" Margin="0,0,0,0" Background="White">
+                    <rv:ReportViewer x:Name="Report_Viewer1"></rv:ReportViewer>
+                </WindowsFormsHost>
+            </StackPanel>
+           
+        </StackPanel>
+    </Grid>
+</UserControl>

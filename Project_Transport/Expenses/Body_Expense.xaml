@@ -1,0 +1,137 @@
+﻿<UserControl x:Class="Project_Transport.Body_Maintenance"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+              xmlns:WpfTools="clr-namespace:WpfTools;assembly=WpfTools"
+              xmlns:date="clr-namespace:System;assembly=mscorlib"
+             xmlns:local="clr-namespace:Project_Transport"
+             mc:Ignorable="d" 
+             d:DesignHeight="700" d:DesignWidth="1250" Loaded="UserControl_Loaded">
+    <Grid>
+        <StackPanel Name="body_builder" Height="500"  Margin="0,50,0,0">
+            <StackPanel.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FFB0EFF1" Offset="0"/>
+                    <GradientStop Color="#FF83E9EE" Offset="1"/>
+                </LinearGradientBrush>
+            </StackPanel.Background>
+            <Label Height="30" Margin="0,0,0,0" Content="BODY BUILDER WORK" FontFamily="CAMBRIA" FontSize="16" HorizontalContentAlignment="Center" Foreground="#FFA00FE4"/>
+            <Button Name="btn1" Height="40" Width="150" Margin="-1050,0,0,0" Content="NEW" FontFamily="CAMBRIA" FontSize="16" Click="body_build_expense_insert" Background="#FFFBF9CD"/>
+            <Button Name="btn2" Height="40" Width="150" Margin="-1050,4,0,0" Content="EDIT" FontFamily="CAMBRIA" FontSize="16" Click="body_build_expense_update" Background="#FFFBF9CD"/>
+            <Button Name="btn3" Height="40" Width="150" Margin="-1050,4,0,0" Content="VIEW" FontFamily="CAMBRIA" FontSize="16" Click="body_build_expense_view" Background="#FFFBF9CD"/>
+            <StackPanel Name="body_build_dedtails_insert" Height="450" Width="1050" Margin="170,-125,0,0">
+                <Label Name="bl1" Height="30" Width="150" Margin="-900,10,0,0" Content="DESCRIPTION" HorizontalContentAlignment="Center" FontFamily="CAMBRIA" FontSize="14"></Label>
+                <TextBox Name="body_descrip" MaxLength="40" Height="30" Width="150" Margin="-900,0,0,0" CharacterCasing="Upper" FontFamily="CAMBRIA" FontSize="14" >
+                    <TextBox.Text>
+                        <Binding Path="Description" UpdateSourceTrigger="PropertyChanged" ValidatesOnDataErrors="True" Mode="TwoWay">
+                            <Binding.ValidationRules>
+                                <local:NumericWithCharacterSpaceRule></local:NumericWithCharacterSpaceRule>
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
+                <Label Name="bl2" Height="30" Width="150" Margin="-590,-90,0,0" Content="QUANTITY" HorizontalContentAlignment="Left" FontFamily="CAMBRIA" FontSize="14"></Label>
+                <TextBox  Name="body_quantity" Height="30" Width="70" Margin="-660,-30,0,0" CharacterCasing="Upper" FontFamily="CAMBRIA" FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" MaxLength="3">
+                    <TextBox.Text>
+                        <Binding Path="Quantity" UpdateSourceTrigger="PropertyChanged" ValidatesOnDataErrors="True" Mode="TwoWay">
+                            <Binding.ValidationRules>
+                                <local:NumericRule></local:NumericRule>
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
+                <Label Name="bl3" Height="30" Width="150" Margin="-390,-90,0,0" Content="RATE" HorizontalContentAlignment="Left" FontFamily="CAMBRIA" FontSize="14"></Label>
+                <TextBox  Name="body_rate" Height="30" Width="70" Margin="-500,-30,0,0" CharacterCasing="Upper" FontFamily="CAMBRIA" FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" KeyDown="body_rate_keydown" PreviewTextInput="Rate_PreViewTextInput" TextChanged="Body_Rate_Textchanged" MaxLength="6">
+                    <TextBox.Text>
+                        <Binding Path="Rate" UpdateSourceTrigger="PropertyChanged" ValidatesOnDataErrors="True" Mode="TwoWay">
+                            <Binding.ValidationRules>
+                                <local:DecimalRule></local:DecimalRule>
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
+                <Label Name="bl4" Height="30" Width="150" Margin="-250,-90,0,0" Content="        PRICE" HorizontalContentAlignment="Left" FontFamily="CAMBRIA" FontSize="14"></Label>
+                <TextBox IsEnabled="False" Name="body_price" Text="0" Height="30" Width="90" Margin="-300,-30,0,0" CharacterCasing="Upper" FontFamily="CAMBRIA" FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"></TextBox>
+
+                <ComboBox Name="vehicle_num" Height="30" Width="150" Margin="200,-30,0,0" IsEditable="True"  KeyDown="vehicle_num_keydown" PreviewKeyDown="Body_Vehicle_Number_PreviewKeydown">
+                    <ComboBox.Text>
+                        <Binding Path="Vehicle_Number" UpdateSourceTrigger="PropertyChanged" ValidatesOnDataErrors="True" Mode="TwoWay">
+                            <Binding.ValidationRules>
+                                <local:NumericWithCharacterRule></local:NumericWithCharacterRule>
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </ComboBox.Text>
+                </ComboBox>
+                <DatePicker Name="bill_date" Height="30" Width="150" Margin="510,-30,0,0" SelectedDate="{x:Static date:DateTime.Now}"  DisplayDateEnd="{x:Static date:DateTime.Now}"></DatePicker>
+                <ComboBox Name="view_bill_number" Height="30" Width="100" Margin="510,-30,0,0" IsEditable="True" HorizontalContentAlignment="Center" PreviewKeyDown="Body_Bill_Number_PreviewKeydown">
+                    <ComboBox.Text>
+                        <Binding Path="Bill_Num" UpdateSourceTrigger="PropertyChanged" ValidatesOnDataErrors="True" Mode="TwoWay">
+                            <Binding.ValidationRules>
+                                <local:NumericWithCharacterRule></local:NumericWithCharacterRule>
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </ComboBox.Text>
+                </ComboBox>
+                <CheckBox Name="add_all_bill_number" Height="30" Width="150" Margin="850,-30,0,0" VerticalContentAlignment="Center" Content="ADD ALL BILL" Checked="add_all_bill_number_checked"></CheckBox>
+                <Label Name="bill_no" Height="30" Width="70" Margin="730,-30,0,0" Content="BILL NO" FontFamily="CAMBRIA" FontSize="14"></Label>
+                <TextBox  Name="bill_num" Height="30" Width="75" Margin="850,-30,0,0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" KeyDown="bill_num_keydown" MaxLength="8">
+                    <TextBox.Text>
+                        <Binding Path="Bill_No" UpdateSourceTrigger="PropertyChanged" ValidatesOnDataErrors="True" Mode="TwoWay">
+                            <Binding.ValidationRules>
+                                <local:NumericWithCharacterRule></local:NumericWithCharacterRule>
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
+                <Button Name="body_add" Height="40" Width="150" Margin="850,10,0,0" Content="OK" Click="add_new_row" FontFamily="CAMBRIA" FontSize="16">
+                    <Button.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FFF5CDCD" Offset="0"/>
+                            <GradientStop Color="White" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Button.Background>
+                </Button>
+                <TextBox Name="S_NO" Height="30" Width="40" Margin="980,-30,0,0"  Text="1" Visibility="Hidden"></TextBox>
+                <DataGrid Name="sample" Height="360" Width="750" Margin="-300,-30,0,0" CanUserAddRows="True" MouseDoubleClick="body_build_sample_mouseclick" IsEnabled="True">
+
+
+                </DataGrid>
+                <Label Name="L3" Height="30" Width="150" Margin="600,-250,0,0" Content="DISCOUNT" FontFamily="cambria" FontSize="16" HorizontalContentAlignment="Left"></Label>
+                <TextBox Name="body_discount" Height="30" Width="90" Margin="720,-250,0,0"  HorizontalContentAlignment="Center" VerticalContentAlignment="Center" KeyDown="body_discount_keydown" PreviewTextInput="Discount_PreViewTextInput" MaxLength="5">
+                    <TextBox.Text>
+                        <Binding Path="Doscount" UpdateSourceTrigger="PropertyChanged" ValidatesOnDataErrors="True" Mode="TwoWay">
+                            <Binding.ValidationRules>
+                                <local:DecimalRule></local:DecimalRule>
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
+                <Label Name="L1" Height="30" Width="150" Margin="600,-180,0,0" Content="SUB-TOTAL" FontFamily="cambria" FontSize="16" HorizontalContentAlignment="Left"></Label>
+                <TextBox IsEnabled="False" Name="total_amount" Height="30" Width="90" Margin="720,-180,0,0" Text="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"></TextBox>
+                <Label Name="L2" Height="30" Width="150" Margin="600,-110,0,0" Content="GND-TOTAL" FontFamily="cambria" FontSize="16" HorizontalContentAlignment="Left"></Label>
+                <TextBox IsEnabled="False" Name="gnd_total_amount" Height="30" Width="90" Margin="720,-110,0,0" Text="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"></TextBox>
+
+                <Button Name="done_bttn" Height="40" Width="150" Margin="880,-40,0,0" Content="DONE" Click="insert_body_builder_details" FontFamily="CAMBRIA" FontSize="16">
+                    <Button.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FFF5CDCD" Offset="0"/>
+                            <GradientStop Color="White" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Button.Background>
+                </Button>
+
+
+                <Button Name="clear_bttn" Height="40" Width="150" Margin="850,-600,0,0" Content="CLEAR" Click="body_build_details_clear" FontFamily="CAMBRIA" FontSize="16">
+                    <Button.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FFF5CDCD" Offset="0"/>
+                            <GradientStop Color="White" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Button.Background>
+                </Button>
+            </StackPanel>
+
+        </StackPanel>
+    </Grid>
+</UserControl>

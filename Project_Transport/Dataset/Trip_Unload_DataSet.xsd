@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="Trip_Unload_DataSet" targetNamespace="http://tempuri.org/Trip_Unload_DataSet.xsd" xmlns:mstns="http://tempuri.org/Trip_Unload_DataSet.xsd" xmlns="http://tempuri.org/Trip_Unload_DataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="Trip_Unload_DataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="Trip_Unload_DataSet" msprop:Generator_UserDSName="Trip_Unload_DataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Trip_Unload_Dataset" msprop:Generator_TableClassName="Trip_Unload_DatasetDataTable" msprop:Generator_TableVarName="tableTrip_Unload_Dataset" msprop:Generator_RowChangedName="Trip_Unload_DatasetRowChanged" msprop:Generator_TablePropName="Trip_Unload_Dataset" msprop:Generator_RowDeletingName="Trip_Unload_DatasetRowDeleting" msprop:Generator_RowChangingName="Trip_Unload_DatasetRowChanging" msprop:Generator_RowEvHandlerName="Trip_Unload_DatasetRowChangeEventHandler" msprop:Generator_RowDeletedName="Trip_Unload_DatasetRowDeleted" msprop:Generator_RowClassName="Trip_Unload_DatasetRow" msprop:Generator_UserTableName="Trip_Unload_Dataset" msprop:Generator_RowEvArgName="Trip_Unload_DatasetRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Trip_Number" msprop:Generator_ColumnVarNameInTable="columnTrip_Number" msprop:Generator_ColumnPropNameInRow="Trip_Number" msprop:Generator_ColumnPropNameInTable="Trip_NumberColumn" msprop:Generator_UserColumnName="Trip_Number" type="xs:string" minOccurs="0" />
+              <xs:element name="Driver_Name" msprop:Generator_ColumnVarNameInTable="columnDriver_Name" msprop:Generator_ColumnPropNameInRow="Driver_Name" msprop:Generator_ColumnPropNameInTable="Driver_NameColumn" msprop:Generator_UserColumnName="Driver_Name" type="xs:string" minOccurs="0" />
+              <xs:element name="Origin" msprop:Generator_ColumnVarNameInTable="columnOrigin" msprop:Generator_ColumnPropNameInRow="Origin" msprop:Generator_ColumnPropNameInTable="OriginColumn" msprop:Generator_UserColumnName="Origin" type="xs:string" minOccurs="0" />
+              <xs:element name="Destination" msprop:Generator_ColumnVarNameInTable="columnDestination" msprop:Generator_ColumnPropNameInRow="Destination" msprop:Generator_ColumnPropNameInTable="DestinationColumn" msprop:Generator_UserColumnName="Destination" type="xs:string" minOccurs="0" />
+              <xs:element name="Unload_Date" msprop:Generator_ColumnVarNameInTable="columnUnload_Date" msprop:Generator_ColumnPropNameInRow="Unload_Date" msprop:Generator_ColumnPropNameInTable="Unload_DateColumn" msprop:Generator_UserColumnName="Unload_Date" type="xs:string" minOccurs="0" />
+              <xs:element name="Total_Km" msprop:Generator_ColumnVarNameInTable="columnTotal_Km" msprop:Generator_ColumnPropNameInRow="Total_Km" msprop:Generator_ColumnPropNameInTable="Total_KmColumn" msprop:Generator_UserColumnName="Total_Km" type="xs:string" minOccurs="0" />
+              <xs:element name="Trip_Diesel" msprop:Generator_ColumnVarNameInTable="columnTrip_Diesel" msprop:Generator_ColumnPropNameInRow="Trip_Diesel" msprop:Generator_ColumnPropNameInTable="Trip_DieselColumn" msprop:Generator_UserColumnName="Trip_Diesel" type="xs:string" minOccurs="0" />
+              <xs:element name="Diesel_Amount" msprop:Generator_ColumnVarNameInTable="columnDiesel_Amount" msprop:Generator_ColumnPropNameInRow="Diesel_Amount" msprop:Generator_ColumnPropNameInTable="Diesel_AmountColumn" msprop:Generator_UserColumnName="Diesel_Amount" type="xs:string" minOccurs="0" />
+              <xs:element name="Trip_Mileage" msprop:Generator_ColumnVarNameInTable="columnTrip_Mileage" msprop:Generator_ColumnPropNameInRow="Trip_Mileage" msprop:Generator_ColumnPropNameInTable="Trip_MileageColumn" msprop:Generator_UserColumnName="Trip_Mileage" type="xs:string" minOccurs="0" />
+              <xs:element name="Unload_Weight" msprop:Generator_ColumnVarNameInTable="columnUnload_Weight" msprop:Generator_ColumnPropNameInRow="Unload_Weight" msprop:Generator_ColumnPropNameInTable="Unload_WeightColumn" msprop:Generator_UserColumnName="Unload_Weight" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

@@ -1,0 +1,143 @@
+﻿<UserControl x:Class="Project_Transport.Electrician_Maintenance"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:WpfTools="clr-namespace:WpfTools;assembly=WpfTools"
+              xmlns:date="clr-namespace:System;assembly=mscorlib"
+             xmlns:local="clr-namespace:Project_Transport"
+             mc:Ignorable="d" 
+             d:DesignHeight="700" d:DesignWidth="1250" Loaded="UserControl_Loaded">
+    <Grid>
+        <StackPanel Name="electrician_expense" Height="550"  Margin="0,100,0,0">
+            <StackPanel.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FFB0EFF1" Offset="0"/>
+                    <GradientStop Color="#FF83E9EE" Offset="1"/>
+                </LinearGradientBrush>
+            </StackPanel.Background>
+            <Label Height="30" Margin="0,0,0,0" Content="ELECTRICIAN WORK EXPENSE " FontFamily="CAMBRIA" FontSize="16" HorizontalContentAlignment="Center" Foreground="#FFA00FE4"/>
+            <Button Name="elc_battery_expense" Height="40" Width="170" Margin="-1060,0,0,0" Content="BATTERY EXPENSE" FontFamily="CAMBRIA" FontSize="16" Click="battery_expense" Background="#FFFBF9CD"/>
+            <Button Name="elc_dynamo_expense" Height="40" Width="170" Margin="-1060,4,0,0" Content="DYNAMO EXPENSE" FontFamily="CAMBRIA" FontSize="16" Click="dynamo_expense" Background="#FFFBF9CD"/>
+            <Button Name="elc_self_motor_expense" Height="40" Width="170" Margin="-1060,4,0,0" Content="SELF-MOTOR EXPENSE" FontFamily="CAMBRIA" FontSize="16" Click="self_motor_expense" Background="#FFFBF9CD"></Button>
+            <Button Name="elc_electrian_expense" Height="40" Width="170" Margin="-1060,4,0,0" Content="ELECTRICIAN EXPENSE" FontFamily="CAMBRIA" FontSize="16" Click="elc_electrician_expense" Background="#FFFBF9CD"></Button>
+            <Button Name="elc_new_bill" Height="40" Width="140" Margin="-660,-280,0,0" Content="NEW BILL" FontFamily="CAMBRIA" FontSize="16" Background="#FFFBF9CD" Click="elc_new_bill_click"></Button>
+            <Button Name="elc_edit_bill" Height="40" Width="140" Margin="-340,-280,0,0" Content="EDIT BILL" FontFamily="CAMBRIA" FontSize="16" Background="#FFFBF9CD" Click="elc_edit_bill_click"></Button>
+            <Button Name="elc_view_bill" Height="40" Width="140" Margin="-10,-280,0,0" Content="VIEW BILL" FontFamily="CAMBRIA" FontSize="16" Background="#FFFBF9CD" Click="elc_view_bill_click"></Button>
+
+            <StackPanel Name="electrician_dedtails_panel" Height="470" Width="1050" Margin="170,-110,0,0">
+                <Label Height="30" Width="150" Margin="-850,0,0,0" Content="DESCRIPTION" HorizontalContentAlignment="Center" FontFamily="CAMBRIA" FontSize="14"></Label>
+                <TextBox Name="elc_descrip" MaxLength="40" Height="30" Width="200" Margin="-850,0,0,0" CharacterCasing="Upper" FontFamily="CAMBRIA" FontSize="14" VerticalContentAlignment="Center">
+                    <TextBox.Text>
+                        <Binding Path="Elc_Description" UpdateSourceTrigger="PropertyChanged" ValidatesOnDataErrors="True" Mode="TwoWay">
+                            <Binding.ValidationRules>
+                                <local:NumericWithCharacterSpaceRule></local:NumericWithCharacterSpaceRule>
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
+
+                <Label Height="30" Width="150" Margin="-480,-90,0,0" Content="QUANTITY" HorizontalContentAlignment="Left" FontFamily="CAMBRIA" FontSize="14"></Label>
+                <TextBox Name="elc_quantity" Height="30" Width="70" Margin="-560,-30,0,0"  CharacterCasing="Upper" FontFamily="CAMBRIA" FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" MaxLength="3">
+                    <TextBox.Text>
+                        <Binding Path="Elc_Quantity" UpdateSourceTrigger="PropertyChanged" ValidatesOnDataErrors="True" Mode="TwoWay">
+                            <Binding.ValidationRules>
+                                <local:NumericRule></local:NumericRule>
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
+                <Label Height="30" Width="100" Margin="-300,-90,0,0" Content="RATE" FontFamily="CAMBRIA" FontSize="14"></Label>
+                <TextBox Name="elc_rate"  Height="30" Width="90" Margin="-350,-30,0,0" CharacterCasing="Upper" FontFamily="CAMBRIA" FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" KeyDown="elc_quantity_rate_keydown" PreviewTextInput="Rate_PreViewTextInput" TextChanged="Elc_Rate_Textchanged" MaxLength="6">
+                    <TextBox.Text>
+                        <Binding Path="Elc_Rate" UpdateSourceTrigger="PropertyChanged" ValidatesOnDataErrors="True" Mode="TwoWay">
+                            <Binding.ValidationRules>
+                                <local:DecimalRule></local:DecimalRule>
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
+                <Label Height="30" Width="150" Margin="-80,-90,0,0" Content="    PRICE" HorizontalContentAlignment="Left" FontFamily="CAMBRIA" FontSize="14"></Label>
+                <TextBox IsEnabled="False" Name="elc_price" Text="0" Height="30" Width="90" Margin="-150,-30,0,0" CharacterCasing="Upper" FontFamily="CAMBRIA" FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"></TextBox>
+
+                <ComboBox Name="elc_vehicle_num" Height="30" Width="150" Margin="150,-30,0,0"  IsEditable="True"  VerticalContentAlignment="Center" KeyDown="elc_vehicle_number" PreviewKeyDown="Elc_Vehicle_Number_PreviewKeydown">
+                    <ComboBox.Text>
+                        <Binding Path="Elc_Vehicle_Number" UpdateSourceTrigger="PropertyChanged" ValidatesOnDataErrors="True" Mode="TwoWay">
+                            <Binding.ValidationRules>
+                                <local:NumericWithCharacterRule></local:NumericWithCharacterRule>
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </ComboBox.Text>
+                </ComboBox>
+                <DatePicker Name="elc_bill_date" Height="30" Width="150" Margin="500,-30,0,0" SelectedDate="{x:Static date:DateTime.Now}"  DisplayDateEnd="{x:Static date:DateTime.Now}"></DatePicker>
+                <ComboBox Name="elc_view_bill_number" Height="30" Width="100" Margin="510,-30,0,0" IsEditable="True" HorizontalContentAlignment="Center" PreviewKeyDown="Elc_Bill_Number_PreviewKeydown">
+                    <ComboBox.Text>
+                        <Binding Path="Elc_Bill_Num" UpdateSourceTrigger="PropertyChanged" ValidatesOnDataErrors="True" Mode="TwoWay">
+                            <Binding.ValidationRules>
+                                <local:NumericWithCharacterRule></local:NumericWithCharacterRule>
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </ComboBox.Text>
+                </ComboBox>
+                <CheckBox Name="elc_add_all_bill_number" Height="30" Width="150" Margin="850,-30,0,0" VerticalContentAlignment="Center" Content="ADD ALL BILL" Checked="elc_add_all_bill_number_checked"></CheckBox>
+                <Label Name="elc_bill_no" Height="30" Width="70" Margin="730,-30,0,0" Content="BILL NO" FontFamily="CAMBRIA" FontSize="14"></Label>
+                <TextBox  Name="elc_bill_num" Height="30" Width="75" Margin="850,-30,0,0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" KeyDown="elc_bill_num_keydown" MaxLength="8">
+                    <TextBox.Text>
+                        <Binding Path="Elc_Bill_No" UpdateSourceTrigger="PropertyChanged" ValidatesOnDataErrors="True" Mode="TwoWay">
+                            <Binding.ValidationRules>
+                                <local:NumericWithCharacterRule></local:NumericWithCharacterRule>
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
+                <Button Height="40" Width="150" Margin="900,10,0,0" Content="OK" Click="elc_add_new_row" FontFamily="CAMBRIA" FontSize="16">
+                    <Button.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FFF5CDCD" Offset="0"/>
+                            <GradientStop Color="White" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Button.Background>
+                </Button>
+                <TextBox Name="elc_S_NO" Height="30" Width="40" Margin="980,-30,0,0"  Text="1" Visibility="Hidden"></TextBox>
+                <DataGrid Name="elc_datagrid1" Height="360" Width="690" Margin="-350,-30,0,0" CanUserAddRows="True" MouseDoubleClick="elc_datagrid1_mouseclick" IsEnabled="True">
+
+
+                </DataGrid>
+
+                <Label Name="elc_L1" Height="30" Width="150" Margin="420,-120,0,0" Content="SUB-TOTAL" FontFamily="cambria" FontSize="16" HorizontalContentAlignment="Center"></Label>
+                <TextBox IsEnabled="False" Name="elc_total_amount" Height="30" Width="100" Margin="600,-120,0,0" Text="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"></TextBox>
+                <Label Name="elc_L2" Height="30" Width="150" Margin="420,-200,0,0" Content="DISCOUNT" FontFamily="cambria" FontSize="16" HorizontalContentAlignment="Center"></Label>
+                <TextBox Name="elc_discount_amount" Height="30" Width="100" Margin="600,-200,0,0"  HorizontalContentAlignment="Center" VerticalContentAlignment="Center" KeyDown="elc_discount_keydown" PreviewTextInput="Discount_PreViewTextInput" MaxLength="5">
+                    <TextBox.Text>
+                        <Binding Path="Elc_Doscount" UpdateSourceTrigger="PropertyChanged" ValidatesOnDataErrors="True" Mode="TwoWay">
+                            <Binding.ValidationRules>
+                                <local:DecimalRule></local:DecimalRule>
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
+                <Label Name="elc_L3" Height="30" Width="120" Margin="420,-30,0,0" Content="GND-TOTAL" FontFamily="cambria" FontSize="16" HorizontalContentAlignment="Center"></Label>
+                <TextBox IsEnabled="False" Name="elc_grand_total" Height="30" Width="100" Margin="600,-30,0,0" Text="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"></TextBox>
+
+                <Button Name="elc_done_bttn" Height="40" Width="150" Margin="900,-35,0,0" Content="DONE" Click="electrician_bill_details_done_click" FontFamily="CAMBRIA" FontSize="16">
+                    <Button.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FFF5CDCD" Offset="0"/>
+                            <GradientStop Color="White" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Button.Background>
+                </Button>
+
+                <Button Name="elc_clear_bttn" Height="40" Width="150" Margin="900,-600,0,0" Content="CLEAR" Click="elc_clear_click" FontFamily="CAMBRIA" FontSize="16">
+                    <Button.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FFF5CDCD" Offset="0"/>
+                            <GradientStop Color="White" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Button.Background>
+                </Button>
+            </StackPanel>
+
+        </StackPanel>
+    </Grid>
+</UserControl>

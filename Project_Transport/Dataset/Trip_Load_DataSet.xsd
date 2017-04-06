@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="Trip_Load_DataSet" targetNamespace="http://tempuri.org/Trip_Load_DataSet.xsd" xmlns:mstns="http://tempuri.org/Trip_Load_DataSet.xsd" xmlns="http://tempuri.org/Trip_Load_DataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="Trip_Load_DataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="Trip_Load_DataSet" msprop:Generator_UserDSName="Trip_Load_DataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Trip_Load_Dataset" msprop:Generator_TableClassName="Trip_Load_DatasetDataTable" msprop:Generator_TableVarName="tableTrip_Load_Dataset" msprop:Generator_TablePropName="Trip_Load_Dataset" msprop:Generator_RowDeletingName="Trip_Load_DatasetRowDeleting" msprop:Generator_RowChangingName="Trip_Load_DatasetRowChanging" msprop:Generator_RowEvHandlerName="Trip_Load_DatasetRowChangeEventHandler" msprop:Generator_RowDeletedName="Trip_Load_DatasetRowDeleted" msprop:Generator_UserTableName="Trip_Load_Dataset" msprop:Generator_RowChangedName="Trip_Load_DatasetRowChanged" msprop:Generator_RowEvArgName="Trip_Load_DatasetRowChangeEvent" msprop:Generator_RowClassName="Trip_Load_DatasetRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Trip_Number" msprop:Generator_ColumnVarNameInTable="columnTrip_Number" msprop:Generator_ColumnPropNameInRow="Trip_Number" msprop:Generator_ColumnPropNameInTable="Trip_NumberColumn" msprop:Generator_UserColumnName="Trip_Number" type="xs:string" minOccurs="0" />
+              <xs:element name="Driver_Name" msprop:Generator_ColumnVarNameInTable="columnDriver_Name" msprop:Generator_ColumnPropNameInRow="Driver_Name" msprop:Generator_ColumnPropNameInTable="Driver_NameColumn" msprop:Generator_UserColumnName="Driver_Name" type="xs:string" minOccurs="0" />
+              <xs:element name="Origin" msprop:Generator_ColumnVarNameInTable="columnOrigin" msprop:Generator_ColumnPropNameInRow="Origin" msprop:Generator_ColumnPropNameInTable="OriginColumn" msprop:Generator_UserColumnName="Origin" type="xs:string" minOccurs="0" />
+              <xs:element name="Destination" msprop:Generator_ColumnVarNameInTable="columnDestination" msprop:Generator_ColumnPropNameInRow="Destination" msprop:Generator_ColumnPropNameInTable="DestinationColumn" msprop:Generator_UserColumnName="Destination" type="xs:string" minOccurs="0" />
+              <xs:element name="Starting_Km" msprop:Generator_ColumnVarNameInTable="columnStarting_Km" msprop:Generator_ColumnPropNameInRow="Starting_Km" msprop:Generator_ColumnPropNameInTable="Starting_KmColumn" msprop:Generator_UserColumnName="Starting_Km" type="xs:string" minOccurs="0" />
+              <xs:element name="Load_Weight" msprop:Generator_ColumnVarNameInTable="columnLoad_Weight" msprop:Generator_ColumnPropNameInRow="Load_Weight" msprop:Generator_ColumnPropNameInTable="Load_WeightColumn" msprop:Generator_UserColumnName="Load_Weight" type="xs:string" minOccurs="0" />
+              <xs:element name="Load_Date" msprop:Generator_ColumnVarNameInTable="columnLoad_Date" msprop:Generator_ColumnPropNameInRow="Load_Date" msprop:Generator_ColumnPropNameInTable="Load_DateColumn" msprop:Generator_UserColumnName="Load_Date" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

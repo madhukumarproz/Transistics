@@ -1,0 +1,90 @@
+﻿<UserControl x:Class="Project_Transport.Diesel_Card_Deposit"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:WpfTools="clr-namespace:WpfTools;assembly=WpfTools"
+             xmlns:date="clr-namespace:System;assembly=mscorlib"
+             xmlns:local="clr-namespace:Project_Transport"
+             mc:Ignorable="d" 
+             d:DesignHeight="700" d:DesignWidth="1250" >
+    <Grid>
+        <StackPanel Name="diesel_card_deposit_details" Height="370" Width="705" Margin="-530,-70,0,0">
+            <StackPanel.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF80F5DB" Offset="0"/>
+                    <GradientStop Color="#FFB0A5C3" Offset="1"/>
+                </LinearGradientBrush>
+            </StackPanel.Background>
+            <Label Height="30" Width="120" Margin="-300,20,0,0" Content="CARD ID" HorizontalContentAlignment="Right" FontFamily="CAMBRIA" FontSize="16"></Label>
+            <ComboBox Name="cardes_id" IsEditable="True" Height="30" Width="150" Margin="50,-30,0,0" KeyDown="customer_id_SelectionChanged" GotFocus="cardes_id_GotFocus" PreviewKeyDown="cardes_id_PreviewKeyDown"></ComboBox>
+            <Label Height="30" Width="120" Margin="-300,30,0,0" Content="CUSTOMER ID" HorizontalContentAlignment="Right" FontFamily="CAMBRIA" FontSize="16"></Label>
+            <TextBox Name="customer_id" IsEnabled="False" Height="30" Width="150" Margin="50,-30,0,0" CharacterCasing="Upper" FontSize="14" FontFamily="CALIBRI"></TextBox>
+            <Label Height="30" Width="120" Margin="-300,30,0,0" Content="CORPORATION" HorizontalContentAlignment="Right" FontFamily="CAMBRIA" FontSize="16"></Label>
+            <TextBox Name="corporation" IsEnabled="False" Height="30" Width="150" Margin="50,-30,0,0" CharacterCasing="Upper" FontSize="14" FontFamily="CALIBRI"></TextBox>
+            <Label Height="30" Width="140" Margin="-320,30,0,0" Content="CREDIT" HorizontalContentAlignment="Right" FontFamily="CAMBRIA" FontSize="16"></Label>
+            <TextBox Name="credit" Height="30" Width="150" Margin="50,-30,0,0" CharacterCasing="Upper" FontSize="14" FontFamily="CALIBRI" MaxLength="7" PreviewTextInput="Credit_Amount_PreViewTextInput">
+            <TextBox.Text>
+                    <Binding Path="Credit_Amount" UpdateSourceTrigger="PropertyChanged" ValidatesOnDataErrors="True" Mode="TwoWay">
+                    <Binding.ValidationRules>
+                        <local:DecimalRule></local:DecimalRule>
+                    </Binding.ValidationRules>
+                </Binding>
+            </TextBox.Text>
+            </TextBox>
+            <Label Height="30" Width="100" Margin="-280,20,0,0" Content="DATE" FontFamily="cambria" FontSize="16" HorizontalContentAlignment="Right"></Label>
+            <DatePicker Name="date" Height="30" Width="150" Margin="50,-30,0,0" SelectedDate="{x:Static date:DateTime.Today}" DisplayDateEnd="{x:Static date:DateTime.Today}"></DatePicker>
+            <Button Name="insert" Height="40" Width="150" Margin="50,30,0,0" Click="diesel_card_deposit_insert_click">
+                <Button.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FF1294EE" Offset="0.614"/>
+                        <GradientStop Color="White"/>
+                    </LinearGradientBrush>
+                </Button.Background>
+                <StackPanel Height="40" Width="150">
+                    <Label Height="35" Width="85" Margin="-60,0,0,0" Content="INSERT" FontFamily="CAMBRIA" FontSize="18" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"></Label>
+                    <Image Name="deposit_insert_img1" Source="{WpfTools:ImageFromFont FontFamily=/Project_Transport;component/Resources/#FontAwesome,Text=&#xf090;,Brush=black}" Height="30" Width="50" Margin="90,-35,0,0"></Image>
+                    <Image Name="deposit_insert_img2" Source="{WpfTools:ImageFromFont FontFamily=/Project_Transport;component/Resources/#FontAwesome,Text=&#xf00c;,Brush=green}" Height="30" Width="50" Margin="90,-35,0,0"></Image>
+                </StackPanel>
+
+            </Button>
+            <Button Name="update" Height="40" Width="150" Margin="50,-40,0,0" Click="diesel_card_deposit_update_click">
+                <Button.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FF1294EE" Offset="0.614"/>
+                        <GradientStop Color="White"/>
+                    </LinearGradientBrush>
+                </Button.Background>
+                <StackPanel Height="40" Width="150">
+                    <Label Height="35" Width="85" Margin="-60,0,0,0" Content="UPDATE" FontFamily="CAMBRIA" FontSize="18" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"></Label>
+                    <Image Name="deposit_update_img1" Source="{WpfTools:ImageFromFont FontFamily=/Project_Transport;component/Resources/#FontAwesome,Text=&#xf090;,Brush=black}" Height="30" Width="50" Margin="90,-35,0,0"></Image>
+                    <!--<Image Name="deposit_insert_img2" Source="{WpfTools:ImageFromFont FontFamily=/Project_Transport;component/Resources/#FontAwesome,Text=&#xf00c;,Brush=green}" Height="30" Width="50" Margin="90,-35,0,0"></Image>-->
+                </StackPanel>
+
+            </Button>
+            <Button Name="delete" Height="40" Width="150" Margin="450,-40,0,0" Click="diesel_card_deposit_delete_click">
+                <Button.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FF1294EE" Offset="0.614"/>
+                        <GradientStop Color="White"/>
+                    </LinearGradientBrush>
+                </Button.Background>
+                <StackPanel Height="40" Width="150">
+                    <Label Height="35" Width="85" Margin="-60,0,0,0" Content="DELETE" FontFamily="CAMBRIA" FontSize="18" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"></Label>
+                    <Image Name="deposit_remove_img1" Source="{WpfTools:ImageFromFont FontFamily=/Project_Transport;component/Resources/#FontAwesome,Text=&#xf00d;,Brush=red}" Height="30" Width="50" Margin="90,-35,0,0"></Image>
+                    <!--<Image Name="deposit_insert_img2" Source="{WpfTools:ImageFromFont FontFamily=/Project_Transport;component/Resources/#FontAwesome,Text=&#xf00c;,Brush=green}" Height="30" Width="50" Margin="90,-35,0,0"></Image>-->
+                </StackPanel>
+
+            </Button>
+            <Button Name="Deposit_Back" Height="30" Width="100" Margin="-300,-40,0,0" Click="Deposit_Back_Click">BACK
+                <Button.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FF1294EE" Offset="0.614"/>
+                        <GradientStop Color="White"/>
+                    </LinearGradientBrush>
+                </Button.Background>
+            </Button>
+        </StackPanel>
+        <DataGrid Name="diesel_details" Height="370" Width="520" Margin="705,-70,0,0"  MouseDoubleClick="diesel_details_MouseDoubleClick" Background="#FFFDFBFB"/>
+    </Grid>
+</UserControl>

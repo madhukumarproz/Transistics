@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="Driver_Custom_DataSet" targetNamespace="http://tempuri.org/Driver_Custom_DataSet.xsd" xmlns:mstns="http://tempuri.org/Driver_Custom_DataSet.xsd" xmlns="http://tempuri.org/Driver_Custom_DataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="Driver_Custom_DataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="Driver_Custom_DataSet" msprop:Generator_UserDSName="Driver_Custom_DataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Driver_Custom_Dataset" msprop:Generator_TableClassName="Driver_Custom_DatasetDataTable" msprop:Generator_TableVarName="tableDriver_Custom_Dataset" msprop:Generator_RowChangedName="Driver_Custom_DatasetRowChanged" msprop:Generator_TablePropName="Driver_Custom_Dataset" msprop:Generator_RowDeletingName="Driver_Custom_DatasetRowDeleting" msprop:Generator_RowChangingName="Driver_Custom_DatasetRowChanging" msprop:Generator_RowEvHandlerName="Driver_Custom_DatasetRowChangeEventHandler" msprop:Generator_RowDeletedName="Driver_Custom_DatasetRowDeleted" msprop:Generator_RowClassName="Driver_Custom_DatasetRow" msprop:Generator_UserTableName="Driver_Custom_Dataset" msprop:Generator_RowEvArgName="Driver_Custom_DatasetRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Driver_Name" msprop:Generator_ColumnVarNameInTable="columnDriver_Name" msprop:Generator_ColumnPropNameInRow="Driver_Name" msprop:Generator_ColumnPropNameInTable="Driver_NameColumn" msprop:Generator_UserColumnName="Driver_Name" type="xs:string" minOccurs="0" />
+              <xs:element name="Licence_Number" msprop:Generator_ColumnVarNameInTable="columnLicence_Number" msprop:Generator_ColumnPropNameInRow="Licence_Number" msprop:Generator_ColumnPropNameInTable="Licence_NumberColumn" msprop:Generator_UserColumnName="Licence_Number" type="xs:string" minOccurs="0" />
+              <xs:element name="Expiry" msprop:Generator_ColumnVarNameInTable="columnExpiry" msprop:Generator_ColumnPropNameInRow="Expiry" msprop:Generator_ColumnPropNameInTable="ExpiryColumn" msprop:Generator_UserColumnName="Expiry" type="xs:string" minOccurs="0" />
+              <xs:element name="Licence_Type" msprop:Generator_ColumnVarNameInTable="columnLicence_Type" msprop:Generator_ColumnPropNameInRow="Licence_Type" msprop:Generator_ColumnPropNameInTable="Licence_TypeColumn" msprop:Generator_UserColumnName="Licence_Type" type="xs:string" minOccurs="0" />
+              <xs:element name="Contact" msprop:Generator_ColumnVarNameInTable="columnContact" msprop:Generator_ColumnPropNameInRow="Contact" msprop:Generator_ColumnPropNameInTable="ContactColumn" msprop:Generator_UserColumnName="Contact" type="xs:string" minOccurs="0" />
+              <xs:element name="Join_Date" msprop:Generator_ColumnVarNameInTable="columnJoin_Date" msprop:Generator_ColumnPropNameInRow="Join_Date" msprop:Generator_ColumnPropNameInTable="Join_DateColumn" msprop:Generator_UserColumnName="Join_Date" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
