@@ -6,15 +6,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:sfSkinManager="clr-namespace:Syncfusion.SfSkinManager;assembly=Syncfusion.SfSkinManager.WPF"
         xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
-        Title="testwindow" Height="700" Width="1250" WindowStartupLocation="Manual"
+        Title="Transistics" Height="700" Width="1250" WindowStartupLocation="Manual"
         Office2010Icon="Assets/Accounts.png"
         sfSkinManager:SfSkinManager.VisualStyle="Office2016White"
         mc:Ignorable="d">
 
 
     <Grid>
-        <StackPanel>
-            <syncfusion:Ribbon RibbonState="Adorner" Height="120" Width="Auto" x:Name="_ribbon" VerticalAlignment="Top" >
+        <StackPanel Name="stack1" Margin="0,20,0,0">
+            <syncfusion:Ribbon RibbonState="Hide" Height="120" Width="Auto" x:Name="_ribbon" VerticalAlignment="Top" Margin="0,0,0,0">
                 <syncfusion:RibbonTab Caption="Vehicle"  IsChecked="True">
                     <syncfusion:RibbonBar Name="New" Width="90"  Header="New"  >
 
@@ -81,6 +81,17 @@
         </StackPanel>
 
         <TabControl x:Name="MainTab" Margin="0,80,0,5"/>
+        <StackPanel Name="login_panel" Visibility="Visible" Margin="0,-20,0,0">
+            <StackPanel.Background>
+                <ImageBrush ImageSource="C:\Users\Prasand\Projects\Transistics\Project_Transport\Project_Transport\Resources\Images\1.jpg" Stretch="Fill" />
+            </StackPanel.Background>
+            <Image x:Name="img" Source="C:\Users\Prasand\Projects\Transistics\Project_Transport\Project_Transport\Resources\Images\PZ.png" Height="122" Margin="600,0,0,0"/>
+            <TextBlock x:Name="textBlock" TextWrapping="Wrap" FontSize="18" FontFamily="Stencil" Text="LOGIN" Margin="1040,20,40,0" FontStyle="Italic" RenderTransformOrigin="0.5,0.5" ToolTip="Login form" Foreground="#FF086E65"/>
+            <TextBox x:Name="uname" Height="39" TextWrapping="Wrap" FontSize="18" ToolTip="Username" Margin="972,20,40,0" RenderTransformOrigin="0.504,0.487" CharacterCasing="Upper" MaxLength="31"/>
+            <PasswordBox x:Name="upass" ToolTip="Enter password" Height="39" Margin="972,20,40,0" RenderTransformOrigin="0.504,0.487"/>
+            <Button x:Name="sign_in_btn" Content="Submit" Height="38" Margin="1012,30,110,0" Background="#FF728383" BorderBrush="{x:Null}" Foreground="#FF21FF90" FontSize="18" GotFocus="entry"/>
+
+        </StackPanel>
 
     </Grid>
 </syncfusion:RibbonWindow>

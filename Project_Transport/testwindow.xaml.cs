@@ -24,7 +24,7 @@ namespace Project_Transport
         public testwindow()
         {
             InitializeComponent();
-            _ribbon.RibbonState = Syncfusion.Windows.Tools.RibbonState.Adorner;
+            _ribbon.RibbonState = Syncfusion.Windows.Tools.RibbonState.Hide;
         }
 
         TabItem _tabUserPage;///user tap references

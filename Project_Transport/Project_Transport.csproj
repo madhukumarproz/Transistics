@@ -58,8 +58,6 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\Transport_App\Transport_App\bin\Debug\RibbonControlsLibrary.dll</HintPath>
     </Reference>
-    <Reference Include="Syncfusion.Grid.Base, Version=15.1400.0.33" />
-    <Reference Include="Syncfusion.Grid.Windows, Version=15.1400.0.33" />
     <Reference Include="Syncfusion.SfInput.WPF, Version=15.1400.0.33, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89" />
     <Reference Include="Syncfusion.SfRichTextBoxAdv.WPF, Version=15.1400.0.33, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL" />
     <Reference Include="Syncfusion.SfRichTextRibbon.WPF, Version=15.1400.0.33, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL" />

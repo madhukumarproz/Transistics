@@ -411,7 +411,6 @@ C:\Users\Prasand\Projects\Transistics\Project_Transport\Project_Transport\bin\De
 C:\Users\Prasand\Projects\Transistics\Project_Transport\Project_Transport\bin\Debug\Syncfusion.DocIO.ClientProfile.xml
 C:\Users\Prasand\Projects\Transistics\Project_Transport\Project_Transport\bin\Debug\Syncfusion.Compression.Base.xml
 C:\Users\Prasand\Projects\Transistics\Project_Transport\Project_Transport\bin\Debug\Syncfusion.OfficeChart.Base.xml
-C:\Users\Prasand\Projects\Transistics\Project_Transport\Project_Transport\obj\Debug\Project_Transport.csprojResolveAssemblyReference.cache
 C:\Users\Prasand\Projects\Transistics\Project_Transport\Project_Transport\obj\Debug\testwindow.g.cs
 C:\Users\Prasand\Projects\Transistics\Project_Transport\Project_Transport\obj\Debug\testwindow.baml
 C:\Users\Prasand\Projects\Transistics\Project_Transport\Project_Transport\obj\Debug\MainUserControl.g.cs
